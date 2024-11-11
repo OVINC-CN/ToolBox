@@ -1,7 +1,7 @@
 {
-    "name": "dev-template",
+    "name": "tool-box",
     "version": "1.0.0",
-    "description": "Dev Template",
+    "description": "Tool Box",
     "main": "src/main.js",
     "author": "OVINC-CN <contact@ovinc.cn>",
     "license": "MIT",
