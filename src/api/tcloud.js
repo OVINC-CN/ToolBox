@@ -18,8 +18,7 @@ const getDate = (timestamp) => {
   return `${year}-${month}-${day}`;
 };
 
-const request = (secretID, secretKey, action, version, payload, method) => {
-  const host = 'teo.tencentcloudapi.com';
+const request = (secretID, secretKey, host, action, version, payload, method) => {
   const service = 'teo';
   const timestamp = parseInt(String(new Date().getTime() / 1000));
   const date = getDate(timestamp);
@@ -89,13 +88,13 @@ const request = (secretID, secretKey, action, version, payload, method) => {
 };
 
 export const describeZonesAPI = (secretID, secretKey, payload) => {
-  return request(secretID, secretKey, 'DescribeZones', '2022-09-01', JSON.stringify(payload), 'POST');
+  return request(secretID, secretKey, 'teo.tencentcloudapi.com', 'DescribeZones', '2022-09-01', JSON.stringify(payload), 'POST');
 };
 
 export const createPurgeTaskAPI = (secretID, secretKey, payload) => {
-  return request(secretID, secretKey, 'CreatePurgeTask', '2022-09-01', JSON.stringify(payload), 'POST');
+  return request(secretID, secretKey, 'teo.tencentcloudapi.com', 'CreatePurgeTask', '2022-09-01', JSON.stringify(payload), 'POST');
 };
 
 export const describePurgeTasksAPI = (secretID, secretKey, payload) => {
-  return request(secretID, secretKey, 'DescribePurgeTasks', '2022-09-01', JSON.stringify(payload), 'POST');
+  return request(secretID, secretKey, 'teo.tencentcloudapi.com', 'DescribePurgeTasks', '2022-09-01', JSON.stringify(payload), 'POST');
 };
