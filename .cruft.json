@@ -1,0 +1,16 @@
+{
+  "template": "https://github.com/OVINC-CN/DevTemplateVue.git",
+  "commit": "60cbcd2e60ba7cf977b4ea1a34b1d6e5e1d27463",
+  "checkout": "main",
+  "context": {
+    "cookiecutter": {
+      "project_name": "ToolBox",
+      "_copy_without_render": [
+        ".github",
+        "src"
+      ],
+      "_template": "https://github.com/OVINC-CN/DevTemplateVue.git"
+    }
+  },
+  "directory": null
+}
