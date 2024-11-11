@@ -6,6 +6,7 @@ import {handleLoading} from '../../utils/loading';
 import {createPurgeTaskAPI, describeZonesAPI} from '../../api/tcloud';
 import {Message} from '@arco-design/web-vue';
 import {checkResponse} from '../../utils/tcloud';
+import {splitTextIntoArray} from '../../utils/tools';
 
 // international
 const i18n = useI18n();
@@ -40,7 +41,7 @@ const showCreateCredential = () => {
   };
   createCredentialVisible.value = true;
 };
-const storeCredential = ({values, errors}) => {
+const storeCredential = ({errors}) => {
   if (errors) {
     return;
   }
@@ -62,7 +63,7 @@ const formData = ref(
       zoneID: '',
       refreshType: 'purge_url',
       method: 'invalidate',
-      targets: [],
+      targets: '',
     },
 );
 const formRules = ref(
@@ -94,6 +95,7 @@ const formRules = ref(
       targets: [
         {
           validator: (value, cb) => {
+            value = splitTextIntoArray(value);
             if (formData.value.refreshType !== 'purge_all' && value.length === 0) {
               cb(i18n.t('RefreshTargetsRequired'));
             }
@@ -207,12 +209,12 @@ const submitRefresh = ({errors}) => {
         ZoneId: formData.value.zoneID,
         Type: formData.value.refreshType,
         Method: formData.value.method,
-        Targets: formData.value.targets,
+        Targets: splitTextIntoArray(formData.value.targets),
       },
   ).then(
       (res) => {
         if (checkResponse(res)) {
-          formData.value.targets = [];
+          formData.value.targets = '';
           Message.success(i18n.t('RefreshSuccessWithJobID', {taskID: res.Response.JobId}));
         }
       },
@@ -334,12 +336,12 @@ const submitRefresh = ({errors}) => {
           field="targets"
           v-show="formData.refreshType !== 'purge_all'"
         >
-          <a-input-tag
+          <a-textarea
             v-model="formData.targets"
-            style="height: 64px"
+            :auto-size="{minRows: 3, maxRows: 10}"
           />
         </a-form-item>
-        <a-form-item>
+        <a-form-item style="margin-bottom: 0">
           <a-space>
             <a-button
               type="primary"
@@ -409,7 +411,6 @@ const submitRefresh = ({errors}) => {
 
 #teo-refresh-content {
   min-width: 320px;
-  height: calc(80 * var(--vh));
   width: 90vw;
   max-width: 800px;
   background: var(--color-bg-1);
