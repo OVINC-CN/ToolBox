@@ -11,10 +11,10 @@ const tools = ref(
         key: 'TEORefresh',
         label: i18n.t('TEORefresh'),
       },
-      {
-        key: 'UUID',
-        label: i18n.t('UUIDGenerate'),
-      },
+      // {
+      //   key: 'UUID',
+      //   label: i18n.t('UUIDGenerate'),
+      // },
     ],
 );
 
