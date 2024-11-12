@@ -57,6 +57,9 @@ const mZhCN = {
   TimestampTrans: '时间戳工具',
   milliseconds: '毫秒',
   seconds: '秒',
+  JSONPretty: 'JSON格式化',
+  RemoveData: '清除数据',
+  EditData: '编辑数据',
 };
 
 export default mZhCN;

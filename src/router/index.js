@@ -22,6 +22,11 @@ const routes = [
     component: () => import('../views/tools/Timestamp.vue'),
   },
   {
+    path: '/json/pretty/',
+    name: 'JSONPretty',
+    component: () => import('../views/tools/JSONPretty.vue'),
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'Notfound',
     component: () => import('../views/Error404.vue'),

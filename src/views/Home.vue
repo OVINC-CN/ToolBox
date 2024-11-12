@@ -19,6 +19,10 @@ const tools = ref(
         key: 'Timestamp',
         label: i18n.t('TimestampTrans'),
       },
+      {
+        key: 'JSONPretty',
+        label: i18n.t('JSONPretty'),
+      },
     ],
 );
 tools.value.sort((a, b) => a.key.localeCompare(b.key));
