@@ -7,8 +7,8 @@ const mZhCN = {
   Logout: '登出',
   Login: '登录',
   ChooseTool: '选择工具',
-  TEORefresh: 'TEO 缓存刷新',
-  UUIDGenerate: 'UUID 生成',
+  TEORefresh: 'TEO缓存刷新',
+  UUIDGenerate: 'UUID生成',
   QCloudCredential: '腾讯云凭证',
   AddCredential: '添加凭证',
   CredentialRequired: '请选择或添加凭证',
@@ -54,6 +54,9 @@ const mZhCN = {
   withConnector: '连接符',
   BackHome: '返回首页',
   ToolBox: '工具集',
+  TimestampTrans: '时间戳工具',
+  milliseconds: '毫秒',
+  seconds: '秒',
 };
 
 export default mZhCN;

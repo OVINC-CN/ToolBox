@@ -15,6 +15,10 @@ const tools = ref(
         key: 'UUIDGenerate',
         label: i18n.t('UUIDGenerate'),
       },
+      {
+        key: 'Timestamp',
+        label: i18n.t('TimestampTrans'),
+      },
     ],
 );
 tools.value.sort((a, b) => a.key.localeCompare(b.key));

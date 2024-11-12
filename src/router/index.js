@@ -17,6 +17,11 @@ const routes = [
     component: () => import('../views/tools/UUIDGenerate.vue'),
   },
   {
+    path: '/time/timestamp/',
+    name: 'Timestamp',
+    component: () => import('../views/tools/Timestamp.vue'),
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'Notfound',
     component: () => import('../views/Error404.vue'),
