@@ -42,6 +42,18 @@ const mZhCN = {
   LoadZonesFailed: '拉取站点失败',
   RefreshFailed: '刷新失败',
   RefreshSuccessWithJobID: '刷新成功 (任务ID {taskID})',
+  UUIDV1: 'UUID1',
+  UUIDV4: 'UUID4',
+  UUIDV7: 'UUID7',
+  UUIDVersion: 'UUID版本',
+  GenerateCount: '生成数量',
+  GenerateUUID: '生成UUID',
+  UnsupportedUUIDVersion: '不支持的UUID版本',
+  UUIDFormat: 'UUID格式',
+  withoutConnector: '移除连接符',
+  withConnector: '连接符',
+  BackHome: '返回首页',
+  ToolBox: '工具集',
 };
 
 export default mZhCN;

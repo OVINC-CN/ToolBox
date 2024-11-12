@@ -106,7 +106,7 @@ import {redirectToLogin} from './utils/login';
 const i18n = useI18n();
 
 // title
-const title = ref(i18n.t('OVINCCN'));
+const title = ref(i18n.t('ToolBox'));
 document.title = title.value;
 
 // menu

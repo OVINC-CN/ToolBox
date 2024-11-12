@@ -7,9 +7,13 @@ import {createPurgeTaskAPI, describeZonesAPI} from '../../api/tcloud';
 import {Message} from '@arco-design/web-vue';
 import {checkResponse} from '../../utils/tcloud';
 import {splitTextIntoArray} from '../../utils/tools';
+import {useRouter} from 'vue-router';
 
 // international
 const i18n = useI18n();
+
+// router
+const router = useRouter();
 
 // credentials
 const credentials = ref([]);
@@ -228,6 +232,15 @@ const submitRefresh = ({errors}) => {
 <template>
   <a-layout id="teo-refresh">
     <div id="teo-refresh-content">
+      <a-link @click="router.push({name: 'Home'})">
+        <a-space>
+          <icon-left />
+          <span>
+            {{ $t('BackHome') }}
+          </span>
+        </a-space>
+      </a-link>
+      <a-divider />
       <a-form
         ref="formRef"
         :model="formData"

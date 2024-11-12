@@ -11,12 +11,13 @@ const tools = ref(
         key: 'TEORefresh',
         label: i18n.t('TEORefresh'),
       },
-      // {
-      //   key: 'UUID',
-      //   label: i18n.t('UUIDGenerate'),
-      // },
+      {
+        key: 'UUIDGenerate',
+        label: i18n.t('UUIDGenerate'),
+      },
     ],
 );
+tools.value.sort((a, b) => a.key.localeCompare(b.key));
 
 const router = useRouter();
 const goTo = (key) => {

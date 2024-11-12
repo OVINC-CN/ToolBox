@@ -12,6 +12,11 @@ const routes = [
     component: () => import('../views/tools/TEORefresh.vue'),
   },
   {
+    path: '/uuid/generate/',
+    name: 'UUIDGenerate',
+    component: () => import('../views/tools/UUIDGenerate.vue'),
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'Notfound',
     component: () => import('../views/Error404.vue'),
