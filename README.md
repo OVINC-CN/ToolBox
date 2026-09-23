@@ -41,6 +41,8 @@ npm run dev
 | `npm run lint` | 检查项目源码 |
 | `npm run typecheck` | 检查 TypeScript 类型 |
 
+构建完成后，无文件名哈希的静态资源引用（包括 CDN 字体）会统一附加本次构建的 `?v=` 时间戳；Vite 已生成哈希文件名的资源保持原 URL。
+
 ## 项目结构
 
 ```text
