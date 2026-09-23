@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f3fa">
+  <meta name="description" content="和圆滚滚的小鹈鹕一起骑车兜风。一个可以暂停、调速和按响车铃的可爱矢量动画小世界。">
+  <title>鹈鹕兜风记 · 把快乐装进车篮</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='20' fill='%23e8ddff'/%3E%3Cpath d='M18 46V27a13 13 0 0 1 26 0v19' fill='white' stroke='%23564a69' stroke-width='3'/%3E%3Cpath d='M35 30h23Q55 48 35 37Z' fill='%23ffc767' stroke='%23564a69' stroke-width='3'/%3E%3Ccircle cx='34' cy='25' r='3' fill='%23564a69'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/dae619c51089c6f8c256b18a4d8b1885e09d9a379a7861ad0b2ac069f3e97fa4/style.css">
+  <script src="/dae619c51089c6f8c256b18a4d8b1885e09d9a379a7861ad0b2ac069f3e97fa4/app.js" defer></script>
+</head>
+<body>
+  <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></symbol>
+      <symbol id="icon-pause" viewBox="0 0 24 24"><path d="M9 5v14M15 5v14" stroke-width="3.5"/></symbol>
+      <symbol id="icon-play" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7Z" fill="currentColor" stroke="none"/></symbol>
+      <symbol id="icon-bell" viewBox="0 0 24 24"><path d="M4 16h16M6 16v-5a6 6 0 0 1 12 0v5M9 20h6M12 3V2M3 8l-1-1m19 1 1-1"/></symbol>
+      <symbol id="icon-leaf" viewBox="0 0 24 24"><path d="M19 4C6 2 2 9 7 15S22 16 19 4ZM5 21 15 10"/></symbol>
+      <symbol id="icon-spark" viewBox="0 0 24 24"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="header-left">
+      <a class="brand" href="./" aria-label="鹈鹕兜风记首页">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M12 37V22a12 12 0 0 1 24 0v15" fill="#fffdf9" stroke="#675879" stroke-width="2.3" stroke-linecap="round"/><path d="M29 24h16c-1 11-11 11-16 5Z" fill="#ffd079" stroke="#675879" stroke-width="2.3" stroke-linejoin="round"/><circle cx="28" cy="19" r="2.4" fill="#675879"/><path d="m17 9 3-4m2 4 5-4" stroke="#675879" stroke-width="2" stroke-linecap="round"/></svg></span>
+        <span class="brand-name">鹈鹕兜风记<span>LITTLE PELICAN RIDE</span></span>
+      </a>
+      </div>
+      <span class="header-note"><svg class="icon"><use href="#icon-spark"/></svg>收集一点好心情</span>
+    </header>
+
+    <main>
+      <div class="intro">
+        <h1>和小鹈鹕，去<span class="accent-word">兜风<svg viewBox="0 0 122 13" aria-hidden="true"><path d="M3 8Q57 0 119 7M20 12q45-6 79-2"/></svg></span>。</h1>
+        <p>风轻轻吹，车轮慢慢转。今天的快乐，在路上。</p>
+        <svg class="intro-spark" viewBox="0 0 40 46" aria-hidden="true"><path d="m20 5 4 13 12 4-12 4-4 14-4-14-12-4 12-4Z"/><path d="m35 3 1 4 4 1-4 1-1 4-1-4-4-1 4-1Z"/></svg>
+      </div>
+
+      <section class="animation-card" aria-label="小鹈鹕骑自行车动画">
+        <div class="scene-wrap">
+          <div class="weather-chip"><svg class="icon"><use href="#icon-sun"/></svg><span>晴天，适合兜风</span></div>
+          <div id="bell-bubble" class="bell-bubble" aria-hidden="true">叮铃铃 ♪</div>
+          <svg id="scene" class="scene" viewBox="0 0 1200 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="scene-title scene-description">
+            <title id="scene-title">戴着紫色头盔的小鹈鹕骑着薄荷绿自行车</title>
+            <desc id="scene-description">圆圆的小鹈鹕有黄色的大嘴巴、粉色的脸颊和随风飘动的围巾。它踩着脚踏，带着一篮花朵，经过青绿的山丘和开满小花的草地。</desc>
+            <defs>
+              <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#eae8fb"/><stop offset="1" stop-color="#f6eff9"/></linearGradient>
+              <linearGradient id="pouch" x2="0" y2="1"><stop stop-color="#ffda87"/><stop offset="1" stop-color="#ffc27d"/></linearGradient>
+              <linearGradient id="helmet" x2="0.8" y2="1"><stop stop-color="#b5a2e6"/><stop offset="1" stop-color="#9b84d2"/></linearGradient>
+              <linearGradient id="body-fill" x2="0.8" y2="1"><stop stop-color="#fffef9"/><stop offset="1" stop-color="#f1eee9"/></linearGradient>
+              <pattern id="grain" width="29" height="29" patternUnits="userSpaceOnUse"><circle cx="4" cy="9" r="0.7" fill="#7c7290" opacity=".075"/><circle cx="21" cy="24" r=".5" fill="#7c7290" opacity=".07"/></pattern>
+              <g id="cloud" fill="#fffdfc"><path d="M0 26C-3 8 21 5 29 13 30-7 67-6 70 16c17-8 35 2 34 15H1Z"/></g>
+              <g id="daisy"><path d="M0 0v19m0-7q-8-8-10-3m10 10q3-10 9-9" fill="none" stroke="#7c9f72" stroke-width="2.5" stroke-linecap="round"/><g fill="#fffdf6"><ellipse cy="-7" rx="4" ry="7"/><ellipse cx="7" rx="7" ry="4"/><ellipse cy="7" rx="4" ry="7"/><ellipse cx="-7" rx="7" ry="4"/></g><circle r="4.5" fill="#e8b958"/></g>
+              <g id="pink-flower"><path d="M0 0v18m0-5q6-7 10-5" stroke="#7c9f72" stroke-width="2.5" fill="none" stroke-linecap="round"/><g fill="#e6a5b1"><ellipse cy="-5" rx="3.5" ry="6"/><ellipse cx="5" rx="6" ry="3.5"/><ellipse cy="5" rx="3.5" ry="6"/><ellipse cx="-5" rx="6" ry="3.5"/></g><circle r="3.5" fill="#fcebc3"/></g>
+              <g id="grass" fill="none" stroke="#89ad7b" stroke-width="2.5" stroke-linecap="round"><path d="m-7 2 5 6L1-3 5 6l6-5"/></g>
+              <g id="road-details"><path d="M50 487h35m112 28h24m91-56h17m210 69h45m115-35h22m171 26h32m199-49h23m77 67h22" fill="none" stroke="#d9c7ac" stroke-width="3" stroke-linecap="round"/><ellipse cx="381" cy="508" rx="4" ry="2.5" fill="#ddc9b0"/><ellipse cx="938" cy="486" rx="3" ry="2" fill="#ddc9b0"/></g>
+              <g id="meadow-details"><use href="#daisy" x="70" y="414"/><use href="#grass" x="127" y="432"/><use href="#pink-flower" x="186" y="395"/><use href="#grass" x="280" y="418"/><use href="#daisy" x="381" y="436"/><use href="#grass" x="878" y="409"/><use href="#pink-flower" x="1024" y="426"/><use href="#daisy" x="1128" y="397"/><use href="#grass" x="1157" y="438"/></g>
+              <g id="foreground-details"><use href="#daisy" x="140" y="552"/><use href="#pink-flower" x="174" y="563"/><use href="#grass" x="392" y="558"/><use href="#grass" x="729" y="557"/><use href="#daisy" x="1000" y="553"/><use href="#pink-flower" x="1035" y="547"/><use href="#grass" x="1125" y="561"/></g>
+              <g id="spokes" stroke="#c2b8b5" stroke-width="2"><path d="M0-56V56M-56 0H56m-39.6-39.6 79.2 79.2m-79.2 0 79.2-79.2M-21-52l42 104m-73-73 104 42m-104 0 104-42M-21 52 21-52"/></g>
+              <g id="flower-bunch"><path d="m744 303-10-44m14 42 13-50m-14 54 28-31m-31 28-30-25" stroke="#7d9c71" stroke-width="3.4" fill="none" stroke-linecap="round"/><path d="M741 289q-23-18-23-5 3 13 23 5m9-9q19-20 21-7-1 12-21 7" fill="#9cba89"/><g transform="translate(733 254)"><g fill="#fffdf7" stroke="#e7dce8" stroke-width=".8"><ellipse cy="-9" rx="5" ry="9"/><ellipse cx="9" rx="9" ry="5"/><ellipse cy="9" rx="5" ry="9"/><ellipse cx="-9" rx="9" ry="5"/></g><circle r="5.8" fill="#f5cb73"/></g><g transform="translate(763 250)"><g fill="#e7b2c7"><ellipse cy="-8" rx="5" ry="8"/><ellipse cx="8" rx="8" ry="5"/><ellipse cy="8" rx="5" ry="8"/><ellipse cx="-8" rx="8" ry="5"/></g><circle r="5.4" fill="#fff0b4"/></g><g transform="translate(776 272)"><g fill="#b9a8dc"><ellipse cy="-6" rx="4" ry="6"/><ellipse cx="6" rx="6" ry="4"/><ellipse cy="6" rx="4" ry="6"/><ellipse cx="-6" rx="6" ry="4"/></g><circle r="4" fill="#fff1b9"/></g></g>
+            </defs>
+
+            <rect width="1200" height="560" fill="url(#sky)"/>
+            <g id="sun" transform="translate(996 112)">
+              <g stroke="#e3be78" stroke-width="3.2" stroke-linecap="round" opacity=".8"><path d="M0-48v-8M0 48v8M48 0h8M-48 0h-8M34-34l6-6M-34-34l-6-6M34 34l6 6M-34 34l-6 6"/></g>
+              <circle r="34" fill="#f9d895"/><path d="M-12-1v4M12-1v4" stroke="#b98e60" stroke-width="3" stroke-linecap="round"/><path d="M-5 11q5 5 10 0" fill="none" stroke="#b98e60" stroke-width="2.5" stroke-linecap="round"/><ellipse cx="-20" cy="8" rx="6" ry="3.5" fill="#f0c281"/><ellipse cx="20" cy="8" rx="6" ry="3.5" fill="#f0c281"/>
+            </g>
+            <g id="cloud-a"><use href="#cloud" transform="translate(169 140) scale(1.25)" opacity=".83"/></g>
+            <g id="cloud-b"><use href="#cloud" transform="translate(804 192) scale(.85)" opacity=".71"/></g>
+            <g id="cloud-c"><use href="#cloud" transform="translate(439 68) scale(.67)" opacity=".7"/></g>
+            <g fill="none" stroke="#bbb1d5" stroke-width="2" stroke-linecap="round" opacity=".65"><path d="M854 116q5-7 10 0 5-7 10 0m-534 71q4-6 8 0 4-6 8 0"/></g>
+            <g id="far-hills"><path d="M-350 385Q-200 300-50 365 125 219 302 345 446 240 595 365 744 253 903 334 1100 256 1370 378L1370 520H-350Z" fill="#d5dec5"/><path d="M-350 385Q-210 334-60 389 100 326 290 385 452 327 610 397 819 305 1046 379 1220 317 1500 375V520H-350Z" fill="#bbcea9"/></g>
+            <path d="M0 407Q155 364 323 407t371-4 506-11V560H0Z" fill="#d5e2bd"/>
+            <g id="meadow-scroll"><use href="#meadow-details"/><use href="#meadow-details" x="1200"/></g>
+            <path d="M0 460Q196 438 426 460T881 457t319 3V560H0Z" fill="#f4e6cc"/>
+            <path d="M0 460Q196 438 426 460T881 457t319 3" fill="none" stroke="#e7d9bc" stroke-width="3"/>
+            <g id="road-scroll"><use href="#road-details"/><use href="#road-details" x="1200"/></g>
+            <ellipse id="rider-shadow" cx="607" cy="484" rx="205" ry="14" fill="#bcae96" opacity=".2"/>
+
+            <g id="rider" stroke="#615967" stroke-linecap="round" stroke-linejoin="round">
+              <g id="back-scarf"><path d="M541 229c-29 7-44-18-69-5-12 6-20 6-26 0 2 15 17 26 37 17 24-11 28 9 55 4Z" fill="#b7a1df" stroke-width="3.2"/><path d="M473 231q-8 3-13 0" fill="none" stroke="#d8c7ee" stroke-width="3"/></g>
+              <path d="M523 321q-37 9-61-18l19-1-9-14q25 1 53 16" fill="#f6f3ed" stroke-width="3.4"/>
+
+              <g class="wheel" transform="translate(477 418)"><circle r="66" fill="#fffbf1" stroke-width="8"/><circle r="56" fill="#eee9e0" fill-opacity=".22" stroke="#c6bbb5" stroke-width="2"/><g id="rear-spokes"><use href="#spokes"/></g><circle r="7" fill="#82768c" stroke-width="2"/></g>
+              <g class="wheel" transform="translate(737 418)"><circle r="66" fill="#fffbf1" stroke-width="8"/><circle r="56" fill="#eee9e0" fill-opacity=".22" stroke="#c6bbb5" stroke-width="2"/><g id="front-spokes"><use href="#spokes"/></g><circle r="7" fill="#82768c" stroke-width="2"/></g>
+              <path d="M409 404a69 69 0 0 1 129-18M675 389a69 69 0 0 1 128 21" fill="none" stroke="#89b4a5" stroke-width="6"/>
+              <path d="M450 343h73m-57 0-11 18" fill="none" stroke-width="4"/>
+              <path id="far-leg" d="M574 331Q610 355 615 397" fill="none" stroke="#dca35f" stroke-width="12"/>
+              <path id="far-leg-highlight" d="M574 331Q610 355 615 397" fill="none" stroke="#eeb976" stroke-width="6"/>
+              <g id="far-foot"><path d="M-11-4Q-17 4-12 7H16q6-5-2-9L2-7Z" fill="#eeb976" stroke-width="2.5"/><path d="M-14 10h29" stroke-width="5"/></g>
+
+              <g fill="none"><path d="m477 418 79-72 42 72H477l-3-2m82-70h120l-78 72m78-72 61 72m-61-72-11-34" stroke-width="10"/><path d="m477 418 79-72 42 72H477m79-72h120l-78 72m78-72 61 72m-61-72-11-34" stroke="#91c4b3" stroke-width="6"/><path d="m553 346-8-28m120-6 18-14 16 1" stroke-width="6"/><path d="m665 312 18-14 16 1" stroke="#b4c5c0" stroke-width="3"/><path d="M692 298h14" stroke="#93768f" stroke-width="8"/><path d="M694 306q38 13 28 56" stroke="#8a7a89" stroke-width="2.2"/></g>
+              <path d="M526 313q17-8 40-1 9 3 2 10h-41q-11-3-1-9Z" fill="#ad8c9b" stroke-width="3"/>
+              <circle cx="598" cy="418" r="19" fill="#d8e9d9" stroke-width="3"/><circle cx="598" cy="418" r="11" fill="#a8cbb6" stroke="none"/>
+              <g id="crank"><path d="M-23 0h46" stroke-width="5"/></g>
+              <circle cx="598" cy="418" r="4" fill="#615967" stroke="none"/>
+
+              <g id="bird-body">
+                <path d="M544 222c-20 3-44 18-48 49-7 33 5 63 32 72 22 7 53 4 66-19 17-28 10-58-10-78l-8-25Z" fill="url(#body-fill)" stroke-width="3.5"/>
+                <path d="M507 293q-3 27 21 35" fill="none" stroke="#e5e1de" stroke-width="3.5"/>
+                <path d="M563 231q-26-9-32-31c-9-31 2-66 29-75 32-10 59 3 69 26 9 20 7 45-7 60-10 12-29 20-31 39" fill="#fffdf7" stroke-width="3.5"/>
+                <path d="M611 182q30 12 99 16l-14 33q-15 29-44 24c-18-3-33-20-37-34Z" fill="url(#pouch)" stroke-width="3.5"/>
+                <path d="M627 217q11 24 34 27" fill="none" stroke="#ffe3aa" stroke-width="3.5"/>
+                <path d="M611 181q47-1 105 15 9 2 5 9-4 6-19 5l-87-9q-8-3-4-20Z" fill="#ffd272" stroke-width="3.5"/>
+                <path d="m626 188 59 10" fill="none" stroke="#ffe7a5" stroke-width="2.5"/>
+                <ellipse cx="600" cy="174" rx="6.1" ry="8.2" fill="#554b60" stroke="none" id="eye"/>
+                <circle cx="602" cy="171" r="2" fill="white" stroke="none" id="eye-shine"/>
+                <path id="eye-closed" d="M594 176q6-7 12 0" fill="none" stroke="#554b60" stroke-width="3" opacity="0"/>
+                <path d="m593 155 8-2" fill="none" stroke-width="2.5"/>
+                <ellipse cx="587" cy="195" rx="13" ry="8" fill="#efb7b6" opacity=".72" stroke="none"/>
+                <path d="m580 193 1 3m4-3 1 3" stroke="#e49fa4" stroke-width="1.5"/>
+                <path d="M536 176q7 35 23 41l20-13" fill="none" stroke="#bda9d9" stroke-width="4.5"/>
+                <rect x="554" y="211" width="10" height="9" rx="3" fill="#8d76ad" stroke="none"/>
+                <path d="M521 156q-1-49 46-54 48-7 67 36l-36 8-28 15Z" fill="url(#helmet)" stroke-width="3.5"/>
+                <path d="M532 136q9-21 30-23" fill="none" stroke="#d5c8f0" stroke-width="5"/>
+                <path d="m577 117 2 12m17-7 4 9" fill="none" stroke="#80689f" stroke-width="5"/>
+                <path d="M520 155q27 9 56 0 37-11 62-11" fill="none" stroke-width="6"/>
+                <path d="M520 154q27 9 56 0 37-11 62-11" fill="none" stroke="#bfa8e9" stroke-width="3"/>
+                <path d="M536 222q17 16 49 14l-3 14q-28 5-51-17Z" fill="#b49bd8" stroke-width="3"/>
+                <path d="M546 232q16 10 33 9" fill="none" stroke="#d4bfeb" stroke-width="2"/>
+                <path d="M540 266q13-14 29 0 19 23 60 29 12 2 12 12-3 10-18 8-43-3-70-26" fill="#fffcf5" stroke-width="3.5"/>
+                <path d="M590 303q13 6 28 5" fill="none" stroke="#e6e1dc" stroke-width="2.5"/>
+                <path d="M633 299q17-2 32 9" fill="none" stroke="#615967" stroke-width="3.5"/>
+                <path d="M633 299q17-2 32 9" fill="none" stroke="#f8f4ee" stroke-width="7"/>
+                <path d="M658 306q5-4 10 2" fill="none" stroke-width="2.5"/>
+              </g>
+
+              <path id="near-leg" d="M548 334Q537 375 577 418" fill="none" stroke="#615967" stroke-width="14"/>
+              <path id="near-leg-highlight" d="M548 334Q537 375 577 418" fill="none" stroke="#f4bf7c" stroke-width="9"/>
+              <path d="M539 332q10 7 20 3" stroke="#f1ebe4" stroke-width="6" fill="none"/>
+              <g id="near-foot"><path d="M-9-5Q-19 3-12 8H19q4-5-3-8L1-7Z" fill="#f5c481" stroke-width="2.7"/><path d="M-14 11h33" stroke-width="5"/><path d="m10 3 2 4m-9-5 2 5" stroke="#dca463" stroke-width="1.8"/></g>
+
+              <g id="basket-flowers"><use href="#flower-bunch"/></g>
+              <path d="M717 298h70l-8 43q-26 9-52-1Z" fill="#dcb494" stroke-width="3.2"/>
+              <path d="m726 304 6 32m7-32 3 36m10-36v37m11-37-3 36m14-36-5 32M724 314h60m-58 12h55" fill="none" stroke="#bd977e" stroke-width="2"/>
+              <path d="M716 298h72v9h-71Z" fill="#efd0ab" stroke-width="2.8"/>
+              <path d="M700 302h15m-6 0v-5" stroke-width="3"/>
+              <path d="M703 298q0-12 13-8l3 8Z" fill="#efce78" stroke-width="2"/>
+            </g>
+
+            <g id="breeze" fill="none" stroke="#b2a4c5" stroke-width="2.4" stroke-linecap="round" opacity=".65"><path d="M398 249h37m-55 15h26m-5 51h31"/></g>
+            <g id="butterfly" transform="translate(908 278)"><path d="M0 1C-21-22-29 1-6 7-17 18-6 28 2 9 20 21 28 10 10 4 31-12 8-21 0 1" fill="#c2abd9"/><path d="m0 0 5 11" stroke="#8f7ba6" stroke-width="2" stroke-linecap="round"/></g>
+            <path d="M0 553q115-14 244 3t254-4 232 3 231-1 239-5V560H0Z" fill="#c2d7aa"/>
+            <g id="foreground-scroll"><use href="#foreground-details"/><use href="#foreground-details" x="1200"/></g>
+            <rect width="1200" height="560" fill="url(#grain)" pointer-events="none"/>
+          </svg>
+          <div class="scene-caption"><svg class="icon"><use href="#icon-leaf"/></svg>微风草地<span>·</span>没有目的地，也很美好</div>
+        </div>
+
+        <div class="controls">
+          <div class="ride-state"><span id="status-bars" class="status-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span><div><strong id="ride-status">快乐骑行中</strong><span id="ride-hint">慢慢骑，也会到达。</span></div></div>
+          <div class="playback-controls">
+            <button id="play-toggle" class="play-button" type="button" aria-label="暂停动画" aria-pressed="false"><svg class="icon"><use id="play-icon" href="#icon-pause"/></svg><span id="play-label">暂停一下</span></button>
+            <div class="speed-control" role="group" aria-label="骑行速度"><span class="speed-label">速度</span><button class="speed-option" data-speed="0.5" type="button" aria-pressed="false">0.5×</button><button class="speed-option selected" data-speed="1" type="button" aria-pressed="true">1×</button><button class="speed-option" data-speed="1.5" type="button" aria-pressed="false">1.5×</button></div>
+          </div>
+          <button id="bell-button" class="bell-button" type="button" aria-label="按响自行车铃"><svg class="icon"><use href="#icon-bell"/></svg><span>叮铃铃</span><kbd>B</kbd></button>
+        </div>
+      </section>
+
+      <div class="under-scene"><span><svg class="icon"><use href="#icon-spark"/></svg>把快乐装进车篮，把日子过得慢一点。</span><span class="keyboard-hint"><kbd>空格</kbd> 暂停 / 继续</span></div>
+      <p class="sr-only" id="announcements" role="status" aria-live="polite"></p>
+    </main>
+
+    <footer><span class="footer-dash"></span><span>小小的车轮，大大的好心情</span><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M9 15 3 9C-2 4 5-1 9 5c4-6 11-1 6 4Z"/></svg><span class="footer-dash"></span></footer>
+  </div>
+</body>
+</html>

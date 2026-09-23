@@ -1,0 +1,46 @@
+:root{color-scheme:light;--ink:#173e49;--sea:#0a829e;--cream:#fffaf0;--orange:#f47745;--panel:rgba(255,255,255,.86)}
+*{box-sizing:border-box}
+html,body{min-height:100%;margin:0}
+body{font-family:"Avenir Next","PingFang SC","Microsoft YaHei",system-ui,sans-serif;color:var(--ink);background:#dff6f3}
+button{font:inherit}
+.page-shell{min-height:100vh;padding:22px clamp(16px,3vw,48px) 34px;background:radial-gradient(circle at 12% 8%,rgba(255,255,255,.92),transparent 28%),linear-gradient(155deg,#f4fffb 0%,#cdeff0 100%)}
+.topbar{width:min(1440px,100%);margin:0 auto 18px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:14px;min-width:0}
+.brand-mark{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--orange);color:#fff;font-size:30px;line-height:1;box-shadow:0 8px 20px rgba(165,80,43,.19);transform:rotate(-18deg)}
+.brand h1{margin:0;font-size:clamp(1.4rem,2.5vw,2rem);line-height:1.1;letter-spacing:.04em}
+.brand p{margin:4px 0 0;color:#46727a;font-size:.93rem}
+.motion-toggle{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:9px 15px;border:1.5px solid rgba(23,62,73,.18);border-radius:999px;color:var(--ink);background:rgba(255,255,255,.78);cursor:pointer;box-shadow:0 5px 14px rgba(16,83,94,.08)}
+.motion-toggle:hover{background:#fff}.motion-toggle:focus-visible{outline:3px solid #f47745;outline-offset:3px}
+.toggle-icon{display:grid;place-items:center;width:25px;height:25px;border-radius:50%;background:var(--ink);color:#fff;font-size:.72rem;font-weight:800}
+.scene-card{position:relative;width:min(1440px,100%);margin:auto;overflow:hidden;border:1px solid rgba(23,62,73,.12);border-radius:clamp(22px,3vw,38px);background:#82d9ef;box-shadow:0 28px 70px rgba(14,83,96,.18);isolation:isolate}
+.ride-scene{display:block;width:100%;height:auto;min-height:min(72vh,820px)}
+.scene-caption{position:absolute;left:clamp(18px,4vw,62px);top:clamp(20px,5vw,72px);display:flex;flex-direction:column;pointer-events:none;text-shadow:0 2px 0 rgba(255,255,255,.28)}
+.caption-kicker{font-size:clamp(.8rem,1.2vw,1rem);font-weight:700;letter-spacing:.28em;color:#247388}
+.caption-main{margin-top:3px;font-size:clamp(2rem,5.5vw,5.4rem);font-weight:900;line-height:1;letter-spacing:-.04em;color:#fffaf0}
+.cloud{animation:cloud-drift 24s linear infinite}.cloud-b{animation-duration:32s;animation-delay:-15s}.cloud-c{animation-duration:27s;animation-delay:-8s}
+.wave-lines{animation:water-slide 5s linear infinite}
+.far-grass,.foreground-plants,.road-dashes{animation:ground-slide 3.2s linear infinite}
+.foreground-plants{animation-duration:2.25s}.road-dashes{animation-duration:1.65s}
+.speed-lines{animation:speed-flash 2.2s ease-in-out infinite}
+.rider{animation:rider-bob .72s ease-in-out infinite alternate;transform-origin:center bottom}
+.wheel{animation:wheel-spin 1.15s linear infinite;transform-box:fill-box;transform-origin:center}
+.pedal{animation:pedal-spin 1.15s linear infinite;transform-box:fill-box;transform-origin:center}
+.wing{animation:wing-wave 1.3s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:20% 60%}
+.leg-front{animation:leg-pedal 1.15s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:50% 10%}.leg-back{animation:leg-pedal 1.15s ease-in-out -.58s infinite alternate;transform-box:fill-box;transform-origin:50% 10%}
+@keyframes cloud-drift{from{transform:translateX(190px)}to{transform:translateX(-520px)}}
+@keyframes water-slide{from{transform:translateX(0)}to{transform:translateX(-170px)}}
+@keyframes ground-slide{from{transform:translateX(0)}to{transform:translateX(-255px)}}
+@keyframes speed-flash{0%,100%{opacity:.2;transform:translateX(45px)}50%{opacity:.75;transform:translateX(-40px)}}
+@keyframes rider-bob{from{transform:translateY(0) rotate(-.25deg)}to{transform:translateY(-9px) rotate(.25deg)}}
+@keyframes wheel-spin{to{rotate:360deg}}
+@keyframes pedal-spin{to{rotate:360deg}}
+@keyframes wing-wave{from{transform:rotate(5deg)}to{transform:rotate(-10deg)}}
+@keyframes leg-pedal{from{transform:rotate(8deg)}to{transform:rotate(-10deg)}}
+.is-paused *{animation-play-state:paused!important}
+@media(max-width:760px){.page-shell{padding:14px 12px 22px}.topbar{align-items:flex-start;flex-wrap:wrap;margin-bottom:12px}.brand p{display:none}.brand-mark{width:42px;height:42px}.motion-toggle{padding:8px 12px}.scene-card{border-radius:22px}.ride-scene{width:150%;max-width:none;transform:translateX(-17%);min-height:72vh}.scene-caption{top:24px;left:22px}.caption-main{font-size:2.8rem}}
+@media(prefers-reduced-motion:reduce){.ride-scene *{animation-duration:.001ms!important;animation-iteration-count:1!important}.motion-toggle{display:none}}
+
+/* Header layout formerly supplied by the shared navigation stylesheet. */
+.header-left{display:flex;align-items:center;flex-wrap:wrap;gap:16px 24px;min-width:0}
+@media(max-width:960px){.header-note{display:none}}
+@media(max-width:700px){.header-left{width:100%;gap:14px}}

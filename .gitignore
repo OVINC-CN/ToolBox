@@ -145,3 +145,6 @@ vite.config.ts.timestamp-*
 # IDE
 .idea
 .DS_Store
+
+# Cloudflare Pages 本地运行数据
+.wrangler/

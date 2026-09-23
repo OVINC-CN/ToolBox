@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <link rel="stylesheet" href="/fonts.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173873">
+  <meta name="description" content="生成 UUID v1、v4、v6、v7，在真实 UUID 下方直接看懂时间戳、随机数、版本、变体和节点标识。支持批量生成与复制，全部在浏览器本地完成。">
+  <title>UUID Lab · UUID 生成与字段解读</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23173873'/%3E%3Cpath d='M11 8H7v16h4m10-16h4v16h-4M15 11v10m3-10v10' stroke='white' stroke-width='2' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/src/tools/uuid/styles.css">
+  <script type="module" src="/src/tools/uuid/app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="UUID Lab 首页"><span class="brand-symbol" aria-hidden="true">[ıı]</span><span>UUID<span class="brand-light"> Lab</span></span></a>
+    <span class="local-note"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="2"/><path d="M8 20h8m-4-4v4"/></svg>浏览器本地生成</span>
+  </header>
+  <main>
+    <div class="page-heading"><div><span class="eyebrow">GENERATE & UNDERSTAND</span><h1>UUID 生成器</h1></div><span class="format-note">128 bit<span>/</span>32 个十六进制字符</span></div>
+    <section class="workspace" aria-label="UUID 生成与解读">
+      <form id="generator-form" novalidate>
+        <fieldset class="version-field"><legend>选择版本</legend><div class="version-options">
+          <label class="version-option"><input type="radio" name="version" value="1"><span class="version-content"><strong>v1</strong><span>时间与节点</span></span></label>
+          <label class="version-option"><input type="radio" name="version" value="4" checked><span class="version-content"><strong>v4</strong><span>随机生成</span><span class="recommended">常用</span></span></label>
+          <label class="version-option"><input type="radio" name="version" value="6"><span class="version-content"><strong>v6</strong><span>有序时间</span></span></label>
+          <label class="version-option"><input type="radio" name="version" value="7"><span class="version-content"><strong>v7</strong><span>时间与随机</span></span></label>
+        </div></fieldset>
+        <div class="control-row"><p id="version-brief">122 位安全随机数据，加上版本和变体标记。不包含时间戳或机器标识。</p><div class="generation-controls"><label class="count-control" for="count">数量<input id="count" name="count" type="number" min="1" max="1000" step="1" value="1" required inputmode="numeric" aria-describedby="count-note form-error"></label><button class="primary-button" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M6 7a7 7 0 0 1 11.6-1L20 9M4 15l2.4 3A7 7 0 0 0 18 17"/></svg>生成 UUID</button></div></div>
+        <span id="count-note" class="sr-only">一次可生成 1 至 1000 个 UUID。</span><p id="form-error" class="error-message" role="alert" hidden></p>
+      </form>
+      <section class="anatomy" aria-labelledby="anatomy-heading">
+        <div class="section-toolbar"><div class="section-caption"><span class="section-number">01</span><h2 id="anatomy-heading">读懂这个 UUID</h2><span id="version-badge" class="badge">VERSION 4</span></div><button id="copy-current" class="text-button" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg>复制当前</button></div>
+        <div class="anatomy-scroll" role="region" aria-label="UUID 字段图，宽度不足时可左右滑动" tabindex="0"><div id="uuid-visual" class="uuid-visual" aria-label="当前 UUID 的字段说明"></div></div>
+        <div id="field-detail" class="field-detail" aria-live="polite"></div>
+        <div id="decoded-facts" class="decoded-facts"></div>
+        <p id="version-hint" class="version-hint"></p>
+      </section>
+    </section>
+    <section class="results-section" aria-labelledby="results-heading">
+      <div class="section-toolbar"><div class="section-caption"><span class="section-number">02</span><h2 id="results-heading">本次结果</h2><span id="result-count" class="count-badge">0 个</span></div><button id="copy-all" class="secondary-button" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg>全部复制</button></div>
+      <p class="results-instruction">选择一条结果，查看它的字段说明。</p><div id="results" class="results-list" aria-label="生成的 UUID 列表"></div>
+    </section>
+    <footer><span>UUID Lab<span class="footer-divider">/</span>生成与解析均在本地完成</span><a href="https://www.rfc-editor.org/rfc/rfc9562.html" target="_blank" rel="noopener noreferrer">RFC 9562 标准 <span aria-hidden="true">↗</span></a></footer>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <noscript><p class="noscript">请启用 JavaScript，以在浏览器中生成和解读 UUID。</p></noscript>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <link rel="stylesheet" href="/fonts.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="在浏览器中格式化、编辑、折叠和压缩 JSON，实时定位语法错误。">
+  <title>JSON Studio · JSON 格式化</title>
+  <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%2327282c'/%3E%3Ctext x='20' y='28' text-anchor='middle' font-size='27' fill='%23c7f36b' font-family='monospace'%3E%7B%7D%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/src/tools/json/style.css">
+</head>
+<body>
+<header class="topbar"><a class="brand" href="./"><span
+  class="brand-mark">{ }</span><strong>JSON<span> Studio</span></strong></a><span
+  class="top-label">DEVELOPER TOOLS <span class="divider">/</span> JSON 工作台</span><span class="privacy"><svg
+  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path
+  d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6l-8-3Z"/><path d="m8 12 3 3 5-6"/></svg>仅在浏览器本地处理</span></header>
+<main>
+  <div class="heading">
+    <div>
+      <div class="eyebrow">A LITTLE ORDER, A LOT OF CLARITY</div>
+      <h1>让 JSON，井然有序<span>。</span></h1>
+      <p>两侧编辑双向同步，调整缩进实时更新。</p></div>
+    <span class="workspace-tag"><span></span>JSON 工作台</span></div>
+  <section class="workspace" aria-label="JSON 编辑工作台">
+    <div class="toolbar">
+      <div class="main-actions">
+        <button id="format" class="primary"><span class="symbol">{ }</span>格式化 <kbd>⌘ ↵</kbd></button>
+        <button id="minify"><span class="symbol">↔</span>压缩为单行</button>
+        <span class="toolbar-divider"></span><label for="indent">缩进</label><select id="indent">
+        <option value="2">2 空格</option>
+        <option value="4">4 空格</option>
+        <option value="tab">Tab</option>
+      </select></div>
+      <button id="example" class="text-button">载入示例 <span>↗</span></button>
+    </div>
+    <div class="editors">
+      <section class="pane" id="input-pane">
+        <div class="pane-header">
+          <div class="pane-title"><span class="file-icon">{ }</span><strong>原始 JSON</strong><span
+            class="badge">输入</span></div>
+          <button id="clear" class="text-button">清空</button>
+        </div>
+        <div class="pane-tools"><span>粘贴或输入 JSON · 自动格式化</span><span class="type-label">JSON</span></div>
+        <div id="input" class="editor"></div>
+        <button id="input-status" class="validation" aria-live="polite"></button>
+        <div class="pane-footer"><span id="input-count"></span><span id="input-cursor">行 1，列 1</span></div>
+      </section>
+      <section class="pane" id="output-pane">
+        <div class="pane-header">
+          <div class="pane-title"><span class="file-icon">{ }</span><strong>格式化结果</strong><span
+            class="badge editable">可编辑</span></div>
+          <button id="copy" class="text-button">复制 JSON</button>
+        </div>
+        <div class="pane-tools output-tools">
+          <div>
+            <button id="expand" class="text-button">全部展开</button>
+            <span class="tiny-divider">/</span><label class="sr-only" for="fold">折叠层级</label><select id="fold">
+            <option value="">折叠层级</option>
+            <option value="1">折叠第 1 层</option>
+            <option value="2">折叠第 2 层</option>
+            <option value="3">折叠第 3 层</option>
+            <option value="4">折叠第 4 层</option>
+          </select></div>
+          <button id="format-output" class="text-button">重新格式化</button>
+        </div>
+        <div id="output" class="editor"></div>
+        <button id="output-status" class="validation" aria-live="polite"></button>
+        <div class="pane-footer"><span id="output-count"></span><span id="output-cursor">行 1，列 1</span></div>
+      </section>
+    </div>
+  </section>
+  <div class="below"><p><span class="hint-icon">i</span>点击行号旁的箭头折叠对象或数组；右侧修改会自动回写左侧。</p>
+    <div class="legend"><span><i class="key"></i>键名</span><span><i class="string"></i>字符串</span><span><i
+      class="number"></i>数字</span><span><i class="boolean"></i>布尔值 / null</span></div>
+  </div>
+  <footer><span>JSON STUDIO <span
+    class="footer-separator">—</span> 专注于每一对大括号。</span><span>无需上传 · 即时校验</span></footer>
+</main>
+<div id="toast" role="status"></div>
+<script type="module" src="/src/tools/json/app.js"></script>
+</body>
+</html>

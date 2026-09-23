@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#82d9ef">
+  <title>鹈鹕兜风记</title>
+  <meta name="description" content="一只鹈鹕骑着自行车，迎着海风快乐兜风。">
+  <link rel="stylesheet" href="/59afb67f990e03c95e1a22f81b2166758c7ac7a2dc14dcd4452969b58946cc89/style.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="topbar">
+      <div class="header-left">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">◒</span>
+          <div><h1>鹈鹕兜风记</h1><p>沿着海风，慢慢向前。</p></div>
+        </div>
+      </div>
+      <button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">
+        <span class="toggle-icon" aria-hidden="true">Ⅱ</span><span class="toggle-label">暂停动画</span>
+      </button>
+    </header>
+
+    <section class="scene-card" aria-label="鹈鹕骑自行车的二维矢量动画">
+      <svg id="ride-scene" class="ride-scene" viewBox="0 0 1440 820" role="img" aria-labelledby="scene-title scene-desc">
+        <title id="scene-title">鹈鹕骑自行车去兜风</title>
+        <desc id="scene-desc">一只戴着蓝色小帽的鹈鹕骑薄荷绿自行车，车轮转动，路旁的草与云朵向后移动。</desc>
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#62cbea"/><stop offset="1" stop-color="#d9f6f1"/>
+          </linearGradient>
+          <linearGradient id="sea" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#20a8c5"/><stop offset="1" stop-color="#087f9c"/>
+          </linearGradient>
+          <linearGradient id="beak" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ffb63e"/><stop offset="1" stop-color="#ef7440"/>
+          </linearGradient>
+          <filter id="soft-shadow" x="-30%" y="-30%" width="160%" height="180%">
+            <feDropShadow dx="0" dy="13" stdDeviation="11" flood-color="#145765" flood-opacity=".22"/>
+          </filter>
+          <clipPath id="scene-clip"><rect width="1440" height="820" rx="38"/></clipPath>
+          <g id="cloud-shape" fill="#fff" opacity=".9">
+            <ellipse cx="0" cy="17" rx="82" ry="31"/><circle cx="-42" cy="0" r="37"/><circle cx="12" cy="-15" r="49"/><circle cx="58" cy="5" r="34"/>
+          </g>
+          <g id="grass-tuft" fill="none" stroke="#296b4d" stroke-width="10" stroke-linecap="round">
+            <path d="M0 45C0 24 4 9 8 0M3 31C-7 19-17 13-27 9M5 28C17 18 28 14 40 12"/>
+          </g>
+        </defs>
+
+        <g clip-path="url(#scene-clip)">
+          <rect width="1440" height="820" fill="url(#sky)"/>
+          <circle cx="1190" cy="145" r="68" fill="#ffd36a" opacity=".95"/>
+          <circle cx="1190" cy="145" r="97" fill="none" stroke="#fff4ba" stroke-width="18" opacity=".25"/>
+
+          <g class="cloud cloud-a"><use href="#cloud-shape" transform="translate(180 160) scale(.8)"/></g>
+          <g class="cloud cloud-b"><use href="#cloud-shape" transform="translate(970 245) scale(.55)"/></g>
+          <g class="cloud cloud-c"><use href="#cloud-shape" transform="translate(1380 100) scale(.68)"/></g>
+
+          <path d="M0 420C210 372 380 410 565 382C770 350 910 391 1090 354C1230 326 1350 342 1440 328V620H0Z" fill="#72d4c6" opacity=".62"/>
+          <path d="M0 472C265 431 426 472 670 437C886 406 1132 450 1440 393V626H0Z" fill="url(#sea)"/>
+          <g class="wave-lines" fill="none" stroke="#a8f4ee" stroke-width="9" stroke-linecap="round" opacity=".7">
+            <path d="M-100 515Q-15 478 70 515T240 515T410 515T580 515T750 515T920 515T1090 515T1260 515T1430 515T1600 515"/>
+            <path d="M-180 568Q-90 533 0 568T180 568T360 568T540 568T720 568T900 568T1080 568T1260 568T1440 568T1620 568"/>
+          </g>
+
+          <path d="M0 586C260 559 470 576 705 559C960 540 1204 568 1440 543V684H0Z" fill="#83cf74"/>
+          <path d="M0 636C230 603 430 632 681 608C919 585 1165 623 1440 590V720H0Z" fill="#4ea75d"/>
+
+          <g class="far-grass" opacity=".78">
+            <use href="#grass-tuft" transform="translate(90 590) scale(.6)"/><use href="#grass-tuft" transform="translate(360 578) scale(.65)"/>
+            <use href="#grass-tuft" transform="translate(780 572) scale(.56)"/><use href="#grass-tuft" transform="translate(1180 570) scale(.68)"/>
+          </g>
+
+          <path d="M-20 676Q390 636 750 669T1460 654V840H-20Z" fill="#edbb77"/>
+          <path d="M-20 704Q390 665 750 696T1460 681" fill="none" stroke="#ffe1a8" stroke-width="17" opacity=".82"/>
+
+          <g class="road-dashes" fill="#fff0c8">
+            <rect x="-180" y="770" width="122" height="18" rx="9"/><rect x="75" y="760" width="122" height="18" rx="9"/>
+            <rect x="330" y="752" width="122" height="18" rx="9"/><rect x="585" y="748" width="122" height="18" rx="9"/>
+            <rect x="840" y="746" width="122" height="18" rx="9"/><rect x="1095" y="748" width="122" height="18" rx="9"/>
+            <rect x="1350" y="755" width="122" height="18" rx="9"/><rect x="1605" y="762" width="122" height="18" rx="9"/>
+          </g>
+
+          <g class="speed-lines" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" opacity=".58">
+            <path d="M90 350h120M45 390h75M1210 304h100"/><path d="M1140 338h86"/>
+          </g>
+
+          <g id="rider" class="rider" filter="url(#soft-shadow)">
+            <g class="bike">
+              <g class="wheel wheel-back" transform="translate(520 686)">
+                <circle r="119" fill="#f9fbf4" stroke="#163f4a" stroke-width="18"/>
+                <circle r="94" fill="none" stroke="#58aeb1" stroke-width="5"/>
+                <g stroke="#3b7780" stroke-width="4"><path d="M-94 0H94M0-94V94M-66-66L66 66M66-66L-66 66"/></g>
+                <circle r="16" fill="#163f4a"/>
+              </g>
+              <g class="wheel wheel-front" transform="translate(918 686)">
+                <circle r="119" fill="#f9fbf4" stroke="#163f4a" stroke-width="18"/>
+                <circle r="94" fill="none" stroke="#58aeb1" stroke-width="5"/>
+                <g stroke="#3b7780" stroke-width="4"><path d="M-94 0H94M0-94V94M-66-66L66 66M66-66L-66 66"/></g>
+                <circle r="16" fill="#163f4a"/>
+              </g>
+
+              <g fill="none" stroke="#2a9c91" stroke-width="22" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M520 686L649 535L746 686H520L626 686L706 576H856L918 686"/>
+                <path d="M856 575L829 503M807 498H876"/>
+              </g>
+              <path d="M615 526h92" fill="none" stroke="#173e49" stroke-width="23" stroke-linecap="round"/>
+              <circle cx="649" cy="686" r="31" fill="#ffad3d" stroke="#173e49" stroke-width="10"/>
+              <g class="pedal" transform="translate(649 686)" fill="none" stroke="#173e49" stroke-width="9" stroke-linecap="round">
+                <path d="M0 0L54 32M0 0L-54-32"/><path d="M44 36h28M-72-36h28"/>
+              </g>
+            </g>
+
+            <g class="pelican">
+              <path d="M604 507C582 433 604 357 669 322C728 290 808 315 836 377C867 447 830 531 755 552C684 572 621 548 604 507Z" fill="#fffaf0" stroke="#173e49" stroke-width="12"/>
+              <path d="M696 346C651 368 636 430 662 482C679 516 718 529 749 506C781 482 786 428 759 390C743 368 720 350 696 346Z" fill="#e6f4e9"/>
+              <g class="wing">
+                <path d="M728 388C787 388 825 428 804 466C782 507 721 500 691 455C671 424 691 392 728 388Z" fill="#e6f4e9" stroke="#173e49" stroke-width="10"/>
+                <path d="M711 429q41 16 76-5" fill="none" stroke="#77b9af" stroke-width="8" stroke-linecap="round"/>
+              </g>
+
+              <path d="M642 350C611 310 600 262 622 220C642 182 692 161 735 177C775 192 800 229 794 271C788 315 745 350 697 360Z" fill="#fffaf0" stroke="#173e49" stroke-width="12"/>
+              <path d="M631 248C565 238 501 256 460 295C527 333 599 331 671 292C677 269 660 251 631 248Z" fill="url(#beak)" stroke="#173e49" stroke-width="11" stroke-linejoin="round"/>
+              <path d="M466 295C535 291 597 292 665 279" fill="none" stroke="#b95035" stroke-width="7" stroke-linecap="round"/>
+              <circle cx="715" cy="232" r="15" fill="#173e49"/><circle cx="720" cy="227" r="5" fill="#fff"/>
+              <path d="M653 179q49-44 103-2" fill="#267caa" stroke="#173e49" stroke-width="11" stroke-linecap="round"/>
+              <path d="M646 182q57-17 122 4" fill="none" stroke="#173e49" stroke-width="12" stroke-linecap="round"/>
+
+              <g class="leg leg-back" fill="none" stroke="#ef8d37" stroke-width="22" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M686 527L651 598L614 643"/>
+              </g>
+              <g class="leg leg-front" fill="none" stroke="#f5a347" stroke-width="22" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M751 521L711 588L684 658"/>
+              </g>
+              <path d="M601 459q-26 58-90 52" fill="none" stroke="#fffaf0" stroke-width="27" stroke-linecap="round"/>
+              <path d="M510 511l42 4" fill="none" stroke="#ef8d37" stroke-width="12" stroke-linecap="round"/>
+              <path d="M789 441q31 40 58 54" fill="none" stroke="#fffaf0" stroke-width="27" stroke-linecap="round"/>
+              <path d="M847 495l8 10" fill="none" stroke="#ef8d37" stroke-width="12" stroke-linecap="round"/>
+            </g>
+          </g>
+
+          <g class="foreground-plants">
+            <use href="#grass-tuft" transform="translate(70 720) scale(1.15)"/><use href="#grass-tuft" transform="translate(1320 700) scale(1.28)"/>
+            <use href="#grass-tuft" transform="translate(1160 746) scale(.8)"/><use href="#grass-tuft" transform="translate(285 755) scale(.75)"/>
+          </g>
+        </g>
+      </svg>
+
+      <div class="scene-caption" aria-hidden="true">
+        <span class="caption-kicker">海风正好</span>
+        <span class="caption-main">叮铃，出发！</span>
+      </div>
+    </section>
+  </main>
+  <script src="/59afb67f990e03c95e1a22f81b2166758c7ac7a2dc14dcd4452969b58946cc89/app.js"></script>
+</body>
+</html>
