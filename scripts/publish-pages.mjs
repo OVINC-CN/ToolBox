@@ -55,6 +55,9 @@ for (const { id } of versions) {
   if (!/^[a-f0-9]{64}$/.test(id)) {
     throw new Error('Invalid original version ID');
   }
+  if (!existsSync(resolve(originals, id, 'index.html'))) {
+    throw new Error(`Missing original Pelican page: ${id}`);
+  }
   rules.push(`/${id} /${id}/ 308`);
   rules.push(`/${id}/ /bike/${id}/ 200`);
   for (const file of originalFiles.filter(file =>
@@ -67,6 +70,47 @@ if (rules.length > 2000) {
   throw new Error('Too many Pages static mappings');
 }
 writeFileSync(resolve(output, '_redirects'), rules.join('\n') + '\n');
+
+// EdgeOne reads this file from the repository root for Git deployments.
+// A direct upload reads the routing fields from the root of the uploaded dist/.
+const edgeone = JSON.parse(readFileSync(resolve('edgeone.json'), 'utf8'));
+const requiredRedirects = [
+  { source: '/bike', destination: '/bike/', statusCode: 301 },
+  ...versions.map(({ id }) => ({
+    source: `/${id}`,
+    destination: `/${id}/`,
+    statusCode: 301,
+  })),
+];
+const requiredRewrites = [
+  { source: '/bike/', destination: '/bike/index.html' },
+  { source: '/version-switcher.js', destination: '/bike/version-switcher.js' },
+  { source: '/version-switcher.css', destination: '/bike/version-switcher.css' },
+  ...versions.flatMap(({ id }) => [
+    { source: `/${id}/`, destination: `/bike/${id}/index.html` },
+    { source: `/${id}/*`, destination: `/bike/${id}/:splat` },
+  ]),
+];
+for (const [name, expectedRules] of [
+  ['redirects', requiredRedirects],
+  ['rewrites', requiredRewrites],
+]) {
+  for (const expected of expectedRules) {
+    const actual = edgeone[name]?.find(rule => rule.source === expected.source);
+    if (
+      !actual
+      || Object.entries(expected).some(([key, value]) => actual[key] !== value)
+    ) {
+      throw new Error(`Missing EdgeOne ${name} rule: ${expected.source}`);
+    }
+  }
+}
+const { redirects, rewrites, headers } = edgeone;
+writeFileSync(
+  resolve(output, 'edgeone.json'),
+  JSON.stringify({ redirects, rewrites, headers }, null, 2) + '\n',
+);
+
 if (
   readdirSync(output, { withFileTypes: true }).some(
     entry => entry.isDirectory() && /^[a-f0-9]{64}$/.test(entry.name),

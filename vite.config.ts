@@ -5,7 +5,7 @@ import { readFileSync } from 'node:fs';
 import { tools } from './src/catalog.ts';
 
 // 源 HTML 集中放在 pages/，公开地址仍位于各工具子路径。
-// 本地 Vite 服务映射鹈鹕原页面的绝对路径；生产环境使用生成的 _redirects。
+// 本地 Vite 服务映射鹈鹕原页面的绝对路径；生产环境使用平台路由配置。
 function pageDevRoutes(): Plugin {
   const appRoutes = new Set<string>(
     tools.filter(tool => tool.id !== 'bike').map(tool => tool.id),
