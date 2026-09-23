@@ -1,6 +1,11 @@
 {
-  "defaultVersion": "933d6ad064006180bae450de6a14c892921414ae0266f7089303ae015ee722c3",
+  "defaultVersion": "a02bcbf480022d1a287d166d9b04666598bf5414d88b2ba55a5553f1578e031f",
   "versions": [
+    {
+      "id": "a02bcbf480022d1a287d166d9b04666598bf5414d88b2ba55a5553f1578e031f",
+      "label": "Claude Opus 5.5 20260923",
+      "createdOrder": 6
+    },
     {
       "id": "933d6ad064006180bae450de6a14c892921414ae0266f7089303ae015ee722c3",
       "label": "GPT 6 Sol Max 20260923",
