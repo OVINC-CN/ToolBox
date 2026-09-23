@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#d9f4f0" />
+    <meta name="description" content="和骑自行车的鹈鹕一起，来一段轻松的 3D 海风漫游。" />
+    <link rel="icon" type="image/svg+xml" href="/bike/9f6fb87e1241a1f61804c42c5138a8cc9856654b10dcf49b34caa80473fc3b29/favicon.svg" />
+    <title>鹈鹕骑行俱乐部 · Pelican Cycling Club</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <script type="module" crossorigin src="/bike/9f6fb87e1241a1f61804c42c5138a8cc9856654b10dcf49b34caa80473fc3b29/assets/index-w2Ii7Uhy.js"></script>
+    <link rel="stylesheet" crossorigin href="/bike/9f6fb87e1241a1f61804c42c5138a8cc9856654b10dcf49b34caa80473fc3b29/assets/index-CC9ZNTw6.css">
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="scene" aria-label="一只鹈鹕骑着自行车的可交互三维场景"></canvas>
+      <div class="grain" aria-hidden="true"></div>
+
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="鹈鹕骑行俱乐部，回到顶部">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 50 50" fill="none"><path d="M11 27c4-11 17-15 24-6 3 4 1 8-2 11-5 5-14 6-21 2" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/><path d="M23 22c5-1 11 0 18 2l-12 4-9-2" fill="currentColor"/><circle cx="26" cy="18" r="1.8" fill="currentColor"/></svg>
+          </span>
+          <span class="brand-name">PELI<span>·</span>RIDE <small>CLUB</small></span>
+        </a>
+        <span class="header-note"><span class="live-dot"></span> 一段正在发生的海风漫游</span>
+        <button class="header-button" id="aboutButton" type="button" aria-label="查看操作说明">怎么玩 <span aria-hidden="true">↗</span></button>
+      </header>
+
+      <main id="top">
+        <section class="hero" aria-labelledby="heroTitle">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="eyebrow-line"></span> PELICAN CYCLING CLUB · NO. 01</p>
+            <h1 id="heroTitle">骑上风，<br /><em>去看海。</em></h1>
+            <p class="hero-description">太阳刚刚好，海风轻轻吹。<br />今天，跟着这位长嘴朋友慢慢骑。</p>
+            <div class="hero-actions">
+              <button class="ride-button" id="rideButton" type="button"><span class="ride-icon" aria-hidden="true">Ⅱ</span><span id="rideLabel">暂停骑行</span><span aria-hidden="true" class="button-arrow">↗</span></button>
+              <span class="drag-hint"><span class="drag-icon" aria-hidden="true">✥</span> 拖动场景，换个角度</span>
+            </div>
+          </div>
+
+          <div class="scene-badge" aria-hidden="true"><span class="badge-sun">✳</span><span>慢慢骑<br /><strong>刚刚好</strong></span></div>
+
+          <div class="scene-label" aria-hidden="true"><span class="label-line"></span><span>我们的主角<br /><strong>鹈鹕 · 小栗</strong></span></div>
+
+          <div class="bottom-bar">
+            <div class="speed-control">
+              <div class="control-title"><span class="control-icon">↝</span><span>骑行速度</span><strong id="speedValue">悠闲</strong></div>
+              <input id="speedSlider" aria-label="骑行速度" type="range" min="0.4" max="2.4" step="0.1" value="1" />
+              <div class="speed-markers"><span>散步</span><span>追风</span></div>
+            </div>
+            <div class="control-divider"></div>
+            <div class="action-group" aria-label="场景操作">
+              <button class="round-action" id="themeButton" type="button" aria-label="切换傍晚场景" title="切换傍晚场景"><span id="themeIcon" aria-hidden="true">☼</span><small>时光</small></button>
+              <button class="round-action" id="bellButton" type="button" aria-label="按响车铃" title="按响车铃"><span aria-hidden="true">♬</span><small>车铃</small></button>
+              <button class="round-action" id="cameraButton" type="button" aria-label="重置镜头" title="重置镜头"><span aria-hidden="true">⌖</span><small>视角</small></button>
+              <button class="round-action" id="saveButton" type="button" aria-label="保存三维画面" title="保存三维画面"><span aria-hidden="true">↧</span><small>留影</small></button>
+            </div>
+          </div>
+
+          <div class="corner-caption" aria-hidden="true"><span>01 / 01</span><span>一路向海 · KEEP ROLLING</span></div>
+        </section>
+      </main>
+
+      <div class="help-dialog" id="helpDialog" role="dialog" aria-modal="true" aria-labelledby="helpTitle" hidden>
+        <div class="help-card">
+          <button class="help-close" id="closeHelp" type="button" aria-label="关闭">×</button>
+          <span class="help-kicker">HOW TO RIDE</span>
+          <h2 id="helpTitle">一起兜个风吧。</h2>
+          <p>拖动场景可以环绕鹈鹕，滚轮或双指可以拉近视角。调节速度，看车轮与双脚跟着节奏转动。</p>
+          <div class="help-steps"><span>↔ 拖动旋转</span><span>⊕ 滚动缩放</span><span>☼ 切换时光</span></div>
+          <button class="help-start" id="helpStart" type="button">出发！ <span aria-hidden="true">↗</span></button>
+        </div>
+      </div>
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </div>
+  </body>
+</html>

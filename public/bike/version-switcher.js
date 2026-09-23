@@ -5,10 +5,13 @@
   if (!switcher || !viewer) return;
   const summary = switcher.querySelector('summary');
   const currentLabel = document.getElementById('current-version');
+  const currentFormat = document.getElementById('current-format');
+  const currentDate = document.getElementById('current-date');
   const links = Array.from(switcher.querySelectorAll('a[data-version]'));
-  // The catalogue comes exclusively from the generated root menu.
+  // The catalogue comes from the root menu.
   const versions = new Map(links.map(link => [link.dataset.version, {
     id: link.dataset.version, label: link.dataset.label,
+    format: link.dataset.format, date: link.dataset.date,
     path: link.getAttribute('href'), link
   }]));
   const defaultVersion = versions.get(document.body.dataset.defaultVersion);
@@ -21,6 +24,10 @@
   let activeVersion = null;
   let loadingTimer;
   let stopFrameSizing = () => {};
+
+  function versionTitle(version) {
+    return `${version.label} · ${version.format} · ${version.date}`;
+  }
 
   // Grow the same-origin artwork frame so the outer document owns scrolling.
   // Only observe document layout, not the animation's per-frame SVG mutations.
@@ -80,8 +87,12 @@
     stopFrameSizing = () => {};
     clearTimeout(loadingTimer);
     currentLabel.textContent = version.label;
-    summary.setAttribute('aria-label', '切换版本，当前版本：' + version.label);
-    document.title = version.label + ' · 版本展示';
+    currentFormat.textContent = version.format;
+    currentFormat.dataset.format = version.format;
+    currentDate.textContent = version.date;
+    const title = versionTitle(version);
+    summary.setAttribute('aria-label', '切换版本，当前版本：' + title);
+    document.title = title + ' · 版本展示';
     links.forEach(link => {
       const selected = link.dataset.version === version.id;
       if (selected) link.setAttribute('aria-current', 'page');
@@ -98,7 +109,7 @@
     // src does not create additional steps in the browser's Back history.
     const nextFrame = document.createElement('iframe');
     nextFrame.id = 'version-frame';
-    nextFrame.title = version.label;
+    nextFrame.title = title;
     nextFrame.src = version.path;
     function loadFailed() {
       if (activeFrame !== nextFrame) return;
@@ -118,7 +129,7 @@
           loadFailed();
           return;
         }
-        document.title = nextFrame.contentDocument.title || version.label + ' · 版本展示';
+        document.title = title + ' · 版本展示';
         stopFrameSizing();
         stopFrameSizing = followContentHeight(nextFrame);
       } catch {

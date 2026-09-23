@@ -1,34 +1,53 @@
 {
-  "defaultVersion": "a02bcbf480022d1a287d166d9b04666598bf5414d88b2ba55a5553f1578e031f",
+  "defaultVersion": "9f6fb87e1241a1f61804c42c5138a8cc9856654b10dcf49b34caa80473fc3b29",
   "versions": [
     {
+      "id": "9f6fb87e1241a1f61804c42c5138a8cc9856654b10dcf49b34caa80473fc3b29",
+      "label": "GPT 6 Sol Max",
+      "format": "3D",
+      "date": "20260923",
+      "createdOrder": 7
+    },
+    {
       "id": "a02bcbf480022d1a287d166d9b04666598bf5414d88b2ba55a5553f1578e031f",
-      "label": "Claude Opus 5.5 20260923",
+      "label": "Claude Opus 5.5",
+      "format": "SVG",
+      "date": "20260923",
       "createdOrder": 6
     },
     {
       "id": "933d6ad064006180bae450de6a14c892921414ae0266f7089303ae015ee722c3",
-      "label": "GPT 6 Sol Max 20260923",
+      "label": "GPT 6 Sol Max",
+      "format": "SVG",
+      "date": "20260923",
       "createdOrder": 5
     },
     {
       "id": "d0a3cbb0695d62c114e9afa80cd23575a88c41d72181d3d722fcf4155999c2f8",
-      "label": "GPT 6 Astra High 20260922",
+      "label": "GPT 6 Astra High",
+      "format": "SVG",
+      "date": "20260922",
       "createdOrder": 4
     },
     {
       "id": "15ec4222a79f9b9d64cbcd9234295630985cf89455a012b5f9c16dc0ae1daa33",
-      "label": "GPT 6 Astra Max 20260922",
+      "label": "GPT 6 Astra Max",
+      "format": "SVG",
+      "date": "20260922",
       "createdOrder": 3
     },
     {
       "id": "59afb67f990e03c95e1a22f81b2166758c7ac7a2dc14dcd4452969b58946cc89",
-      "label": "GPT 5.6 Sol High 20260922",
+      "label": "GPT 5.6 Sol High",
+      "format": "SVG",
+      "date": "20260922",
       "createdOrder": 2
     },
     {
       "id": "dae619c51089c6f8c256b18a4d8b1885e09d9a379a7861ad0b2ac069f3e97fa4",
-      "label": "GPT 6 Astra Xhigh 20260916",
+      "label": "GPT 6 Astra Xhigh",
+      "format": "SVG",
+      "date": "20260916",
       "createdOrder": 1
     }
   ]

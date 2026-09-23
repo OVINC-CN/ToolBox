@@ -20,7 +20,10 @@ function hasHashSuffix(pathname, generatedAsset) {
 }
 
 function hasFilenameHash(file) {
-  const generatedAsset = relative(output, file).split(sep)[0] === 'assets';
+  const generatedAsset = relative(output, file)
+    .split(sep)
+    .slice(0, -1)
+    .includes('assets');
   return hasHashSuffix(file, generatedAsset);
 }
 
@@ -119,9 +122,7 @@ function versionHtml(content, file) {
       (attribute, space, name, quote, url) => {
         const kind = name.toLowerCase();
         const allowHtml = tagName.toLowerCase() === 'iframe'
-          || kind === 'data-default-src'
-          || (tagName.toLowerCase() === 'a'
-            && /^\/bike\/[a-f0-9]{64}\/?(?:[?#]|$)/.test(url));
+          || kind === 'data-default-src';
         const updated = kind === 'srcset'
           ? url.replace(/(^|,)(\s*)(\S+)([^,]*)/g,
             (candidate, separator, whitespace, source, descriptor) =>
