@@ -253,53 +253,23 @@ export default function Home() {
         </a>
         <div className="system-status">
           <span className="status-dot" />
-          系统时钟已同步
+          浏览器本地时间
         </div>
       </header>
 
       <section id="top" className="hero">
         <div>
-          <p className="eyebrow">TIME FORMAT CONVERTER · 01</p>
-          <h1>
-            在时间格式之间
-            <br />
-            <span>自由切换</span>
-          </h1>
+          <p className="eyebrow">UNIX TIME CONVERTER</p>
+          <h1>Unix 时间戳转换</h1>
           <p className="hero-copy">
-            时间戳、日期字符串与全球时区，一处完成转换。所有计算均在你的浏览器本地进行。
+            在时间戳与日期时间之间快速转换，支持常用时区。所有计算均在浏览器本地完成。
           </p>
-        </div>
-        <div className="hero-meta" aria-label="工具特点">
-          <div>
-            <span>01</span>
-            <p>
-              双向转换
-              <br />
-              <small>BIDIRECTIONAL</small>
-            </p>
-          </div>
-          <div>
-            <span>02</span>
-            <p>
-              本地计算
-              <br />
-              <small>PRIVATE BY DESIGN</small>
-            </p>
-          </div>
-          <div>
-            <span>03</span>
-            <p>
-              时区感知
-              <br />
-              <small>TIMEZONE AWARE</small>
-            </p>
-          </div>
         </div>
       </section>
 
       <section className="live-panel" aria-label="当前 Unix 时间戳">
         <div className="panel-label">
-          <span>LIVE</span>
+          <span>实时</span>
           {' '}
           当前 Unix 时间戳
         </div>
@@ -396,39 +366,6 @@ export default function Home() {
             </button>
           </div>
         </section>
-
-        <aside className="reference-card">
-          <div className="card-heading compact">
-            <div>
-              <span className="section-index">REF</span>
-              <h2>快速参考</h2>
-            </div>
-          </div>
-          <p>选择示例，立即写入转换器。</p>
-          <div className="example-list">
-            {EXAMPLES.map(example => (
-              <button
-                key={example.label}
-                onClick={() => {
-                  setTimestamp(example.value);
-                }}
-              >
-                <span>{example.label}</span>
-                <code>{example.value}</code>
-                <i>↗</i>
-              </button>
-            ))}
-          </div>
-          <div className="precision-note">
-            <span>判断规则</span>
-            <p>
-              绝对值小于
-              <code>100000000000</code>
-              {' '}
-              时按秒解析，其余按毫秒解析。
-            </p>
-          </div>
-        </aside>
 
         <section className="converter-card date-card">
           <div className="card-heading">
@@ -542,11 +479,41 @@ export default function Home() {
             </button>
           </div>
         </section>
+
+        <aside className="reference-card">
+          <div className="card-heading compact">
+            <div>
+              <span className="section-index">参考</span>
+              <h2>快速示例</h2>
+            </div>
+            <p>点击示例，写入时间戳转换器</p>
+          </div>
+          <div className="example-list">
+            {EXAMPLES.map(example => (
+              <button
+                key={example.label}
+                onClick={() => {
+                  setTimestamp(example.value);
+                }}
+              >
+                <span>{example.label}</span>
+                <code>{example.value}</code>
+                <i>↗</i>
+              </button>
+            ))}
+          </div>
+          <p className="precision-note">
+            绝对值小于
+            <code>100000000000</code>
+            {' '}
+            时按秒解析，其余按毫秒解析。
+          </p>
+        </aside>
       </div>
 
       <section className="world-strip" aria-label="全球时区速览">
         <div>
-          <span className="section-index">WORLD</span>
+          <span className="section-index">时区</span>
           <h2>此刻，世界各地</h2>
         </div>
         <div className="world-clocks">
@@ -569,9 +536,8 @@ export default function Home() {
       </section>
 
       <footer>
-        <span>TIME TOOLBOX / 时间工具箱</span>
-        <p>精确到秒，简单到一次点击。</p>
-        <span>LOCAL · PRIVATE · FAST</span>
+        <span>时间工具箱</span>
+        <p>所有转换在浏览器本地完成</p>
       </footer>
     </main>
   );
