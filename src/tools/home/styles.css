@@ -1,11 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --paper: #f4f1e8;
-  --ink: #151515;
-  --acid: #d8ff3e;
-  --orange: #ff6334;
-  --line: rgba(21, 21, 21, 0.18);
+  --paper: #f7f7f3;
+  --surface: #fdfdfa;
+  --ink: #232925;
+  --muted: #66716a;
+  --acid: #9caf43;
+  --orange: #d97050;
+  --line: rgba(35, 41, 37, 0.18);
 }
 
 * {
@@ -19,10 +21,6 @@ html {
 body {
   margin: 0;
   background-color: var(--paper);
-  background-image:
-    linear-gradient(rgba(21, 21, 21, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(21, 21, 21, 0.035) 1px, transparent 1px);
-  background-size: 32px 32px;
   color: var(--ink);
   font-family: var(--font-ui);
   min-height: 100vh;
@@ -40,7 +38,7 @@ main {
 
 .topbar {
   align-items: center;
-  border-bottom: 1px solid var(--ink);
+  border-bottom: 1px solid var(--line);
   display: flex;
   justify-content: space-between;
   padding: 20px 0 16px;
@@ -75,14 +73,16 @@ footer {
 }
 
 .catalog-count {
+  color: var(--muted);
   font-size: 12px;
 }
 
 .hero {
-  padding: 44px 0 36px;
+  padding: 52px 0 42px;
 }
 
 .hero-kicker {
+  color: var(--muted);
   display: flex;
   font-size: 12px;
   justify-content: space-between;
@@ -99,8 +99,7 @@ footer {
 }
 
 .hero h1 span {
-  color: transparent;
-  -webkit-text-stroke: 1.5px var(--ink);
+  color: var(--muted);
 }
 
 .hero-meta {
@@ -112,6 +111,7 @@ footer {
 }
 
 .hero-meta p {
+  color: var(--muted);
   font-size: 14px;
   line-height: 1.65;
   margin: 0;
@@ -120,6 +120,7 @@ footer {
 
 .availability {
   align-items: center;
+  color: var(--muted);
   display: flex;
   font-size: 10px;
   margin-bottom: 3px;
@@ -128,54 +129,172 @@ footer {
 
 .status-dot {
   animation: pulse 2s ease-in-out infinite;
-  background: #6cb500;
+  background: var(--acid);
   border-radius: 50%;
   height: 7px;
   margin-right: 8px;
   width: 7px;
 }
 
+.search-bar {
+  align-items: center;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 130px minmax(0, 600px) 1fr;
+  margin-bottom: 20px;
+}
+
+.search-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.search-field {
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  display: flex;
+  gap: 12px;
+  min-height: 52px;
+  padding: 0 14px;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.search-field:focus-within {
+  border-color: var(--ink);
+  box-shadow: 0 0 0 3px rgba(35, 41, 37, 0.08);
+}
+
+.search-field svg {
+  color: var(--muted);
+  flex: none;
+  height: 18px;
+  width: 18px;
+}
+
+.search-field input {
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  flex: 1;
+  font: 14px var(--font-ui);
+  min-width: 0;
+  outline: 0;
+  padding: 12px 0;
+}
+
+.search-field input::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+
+.search-field input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.search-clear {
+  background: none;
+  border: 0;
+  color: var(--muted);
+  cursor: pointer;
+  font: 12px var(--font-ui);
+  padding: 6px 0 6px 6px;
+  white-space: nowrap;
+}
+
+.search-clear:hover {
+  color: var(--ink);
+}
+
+.search-clear:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}
+
+.search-shortcut {
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--muted);
+  font: 11px var(--font-ui);
+  padding: 2px 8px;
+}
+
+.search-count {
+  color: var(--muted);
+  font-size: 11px;
+  justify-self: end;
+  white-space: nowrap;
+}
+
+.search-empty {
+  border: 1px dashed var(--line);
+  color: var(--muted);
+  grid-column: 1 / -1;
+  padding: 64px 20px;
+  text-align: center;
+}
+
+.search-empty p {
+  margin: 0 0 12px;
+}
+
+.search-empty button {
+  background: none;
+  border: 0;
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.search-empty button:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+}
+
 .tool-grid {
   display: grid;
-  gap: 14px;
+  gap: 16px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .tool-card {
-  border: 1px solid var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
   display: flex;
   flex-direction: column;
-  min-height: 310px;
+  min-height: 300px;
   overflow: hidden;
-  padding: 17px;
+  padding: 18px;
   position: relative;
-  transition: transform 220ms ease, box-shadow 220ms ease;
+  transition: background 220ms ease, border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
 }
 
 .tool-card:hover {
-  box-shadow: 9px 9px 0 var(--ink);
-  transform: translate(-4px, -4px);
+  background: #fff;
+  border-color: rgba(35, 41, 37, 0.45);
+  box-shadow: 0 12px 32px rgba(35, 41, 37, 0.08);
+  transform: translateY(-3px);
 }
 
 .tool-card:focus-visible {
-  box-shadow: 0 0 0 5px var(--orange);
-  outline: 2px solid var(--ink);
-  outline-offset: 3px;
+  outline: 2px solid var(--orange);
+  outline-offset: 4px;
 }
 
 .tool-card-dark {
-  background: var(--ink);
-  color: var(--paper);
+  --card-accent: #526c68;
 }
 
 .tool-card-light {
-  background: var(--acid);
-  color: var(--ink);
+  --card-accent: #647727;
 }
 
 .tool-card-orange {
-  background: var(--orange);
-  color: var(--ink);
+  --card-accent: #ae5136;
 }
 
 .card-topline {
@@ -187,9 +306,14 @@ footer {
   z-index: 2;
 }
 
+.card-topline > span:first-child {
+  color: var(--card-accent);
+  font-weight: 700;
+}
+
 .open-icon {
   align-items: center;
-  border: 1px solid currentColor;
+  border: 1px solid var(--line);
   border-radius: 50%;
   display: flex;
   font-size: 16px;
@@ -200,19 +324,9 @@ footer {
 }
 
 .tool-card:hover .open-icon {
-  background: var(--paper);
-  color: var(--ink);
+  background: var(--ink);
+  color: var(--surface);
   transform: rotate(8deg);
-}
-
-.tool-card-light:hover .open-icon {
-  background: var(--ink);
-  color: var(--paper);
-}
-
-.tool-card-orange:hover .open-icon {
-  background: var(--ink);
-  color: var(--paper);
 }
 
 .tool-graphic {
@@ -224,7 +338,7 @@ footer {
 .clock-graphic {
   align-self: center;
   aspect-ratio: 1;
-  border: 1px solid rgba(244, 241, 232, 0.6);
+  border: 1px solid rgba(35, 41, 37, 0.45);
   border-radius: 50%;
   height: 120px;
 }
@@ -328,8 +442,8 @@ footer {
 }
 
 .flow-line-three {
-  color: var(--paper);
-  opacity: 0.72;
+  color: var(--ink);
+  opacity: 0.6;
   transform: translate(-50%, -16%) rotate(8deg);
 }
 
@@ -360,7 +474,7 @@ footer {
 
 .clock-graphic::before,
 .clock-graphic::after {
-  background: rgba(244, 241, 232, 0.35);
+  background: rgba(35, 41, 37, 0.25);
   content: "";
   left: 50%;
   position: absolute;
@@ -391,7 +505,7 @@ footer {
 }
 
 .clock-hand {
-  background: var(--paper);
+  background: var(--ink);
   bottom: 50%;
   left: calc(50% - 1px);
   position: absolute;
@@ -410,7 +524,7 @@ footer {
 }
 
 .clock-ring {
-  border: 1px solid rgba(244, 241, 232, 0.18);
+  border: 1px solid rgba(35, 41, 37, 0.17);
   border-radius: 50%;
   left: 50%;
   position: absolute;
@@ -582,7 +696,7 @@ footer {
 }
 
 .card-content {
-  border-top: 1px solid currentColor;
+  border-top: 1px solid var(--line);
   margin-top: auto;
   padding-top: 13px;
 }
@@ -595,18 +709,20 @@ footer {
 }
 
 .card-content p {
+  color: var(--muted);
   font-size: 13px;
   line-height: 1.55;
   margin: 0 0 12px;
 }
 
 .tool-url {
+  color: var(--muted);
   font-size: 11px;
-  opacity: 0.72;
 }
 
 footer {
-  border-top: 1px solid var(--ink);
+  border-top: 1px solid var(--line);
+  color: var(--muted);
   display: grid;
   font-size: 10px;
   grid-template-columns: 1fr 1fr auto;
@@ -627,6 +743,16 @@ footer a {
   50% { opacity: 0.4; transform: scale(0.75); }
 }
 
+@media (min-width: 1400px) {
+  main {
+    width: min(100% - 64px, 1400px);
+  }
+
+  .tool-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 820px) {
   main {
     width: min(100% - 28px, 680px);
@@ -642,6 +768,21 @@ footer a {
     gap: 16px;
     margin-left: 0;
     margin-top: 20px;
+  }
+
+  .search-bar {
+    gap: 10px 12px;
+    grid-template-columns: 1fr auto;
+  }
+
+  .search-field {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .search-count {
+    grid-column: 2;
+    grid-row: 1;
   }
 
   .tool-grid {
@@ -670,6 +811,10 @@ footer a {
 
   .hero h1 {
     font-size: clamp(2rem, 9vw, 2.75rem);
+  }
+
+  .search-shortcut {
+    display: none;
   }
 
   .tool-card {
@@ -704,7 +849,8 @@ footer a {
   }
 
   .tool-card,
-  .open-icon {
+  .open-icon,
+  .search-field {
     transition: none;
   }
 }

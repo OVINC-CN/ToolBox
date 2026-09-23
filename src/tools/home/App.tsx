@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import { tools } from '../../catalog';
 
 function ToolGraphic({ kind }: { kind: string }) {
@@ -83,6 +84,45 @@ function ToolGraphic({ kind }: { kind: string }) {
 }
 
 export default function Home() {
+  const [query, setQuery] = useState('');
+  const searchRef = useRef<HTMLInputElement>(null);
+  const terms = query.trim().toLocaleLowerCase().split(/\s+/);
+  const filteredTools = tools.filter(tool =>
+    terms.every(term =>
+      [tool.title, tool.description, tool.url].some(value =>
+        value.toLocaleLowerCase().includes(term),
+      ),
+    ),
+  );
+
+  useEffect(() => {
+    searchRef.current?.focus({ preventScroll: true });
+
+    function focusSearch(event: KeyboardEvent) {
+      if (event.key !== '/' || event.altKey || event.ctrlKey || event.metaKey) {
+        return;
+      }
+      if (
+        event.target instanceof HTMLElement
+        && (event.target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(event.target.tagName))
+      ) {
+        return;
+      }
+      event.preventDefault();
+      searchRef.current?.focus();
+    }
+
+    window.addEventListener('keydown', focusSearch);
+    return () => {
+      window.removeEventListener('keydown', focusSearch);
+    };
+  }, []);
+
+  function clearSearch() {
+    setQuery('');
+    searchRef.current?.focus();
+  }
+
   return (
     <main>
       <nav className="topbar" aria-label="主导航">
@@ -114,8 +154,52 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="tool-grid" aria-label="工具列表">
-        {tools.map(tool => (
+      <section className="search-bar" role="search" aria-label="搜索工具">
+        <label className="search-label" htmlFor="tool-search">快速搜索</label>
+        <div className="search-field">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+            <circle cx="10.5" cy="10.5" r="6.5" />
+            <path d="m15.5 15.5 5 5" />
+          </svg>
+          <input
+            id="tool-search"
+            ref={searchRef}
+            type="search"
+            autoComplete="off"
+            spellCheck={false}
+            aria-controls="tool-list"
+            placeholder="搜索名称、描述或路由"
+            value={query}
+            onChange={(event) => {
+              setQuery(event.target.value);
+            }}
+            onKeyDown={(event) => {
+              if (event.key === 'Escape') {
+                event.preventDefault();
+                clearSearch();
+              }
+            }}
+          />
+          {query && (
+            <button className="search-clear" type="button" onClick={clearSearch}>清除</button>
+          )}
+          {!query && (
+            <kbd className="search-shortcut" aria-hidden="true">/</kbd>
+          )}
+        </div>
+        <span className="search-count" role="status">
+          匹配
+          {' '}
+          {filteredTools.length.toString().padStart(2, '0')}
+          {' '}
+          /
+          {' '}
+          {tools.length.toString().padStart(2, '0')}
+        </span>
+      </section>
+
+      <section className="tool-grid" id="tool-list" aria-label="工具列表">
+        {filteredTools.map(tool => (
           <a
             className={`tool-card tool-card-${tool.tone}`}
             href={tool.url}
@@ -145,6 +229,12 @@ export default function Home() {
             </div>
           </a>
         ))}
+        {filteredTools.length === 0 && (
+          <div className="search-empty">
+            <p>没有找到匹配的工具。</p>
+            <button type="button" onClick={clearSearch}>清除搜索</button>
+          </div>
+        )}
       </section>
 
       <footer>
