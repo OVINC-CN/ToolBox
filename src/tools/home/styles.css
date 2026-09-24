@@ -335,6 +335,40 @@ footer {
   position: relative;
 }
 
+.fonts-graphic {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.fonts-glyph-latin {
+  color: var(--ink);
+  font-family: Georgia, serif;
+  font-size: 76px;
+  letter-spacing: -0.12em;
+  line-height: 1;
+}
+
+.fonts-glyph-han {
+  color: var(--orange);
+  font-family: var(--font-ui);
+  font-size: 65px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.fonts-graphic-rule {
+  border-bottom: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  bottom: 1px;
+  height: 7px;
+  left: 12%;
+  position: absolute;
+  right: 12%;
+}
+
 .clock-graphic {
   align-self: center;
   aspect-ratio: 1;

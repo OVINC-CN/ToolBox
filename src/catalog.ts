@@ -72,4 +72,13 @@ export const tools = [
     kind: 'url',
     tone: 'dark',
   },
+  {
+    id: 'fonts',
+    index: '09',
+    title: '字体展厅',
+    description: '浏览中文、英文与代码字体，实时比较不同字形。',
+    url: '/fonts/',
+    kind: 'fonts',
+    tone: 'orange',
+  },
 ] as const;

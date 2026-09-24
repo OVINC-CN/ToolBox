@@ -2,6 +2,16 @@ import { useEffect, useRef, useState } from 'react';
 import { tools } from '../../catalog';
 
 function ToolGraphic({ kind }: { kind: string }) {
+  if (kind === 'fonts') {
+    return (
+      <div className="tool-graphic fonts-graphic" aria-hidden="true">
+        <span className="fonts-glyph-latin">Aa</span>
+        <span className="fonts-glyph-han">字</span>
+        <span className="fonts-graphic-rule" />
+      </div>
+    );
+  }
+
   if (kind === 'json') {
     return (
       <div className="tool-graphic json-graphic" aria-hidden="true">
