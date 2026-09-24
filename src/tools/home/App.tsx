@@ -73,6 +73,20 @@ function ToolGraphic({ kind }: { kind: string }) {
     );
   }
 
+  if (kind === 'url') {
+    return (
+      <div className="tool-graphic url-graphic" aria-hidden="true">
+        <span className="url-plain">hello world</span>
+        <span className="url-arrow">↓</span>
+        <span className="url-encoded">
+          hello
+          <span>%20</span>
+          world
+        </span>
+      </div>
+    );
+  }
+
   return (
     <div className="tool-graphic box-graphic" aria-hidden="true">
       <span className="box-layer box-layer-one" />

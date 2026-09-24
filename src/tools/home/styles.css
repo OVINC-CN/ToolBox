@@ -695,6 +695,47 @@ footer {
   padding: 1px 8px;
 }
 
+.url-graphic {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: min(100%, 220px);
+}
+
+.url-plain,
+.url-encoded {
+  border: 1px solid var(--ink);
+  font-family: var(--font-ui);
+  font-size: 15px;
+  padding: 8px 12px;
+  text-align: center;
+  width: 185px;
+}
+
+.url-plain {
+  background: var(--paper);
+  transform: translateX(-12px);
+}
+
+.url-arrow {
+  color: var(--orange);
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+.url-encoded {
+  background: var(--ink);
+  color: var(--paper);
+  transform: translateX(12px);
+}
+
+.url-encoded span {
+  color: #d8ec87;
+}
+
 .card-content {
   border-top: 1px solid var(--line);
   margin-top: auto;
