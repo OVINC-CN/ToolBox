@@ -78,7 +78,7 @@ main {
 }
 
 .shell {
-  width: min(1240px, calc(100% - 48px));
+  width: min(1600px, calc(100% - 48px));
   margin-inline: auto;
   position: relative;
 }
@@ -154,8 +154,8 @@ main {
   display: grid;
   grid-template-columns: 1fr 380px;
   align-items: center;
-  gap: 80px;
-  padding-block: 52px 46px;
+  gap: 35px;
+  padding-block: 40px 35px;
 }
 
 .eyebrow,
@@ -170,10 +170,10 @@ main {
 .hero h1 {
   max-width: 760px;
   margin: 0;
-  font-size: 36px;
-  font-weight: 680;
-  line-height: 1.06;
-  letter-spacing: -0.065em;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.04em;
 }
 
 .hero h1 span {
@@ -182,9 +182,9 @@ main {
 
 .hero-description {
   max-width: 660px;
-  margin: 28px 0 0;
+  margin: 10px 0 0;
   color: var(--ink-soft);
-  font-size: 17px;
+  font-size: 13px;
   line-height: 1.8;
 }
 
@@ -211,7 +211,7 @@ main {
 
 .hero-facts strong {
   color: var(--navy);
-  font: 650 17px/1.3 var(--font-ui);
+  font: 600 23px/1.3 var(--font-ui);
 }
 
 .hero-facts span {
@@ -294,7 +294,7 @@ main {
 .result-header h2 {
   margin: 0;
   color: var(--navy);
-  font-size: 28px;
+  font-size: 21px;
   line-height: 1.3;
   letter-spacing: -0.035em;
 }
@@ -425,7 +425,7 @@ main {
 
 .result-header h2 {
   overflow-wrap: anywhere;
-  font: 680 29px/1.3 var(--font-ui);
+  font: 700 21px/1.4 var(--font-ui);
 }
 
 .result-tags {
@@ -860,7 +860,7 @@ tbody tr:hover td {
 
 .principles h3 {
   color: var(--navy);
-  font-size: 14px;
+  font-size: 20px;
 }
 
 .principles p {
@@ -928,7 +928,7 @@ tbody tr:hover td {
 @media (max-width: 960px) {
   .hero {
     grid-template-columns: 1fr;
-    gap: 38px;
+    gap: 20px;
   }
 
   .hero-facts {
@@ -969,7 +969,7 @@ tbody tr:hover td {
 
 @media (max-width: 700px) {
   .shell {
-    width: min(100% - 28px, 1240px);
+    width: min(100% - 28px, 1600px);
   }
 
   .site-header {
@@ -993,16 +993,16 @@ tbody tr:hover td {
 
   .hero {
     min-height: 0;
-    padding-block: 40px 34px;
+    padding-block: 30px;
   }
 
   .hero h1 {
-    font-size: 36px;
+    font-size: 24px;
   }
 
   .hero-description {
-    margin-top: 20px;
-    font-size: 14px;
+    margin-top: 10px;
+    font-size: 13px;
   }
 
   .hero-facts div {
@@ -1010,7 +1010,7 @@ tbody tr:hover td {
   }
 
   .hero-facts strong {
-    font-size: 13px;
+    font-size: 17px;
   }
 
   .tool-shell {
@@ -1035,7 +1035,7 @@ tbody tr:hover td {
 
   .section-heading h2,
   .result-header h2 {
-    font-size: 22px;
+    font-size: 21px;
   }
 
   .format-hint {
@@ -1077,7 +1077,7 @@ tbody tr:hover td {
   }
 
   .result-header h2 {
-    font-size: 19px;
+    font-size: 21px;
   }
 
   .filter-bar {

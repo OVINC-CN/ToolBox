@@ -51,7 +51,7 @@ a {
 
 .shell {
   margin-inline: auto;
-  width: min(1120px, calc(100% - 48px));
+  width: min(1600px, calc(100% - 48px));
 }
 
 .site-header {
@@ -109,15 +109,15 @@ a {
 }
 
 .hero {
-  padding-block: 65px 43px;
+  padding-block: 40px 35px;
 }
 
 .eyebrow {
   color: var(--accent);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.15em;
-  margin: 0 0 16px;
+  margin: 0 0 15px;
 }
 
 .eyebrow span {
@@ -126,10 +126,10 @@ a {
 }
 
 .hero h1 {
-  font-size: clamp(2.1rem, 4.5vw, 4rem);
-  font-weight: 650;
-  letter-spacing: -0.07em;
-  line-height: 1.16;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.4;
   margin: 0;
 }
 
@@ -140,9 +140,9 @@ a {
 
 .hero-description {
   color: var(--muted);
-  font-size: 14px;
-  line-height: 1.9;
-  margin: 20px 0 0;
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 10px 0 0;
   max-width: 660px;
 }
 
@@ -407,7 +407,7 @@ a {
 
 @media (max-width: 760px) {
   .hero {
-    padding-block: 45px 32px;
+    padding-block: 30px;
   }
 
   .editors {
@@ -436,7 +436,7 @@ a {
 
 @media (max-width: 520px) {
   .shell {
-    width: min(100% - 28px, 1120px);
+    width: min(100% - 28px, 1600px);
   }
 
   .site-header {
@@ -460,19 +460,19 @@ a {
   }
 
   .hero {
-    padding-block: 39px 29px;
+    padding-block: 30px;
   }
 
   .eyebrow {
-    font-size: 10px;
+    font-size: 11px;
   }
 
   .hero h1 {
-    font-size: clamp(1.8rem, 8vw, 2.5rem);
+    font-size: 24px;
   }
 
   .hero-description {
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.8;
   }
 
