@@ -63,4 +63,13 @@ export const tools = [
     kind: 'bike',
     tone: 'light',
   },
+  {
+    id: 'urlencode',
+    index: '08',
+    title: 'URL 编解码',
+    description: '在文本与 URL 编码之间即时转换。',
+    url: '/urlencode/',
+    kind: 'url',
+    tone: 'dark',
+  },
 ] as const;
