@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import logoMark from '../../assets/logo-mark.svg';
 import { tools } from '../../catalog';
 
 function ToolGraphic({ kind }: { kind: string }) {
@@ -151,7 +152,7 @@ export default function Home() {
     <main>
       <nav className="topbar" aria-label="主导航">
         <a className="brand" href="#top" aria-label="返回页面顶部">
-          <span className="brand-mark" aria-hidden="true" />
+          <img className="brand-mark" src={logoMark} alt="" width="32" height="32" aria-hidden="true" />
           TOOL BOX
         </a>
         <span className="catalog-count">

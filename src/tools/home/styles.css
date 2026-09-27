@@ -54,12 +54,11 @@ main {
 }
 
 .brand-mark {
-  background: var(--orange);
-  border-radius: 50%;
-  display: inline-block;
-  height: 11px;
+  display: block;
+  flex-shrink: 0;
+  height: 32px;
   margin-right: 10px;
-  width: 11px;
+  width: 32px;
 }
 
 .catalog-count,
