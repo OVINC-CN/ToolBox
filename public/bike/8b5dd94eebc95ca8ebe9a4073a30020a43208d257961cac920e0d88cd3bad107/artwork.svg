@@ -1,0 +1,264 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">夏日空调房</title>
+  <desc id="desc">窗外骄阳与缓缓飘过的云，窗内空调送出凉风，窗帘轻摆，小猫在沙发上睡觉。</desc>
+  <defs>
+    <linearGradient id="wall" x2="0" y2="1">
+      <stop stop-color="#fff8e9"/><stop offset="1" stop-color="#f5ead9"/>
+    </linearGradient>
+    <linearGradient id="floor" x2="0" y2="1">
+      <stop stop-color="#efc9a5"/><stop offset="1" stop-color="#daa67d"/>
+    </linearGradient>
+    <linearGradient id="sky" x2="0" y2="1">
+      <stop stop-color="#91d8e5"/><stop offset=".63" stop-color="#bce6df"/><stop offset="1" stop-color="#ffe2a9"/>
+    </linearGradient>
+    <linearGradient id="curtain" x2="0" y2="1">
+      <stop stop-color="#e7ac8d"/><stop offset="1" stop-color="#cd7f75"/>
+    </linearGradient>
+    <linearGradient id="sofa" x2="0" y2="1">
+      <stop stop-color="#79bbb6"/><stop offset="1" stop-color="#458f91"/>
+    </linearGradient>
+    <linearGradient id="sofaSeat" x2="0" y2="1">
+      <stop stop-color="#99d1c7"/><stop offset="1" stop-color="#6eafa8"/>
+    </linearGradient>
+    <linearGradient id="glass" x2="0" y2="1">
+      <stop stop-color="#d0f5ef" stop-opacity=".58"/><stop offset="1" stop-color="#6bbfc0" stop-opacity=".22"/>
+    </linearGradient>
+    <linearGradient id="air" x2="0" y2="1">
+      <stop stop-color="#75c9d0" stop-opacity=".72"/><stop offset="1" stop-color="#b9e8dd" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="sunGlow">
+      <stop stop-color="#ffefae" stop-opacity=".72"/><stop offset="1" stop-color="#ffe7a0" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-25%" y="-35%" width="150%" height="185%">
+      <feDropShadow dx="0" dy="9" stdDeviation="10" flood-color="#775e55" flood-opacity=".17"/>
+    </filter>
+    <filter id="softShadow" x="-30%" y="-40%" width="160%" height="190%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#385959" flood-opacity=".15"/>
+    </filter>
+    <clipPath id="view"><rect x="124" y="141" width="402" height="332" rx="5"/></clipPath>
+    <style>
+      <![CDATA[
+        .sun-halo {transform-origin:444px 208px;animation:glow 5s ease-in-out infinite}
+        .cloud-one {animation:cloud 15s ease-in-out infinite alternate}
+        .cloud-two {animation:cloud 19s ease-in-out infinite alternate-reverse}
+        .heat {animation:heat 3.5s ease-in-out infinite}
+        .heat:nth-of-type(2) {animation-delay:-1.2s}
+        .heat:nth-of-type(3) {animation-delay:-2.1s}
+        .curtain-left {transform-origin:140px 124px;animation:curtainLeft 6s ease-in-out infinite}
+        .curtain-right {transform-origin:508px 124px;animation:curtainRight 6.8s ease-in-out infinite}
+        .airline {fill:none;stroke:url(#air);stroke-width:5;stroke-linecap:round;stroke-dasharray:34 27;animation:airflow 3.2s linear infinite}
+        .airline:nth-child(2) {animation-delay:-1s;stroke-width:4}
+        .airline:nth-child(3) {animation-delay:-2s;stroke-width:3.5}
+        .snow {transform-box:fill-box;transform-origin:center;animation:float 5s ease-in-out infinite}
+        .snow.delay {animation-delay:-2.4s}
+        .louver {transform-origin:900px 226px;animation:louver 5s ease-in-out infinite}
+        .cat-body {transform-origin:881px 588px;animation:breathe 3.8s ease-in-out infinite}
+        .cat-tail {transform-origin:958px 594px;animation:tail 5s ease-in-out infinite}
+        .z1 {animation:zzz 3.6s ease-out infinite}
+        .z2 {animation:zzz 3.6s ease-out -1.6s infinite}
+        .plant-leaf {transform-origin:166px 610px;animation:leaf 6s ease-in-out infinite}
+        .plant-leaf:nth-child(even) {animation-delay:-2.5s}
+        .ice {animation:ice 4s ease-in-out infinite alternate}
+        @keyframes glow {50% {transform:scale(1.13);opacity:.75}}
+        @keyframes cloud {to {transform:translateX(38px)}}
+        @keyframes heat {50% {transform:translateX(6px);opacity:.22}}
+        @keyframes curtainLeft {50% {transform:rotate(2deg)}}
+        @keyframes curtainRight {50% {transform:rotate(-2deg)}}
+        @keyframes airflow {to {stroke-dashoffset:-122}}
+        @keyframes float {50% {transform:translate(8px,13px) rotate(18deg);opacity:.35}}
+        @keyframes louver {50% {transform:rotate(3deg)}}
+        @keyframes breathe {50% {transform:scale(1.025,.975)}}
+        @keyframes tail {50% {transform:rotate(-11deg)}}
+        @keyframes zzz {0% {transform:translate(0,8px);opacity:0} 22% {opacity:.8} 100% {transform:translate(10px,-27px);opacity:0}}
+        @keyframes leaf {50% {transform:rotate(3deg)}}
+        @keyframes ice {to {transform:translateY(3px)}}
+        @media (prefers-reduced-motion:reduce) {* {animation:none!important}}
+      ]]>
+    </style>
+  </defs>
+
+  <!-- The warm room -->
+  <rect width="1200" height="800" fill="url(#wall)"/>
+  <path d="M0 598H1200V800H0Z" fill="url(#floor)"/>
+  <path d="M0 589H1200V606H0Z" fill="#efd6b8"/>
+  <path d="M0 605H1200" stroke="#c98f71" stroke-width="3" opacity=".32"/>
+  <path d="M0 675H1200M0 750H1200" stroke="#ba835f" stroke-width="2" opacity=".16"/>
+  <path d="M143 606 109 800M516 606 470 800M934 606 945 800" stroke="#ba835f" stroke-width="2" opacity=".11"/>
+  <path d="M125 493 552 493 757 800 48 800Z" fill="#ffe4ad" opacity=".11"/>
+
+  <!-- Type and little sticker -->
+  <text x="79" y="66" fill="#315e62" font-size="29" font-weight="700" letter-spacing="2" font-family="'Noto Sans CJK SC','Microsoft YaHei',sans-serif">夏日空调房</text>
+  <text x="80" y="91" fill="#9b8c79" font-size="11" font-weight="700" letter-spacing="3.4" font-family="Arial,sans-serif">A SLOW SUMMER AFTERNOON</text>
+  <path d="M75 105h52" stroke="#e4a988" stroke-width="4" stroke-linecap="round"/>
+  <g transform="translate(1003 47)">
+    <rect width="125" height="35" rx="17.5" fill="#ffedd7"/>
+    <circle cx="21" cy="17.5" r="7" fill="#f8b767"/>
+    <text x="36" y="22.5" fill="#ae7959" font-size="12" font-weight="700" font-family="Arial,sans-serif" letter-spacing=".8">SUMMER</text>
+  </g>
+
+  <!-- Window and the summer outside -->
+  <rect x="105" y="122" width="439" height="369" rx="13" fill="#d0ac8f" filter="url(#shadow)"/>
+  <rect x="115" y="132" width="419" height="349" rx="7" fill="#fcf7e7"/>
+  <g clip-path="url(#view)">
+    <rect x="124" y="141" width="402" height="332" fill="url(#sky)"/>
+    <circle class="sun-halo" cx="444" cy="208" r="105" fill="url(#sunGlow)"/>
+    <circle cx="444" cy="208" r="43" fill="#fff2bd"/>
+    <circle cx="444" cy="208" r="33" fill="#ffdc84" opacity=".72"/>
+    <g class="cloud-one" fill="#fffaf0" opacity=".86">
+      <ellipse cx="197" cy="192" rx="57" ry="13"/><circle cx="174" cy="181" r="23"/><circle cx="207" cy="177" r="28"/><circle cx="238" cy="186" r="17"/>
+    </g>
+    <g class="cloud-two" fill="#fff9e7" opacity=".68">
+      <ellipse cx="395" cy="284" rx="39" ry="9"/><circle cx="381" cy="277" r="15"/><circle cx="405" cy="274" r="19"/>
+    </g>
+    <path d="M124 381Q181 338 245 367T366 358Q440 337 526 371V473H124Z" fill="#9ccdb3"/>
+    <path d="M124 408Q193 370 269 398T421 391Q466 382 526 401V473H124Z" fill="#78b6a9"/>
+    <g fill="#f1c5a0" opacity=".68">
+      <rect x="159" y="327" width="42" height="90" rx="3"/><rect x="207" y="345" width="24" height="60" rx="2"/>
+      <rect x="251" y="309" width="44" height="92" rx="3"/><rect x="298" y="332" width="23" height="70" rx="2"/>
+    </g>
+    <g fill="#fff0cf" opacity=".7">
+      <rect x="172" y="344" width="7" height="9"/><rect x="184" y="344" width="7" height="9"/><rect x="172" y="361" width="7" height="9"/>
+      <rect x="265" y="327" width="7" height="9"/><rect x="279" y="327" width="7" height="9"/><rect x="265" y="345" width="7" height="9"/>
+    </g>
+    <path d="M124 435Q183 412 249 430T388 425Q461 409 526 437V473H124Z" fill="#5eaaa1"/>
+    <path d="M119 444Q168 432 214 445T302 447Q382 429 447 446T535 443V477H119Z" fill="#348d87" opacity=".6"/>
+    <g fill="#367a70">
+      <path d="M479 423q-12-48-13-67h5q2 39 18 68Z"/>
+      <path d="M471 359q-33-30-56-12 24-1 38 16-22-14-42-5 27 2 44 16Z"/>
+      <path d="M466 362q5-42 36-46-22 13-24 32 19-23 45-17-29 9-46 33Z"/>
+      <path d="M462 368q-29-10-43 5 22-6 40 5Zm7-2q19-22 44-10-27 1-40 19Z"/>
+    </g>
+    <g fill="none" stroke="#fff9da" stroke-width="3" stroke-linecap="round">
+      <path class="heat" d="M361 345q-8-10 0-20t0-20"/><path class="heat" d="M378 346q-8-10 0-20t0-20"/><path class="heat" d="M395 345q-8-10 0-20t0-20"/>
+    </g>
+    <path d="M150 143 265 143 162 473H124Z" fill="#fff" opacity=".105"/>
+  </g>
+  <rect x="119" y="136" width="412" height="341" rx="6" fill="none" stroke="#fdf7e8" stroke-width="10"/>
+  <path d="M324 140V475M124 307H525" stroke="#f6e9d6" stroke-width="12"/>
+  <path d="M324 140V475M124 307H525" stroke="#c99c82" stroke-width="2" opacity=".52"/>
+  <path d="M88 485H560Q566 485 566 492V500H82V492Q82 485 88 485Z" fill="#f6ead8" filter="url(#softShadow)"/>
+  <rect x="88" y="500" width="471" height="8" rx="3" fill="#d8b799"/>
+
+  <!-- The curtain rail and moving fabric -->
+  <path d="M86 119H562" stroke="#977266" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="89" cy="119" r="9" fill="#ad816c"/><circle cx="559" cy="119" r="9" fill="#ad816c"/>
+  <g class="curtain-left">
+    <path d="M108 125Q149 138 162 124Q150 249 147 335Q144 435 160 507Q126 501 91 509Q107 430 93 336Q84 230 108 125Z" fill="url(#curtain)"/>
+    <path d="M109 125Q126 189 119 286T125 504M146 127Q134 228 139 309T151 504" fill="none" stroke="#f8d1aa" stroke-width="5" opacity=".65"/>
+    <path d="M107 327Q135 340 153 327" fill="none" stroke="#ffe7bf" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="153" cy="328" r="9" fill="#f6d69d"/>
+  </g>
+  <g class="curtain-right">
+    <path d="M490 124Q513 139 538 125Q553 213 549 312Q541 431 559 507Q521 500 480 509Q493 427 485 335Q480 227 490 124Z" fill="url(#curtain)"/>
+    <path d="M498 129Q510 239 502 333T497 505M531 128Q524 235 531 320T545 503" fill="none" stroke="#f8d1aa" stroke-width="5" opacity=".65"/>
+    <path d="M486 327Q516 340 547 325" fill="none" stroke="#ffe7bf" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="486" cy="328" r="9" fill="#f6d69d"/>
+  </g>
+
+  <!-- Air conditioner -->
+  <g filter="url(#shadow)">
+    <rect x="738" y="128" width="337" height="112" rx="25" fill="#e8eeea"/>
+    <rect x="734" y="121" width="337" height="109" rx="23" fill="#fbfcf6" stroke="#e4e9df" stroke-width="3"/>
+    <path d="M751 184Q900 199 1054 184" fill="none" stroke="#e2eae5" stroke-width="2"/>
+    <path d="M754 204Q904 221 1053 204" fill="none" stroke="#c8dedb" stroke-width="5" stroke-linecap="round"/>
+    <path class="louver" d="M784 222Q903 232 1028 222" fill="none" stroke="#83aeb0" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="769" cy="156" r="4" fill="#79c8aa"/>
+    <text x="789" y="160" fill="#9aada8" font-family="Arial,sans-serif" font-size="11" letter-spacing="3">BREEZE</text>
+    <text x="980" y="168" fill="#69a9aa" font-family="Arial,sans-serif" font-size="29" font-weight="300">23°</text>
+    <g transform="translate(955 190)" stroke="#8bc9ce" stroke-width="2" stroke-linecap="round">
+      <path d="M0-10V10M-9-5 9 5M-9 5 9-5"/>
+    </g>
+  </g>
+  <g opacity=".78">
+    <path class="airline" d="M793 244Q766 278 784 306T806 373Q811 403 796 429"/>
+    <path class="airline" d="M889 247Q860 283 881 313T906 380Q916 411 899 445"/>
+    <path class="airline" d="M994 242Q1017 277 995 310T981 373Q984 405 1007 426"/>
+  </g>
+  <g class="snow" fill="none" stroke="#8bcbd0" stroke-width="2" stroke-linecap="round" opacity=".65" transform="translate(827 357)">
+    <path d="M0-9V9M-8-5 8 5M-8 5 8-5"/>
+  </g>
+  <g class="snow delay" fill="none" stroke="#8bcbd0" stroke-width="1.7" stroke-linecap="round" opacity=".5" transform="translate(1055 336)">
+    <path d="M0-7V7M-6-3.5 6 3.5M-6 3.5 6-3.5"/>
+  </g>
+
+  <!-- A small framed print -->
+  <g filter="url(#softShadow)">
+    <rect x="607" y="166" width="99" height="128" rx="5" fill="#c9987c"/>
+    <rect x="615" y="174" width="83" height="112" fill="#f8f3e6"/>
+    <circle cx="656" cy="211" r="15" fill="#edb996"/>
+    <path d="M616 251Q642 216 664 242T697 232V285H616Z" fill="#a4c8b0"/>
+    <path d="M616 268Q643 242 664 263T697 252V285H616Z" fill="#5b9993"/>
+  </g>
+
+  <!-- Rug and sofa -->
+  <ellipse cx="780" cy="710" rx="340" ry="64" fill="#f6dfc0" opacity=".72"/>
+  <ellipse cx="780" cy="710" rx="303" ry="47" fill="none" stroke="#e9bc9c" stroke-width="3" opacity=".6"/>
+  <ellipse cx="780" cy="711" rx="258" ry="32" fill="none" stroke="#e9bc9c" stroke-width="2" opacity=".5"/>
+  <g filter="url(#shadow)">
+    <path d="M622 630h40v64h-28q-12 0-12-12ZM987 630h40v52q0 12-12 12h-28Z" fill="#8d6863"/>
+    <rect x="590" y="453" width="449" height="181" rx="50" fill="url(#sofa)"/>
+    <path d="M624 469q30-27 75-19h242q47-7 72 23v91H624Z" fill="#88c5ba"/>
+    <path d="M660 488q54-12 99 6v87H655q-18-39 5-93ZM777 494q51-17 107-4v92H777ZM901 489q54-15 88 7v89h-88Z" fill="#73b5ad" opacity=".8"/>
+    <path d="M591 551q11-17 28-16 28 0 30 37v49h333v-53q3-31 29-33 24-2 30 24l13 53q8 33-30 43H610q-42-2-43-35Z" fill="#4d9896"/>
+    <path d="M629 582q185-13 362 0v49H629Z" fill="url(#sofaSeat)"/>
+    <path d="M628 626q183 14 364 0" fill="none" stroke="#438b8c" stroke-width="6" opacity=".6"/>
+    <path d="M698 540q32-24 67-3l-12 58q-35 10-68-5Z" fill="#eed6a9" filter="url(#softShadow)"/>
+    <path d="M704 546q23-10 47-2" fill="none" stroke="#fff4d5" stroke-width="3" stroke-linecap="round"/>
+    <path d="M961 524q24-5 46 15l-11 56q-27 7-53-5Z" fill="#d1a298" filter="url(#softShadow)"/>
+    <path d="M965 537q15 0 28 12" fill="none" stroke="#f0c4b1" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- A curled-up sleeping cat -->
+  <g filter="url(#softShadow)">
+    <path class="cat-tail" d="M934 594q39-27 45-4 2 18-19 22-19 3-25-6" fill="none" stroke="#cf8e65" stroke-width="17" stroke-linecap="round"/>
+    <g class="cat-body">
+      <ellipse cx="879" cy="581" rx="77" ry="42" fill="#e5ae79"/>
+      <path d="M846 558q22-12 41-8M886 554q18 3 27 10" fill="none" stroke="#f6d4a1" stroke-width="6" stroke-linecap="round" opacity=".75"/>
+      <path d="M894 605q19 6 35-5" fill="none" stroke="#c48763" stroke-width="5" stroke-linecap="round"/>
+    </g>
+    <path d="m809 567-5-35q14 1 27 18l24-23q10 17 8 33" fill="#d99b70"/>
+    <path d="m811 543 3 15 10-7M846 543l-4 14 11-5" fill="#f3bea1"/>
+    <ellipse cx="829" cy="579" rx="38" ry="29" fill="#f3c595"/>
+    <path d="M804 578q7 7 14 0M837 577q7 7 14-1" fill="none" stroke="#72565a" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="m823 585 5 4 5-4Z" fill="#ae746d"/>
+    <path d="M828 588q-2 5-7 5m7-5q2 5 7 5" fill="none" stroke="#a47168" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M796 587 780 583m17 9-18 2m72-7 16-4m-16 9 18 2" fill="none" stroke="#b68370" stroke-width="1.4" stroke-linecap="round"/>
+  </g>
+  <g fill="#75aba9" font-family="Arial,sans-serif" font-weight="700" font-size="17">
+    <text class="z1" x="781" y="533">z</text><text class="z2" x="769" y="512" font-size="13">z</text>
+  </g>
+
+  <!-- Plant, low table, and an iced drink -->
+  <g fill="#498c78">
+    <path class="plant-leaf" d="M170 609Q111 583 111 536q36 3 59 73Z"/>
+    <path class="plant-leaf" d="M169 605Q160 544 130 518q-15 54 39 87Z" fill="#64a88c"/>
+    <path class="plant-leaf" d="M170 608q15-77 57-83 4 49-57 83Z"/>
+    <path class="plant-leaf" d="M168 607q38-54 79-43-15 45-79 43Z" fill="#64a88c"/>
+    <path class="plant-leaf" d="M171 607q-14-51 10-90 28 31-10 90Z" fill="#77b396"/>
+  </g>
+  <path d="M169 608q-6-64-31-83m31 80q14-62 46-75m-43 76q29-37 58-39" fill="none" stroke="#c2dfb8" stroke-width="2" opacity=".7"/>
+  <path d="M137 602h67l-8 72q-2 12-14 12h-25q-12 0-14-12Z" fill="#db957d" filter="url(#softShadow)"/>
+  <path d="M141 616h59" stroke="#f5b39a" stroke-width="5" opacity=".7"/>
+  <path d="M152 685h36" stroke="#b97869" stroke-width="3" opacity=".6"/>
+
+  <ellipse cx="375" cy="710" rx="140" ry="24" fill="#855e55" opacity=".11"/>
+  <path d="M278 667h18l-8 67h-14ZM445 667h18l5 67h-14Z" fill="#966d61"/>
+  <rect x="239" y="653" width="269" height="25" rx="12.5" fill="#e7ab85" filter="url(#softShadow)"/>
+  <path d="M253 656h241" stroke="#ffd4aa" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+  <g transform="translate(332 554)">
+    <ellipse cx="36" cy="99" rx="40" ry="7" fill="#8eaaa0" opacity=".33"/>
+    <path d="M8 18h56l-5 69q-1 8-9 8H22q-8 0-9-8Z" fill="url(#glass)" stroke="#9dcac4" stroke-width="3"/>
+    <path d="M11 54q24 5 50 0l-3 32q-1 6-9 6H23q-8 0-9-6Z" fill="#e9b96c" opacity=".8"/>
+    <path d="M7 18q30-6 58 0" fill="none" stroke="#e3f6e9" stroke-width="5" stroke-linecap="round"/>
+    <path d="m39 32 12-39" stroke="#69aaa3" stroke-width="5" stroke-linecap="round"/>
+    <g class="ice" fill="#e2f7e8" opacity=".7"><path d="m17 46 16-7 7 12-15 7Z"/><path d="m42 52 11-7 7 11-11 7Z"/></g>
+    <circle cx="54" cy="31" r="13" fill="none" stroke="#f4d583" stroke-width="5"/>
+    <path d="M54 18q11 10 1 26" fill="none" stroke="#fff1b3" stroke-width="2"/>
+  </g>
+  <path d="m429 646 23-35 33 25-24 15Z" fill="#f7e5cb" filter="url(#softShadow)"/>
+  <path d="m452 610 33 26-24 15-32-5Z" fill="#fff5e4"/>
+  <path d="m447 623 19 13m-23-8 18 12" stroke="#bbaca0" stroke-width="1.5" opacity=".65"/>
+
+  <!-- Tiny signature line -->
+  <text x="1113" y="764" fill="#a97965" opacity=".7" font-size="10" letter-spacing="2" text-anchor="end" font-family="Arial,sans-serif">STAY COOL · 23°C</text>
+</svg>

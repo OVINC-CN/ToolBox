@@ -1,0 +1,427 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e9f7fd"/>
+      <stop offset="1" stop-color="#cbe7f4"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e2b07a"/>
+      <stop offset="1" stop-color="#c98d52"/>
+    </linearGradient>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff9a3c"/>
+      <stop offset="0.55" stop-color="#ffc56b"/>
+      <stop offset="1" stop-color="#ffe7a8"/>
+    </linearGradient>
+    <linearGradient id="acBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e6edf2"/>
+    </linearGradient>
+    <linearGradient id="air" gradientUnits="userSpaceOnUse" x1="0" y1="145" x2="0" y2="345">
+      <stop offset="0" stop-color="#6fd6ff" stop-opacity="0.95"/>
+      <stop offset="0.6" stop-color="#a9ecff" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#dff9ff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="coolGlow">
+      <stop offset="0" stop-color="#9fe6ff" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#9fe6ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="juice" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffc24b"/>
+      <stop offset="1" stop-color="#ff8a3d"/>
+    </linearGradient>
+    <clipPath id="winClip"><rect x="482" y="112" width="236" height="206"/></clipPath>
+    <clipPath id="glassClip"><path d="M568,380 L612,380 L606,438 L574,438 Z"/></clipPath>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#4a6f8a" flood-opacity="0.25"/>
+    </filter>
+    <!-- 雪花 -->
+    <g id="flake" stroke-width="1.6" stroke-linecap="round">
+      <line x1="-5" y1="0" x2="5" y2="0"/>
+      <line x1="-2.5" y1="-4.3" x2="2.5" y2="4.3"/>
+      <line x1="-2.5" y1="4.3" x2="2.5" y2="-4.3"/>
+    </g>
+    <!-- 西瓜块 -->
+    <g id="melon">
+      <path d="M-26,0 Q0,12 26,0 L0,-40 Z" fill="#2f9e44"/>
+      <path d="M-23,-2 Q0,8 23,-2 L0,-37 Z" fill="#eaf8d8"/>
+      <path d="M-20,-4 Q0,4 20,-4 L0,-34 Z" fill="#ff4d61"/>
+      <ellipse cx="-6" cy="-10" rx="1.4" ry="2.4" fill="#2b2b2b"/>
+      <ellipse cx="6" cy="-10" rx="1.4" ry="2.4" fill="#2b2b2b"/>
+      <ellipse cx="0" cy="-20" rx="1.4" ry="2.4" fill="#2b2b2b"/>
+      <ellipse cx="-11" cy="-4" rx="1.3" ry="2.2" fill="#2b2b2b"/>
+      <ellipse cx="11" cy="-4" rx="1.3" ry="2.2" fill="#2b2b2b"/>
+    </g>
+  </defs>
+
+  <!-- 墙面 -->
+  <rect width="800" height="470" fill="url(#wall)"/>
+
+  <!-- 标题 -->
+  <text x="615" y="42" text-anchor="middle" font-size="22" font-weight="bold" fill="#2f6f93">夏日 · 空调房</text>
+  <text x="615" y="68" text-anchor="middle" font-size="13" fill="#5b7f96">室外 <tspan fill="#e4572e" font-weight="bold">38°C</tspan> · 室内 <tspan fill="#1f9bd6" font-weight="bold">26°C</tspan></text>
+
+  <!-- 挂钟 -->
+  <circle cx="405" cy="70" r="22" fill="#ffffff" stroke="#7fb3d5" stroke-width="3"/>
+  <g stroke="#9bb7c9" stroke-width="2" stroke-linecap="round">
+    <line x1="405" y1="52" x2="405" y2="56"/>
+    <line x1="405" y1="84" x2="405" y2="88"/>
+    <line x1="387" y1="70" x2="391" y2="70"/>
+    <line x1="419" y1="70" x2="423" y2="70"/>
+  </g>
+  <line x1="405" y1="70" x2="405" y2="60" stroke="#35556b" stroke-width="3" stroke-linecap="round">
+    <animateTransform attributeName="transform" type="rotate" from="0 405 70" to="360 405 70" dur="120s" repeatCount="indefinite"/>
+  </line>
+  <line x1="405" y1="70" x2="405" y2="55" stroke="#35556b" stroke-width="2" stroke-linecap="round">
+    <animateTransform attributeName="transform" type="rotate" from="0 405 70" to="360 405 70" dur="10s" repeatCount="indefinite"/>
+  </line>
+  <circle cx="405" cy="70" r="2.5" fill="#e4572e"/>
+
+  <!-- 窗外炎热景色 -->
+  <g clip-path="url(#winClip)">
+    <rect x="482" y="112" width="236" height="206" fill="url(#sky)"/>
+    <circle cx="665" cy="168" r="42" fill="#fff4b8" opacity="0.5">
+      <animate attributeName="r" values="38;46;38" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.35;0.7;0.35" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <g stroke="#ffb703" stroke-width="4" stroke-linecap="round">
+      <animateTransform attributeName="transform" type="rotate" from="0 665 168" to="360 665 168" dur="24s" repeatCount="indefinite"/>
+      <line x1="665" y1="134" x2="665" y2="122"/>
+      <line x1="665" y1="134" x2="665" y2="122" transform="rotate(30 665 168)"/>
+      <line x1="665" y1="134" x2="665" y2="122" transform="rotate(60 665 168)"/>
+      <line x1="665" y1="134" x2="665" y2="122" transform="rotate(90 665 168)"/>
+      <line x1="665" y1="134" x2="665" y2="122" transform="rotate(120 665 168)"/>
+      <line x1="665" y1="134" x2="665" y2="122" transform="rotate(150 665 168)"/>
+      <line x1="665" y1="134" x2="665" y2="122" transform="rotate(180 665 168)"/>
+      <line x1="665" y1="134" x2="665" y2="122" transform="rotate(210 665 168)"/>
+      <line x1="665" y1="134" x2="665" y2="122" transform="rotate(240 665 168)"/>
+      <line x1="665" y1="134" x2="665" y2="122" transform="rotate(270 665 168)"/>
+      <line x1="665" y1="134" x2="665" y2="122" transform="rotate(300 665 168)"/>
+      <line x1="665" y1="134" x2="665" y2="122" transform="rotate(330 665 168)"/>
+    </g>
+    <circle cx="665" cy="168" r="24" fill="#ffd23f" stroke="#ffb703" stroke-width="3"/>
+    <g fill="#e3874e" opacity="0.55">
+      <rect x="488" y="238" width="34" height="80"/>
+      <rect x="526" y="214" width="28" height="104"/>
+      <rect x="560" y="250" width="40" height="68"/>
+      <rect x="606" y="228" width="30" height="90"/>
+      <rect x="642" y="258" width="44" height="60"/>
+      <rect x="690" y="236" width="28" height="82"/>
+    </g>
+    <rect x="512" y="292" width="6" height="26" fill="#8d5a3b"/>
+    <circle cx="515" cy="284" r="16" fill="#6aa84f"/>
+    <circle cx="503" cy="292" r="10" fill="#6aa84f"/>
+    <circle cx="527" cy="292" r="10" fill="#6aa84f"/>
+    <!-- 热浪 -->
+    <path d="M442,300 q10,-5 20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.5">
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="40 0" dur="1.6s" repeatCount="indefinite"/>
+    </path>
+    <path d="M442,276 q10,-5 20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.35">
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="40 0" dur="2.3s" repeatCount="indefinite"/>
+    </path>
+    <polygon points="530,112 556,112 506,318 480,318" fill="#ffffff" opacity="0.16"/>
+    <polygon points="566,112 576,112 526,318 516,318" fill="#ffffff" opacity="0.12"/>
+  </g>
+
+  <!-- 窗框 -->
+  <rect x="470" y="100" width="260" height="230" rx="5" fill="none" stroke="#d6e3ea" stroke-width="1"/>
+  <rect x="476" y="106" width="248" height="218" rx="4" fill="none" stroke="#ffffff" stroke-width="12"/>
+  <line x1="600" y1="112" x2="600" y2="318" stroke="#ffffff" stroke-width="6"/>
+  <line x1="482" y1="215" x2="718" y2="215" stroke="#ffffff" stroke-width="6"/>
+  <rect x="460" y="322" width="280" height="12" rx="3" fill="#fdfefe" stroke="#d6e3ea"/>
+
+  <!-- 窗台仙人掌 -->
+  <rect x="617" y="284" width="10" height="26" rx="5" fill="#5cb85c"/>
+  <path d="M617,298 h-4 a3,3 0 0 1 -3,-3 v-5" fill="none" stroke="#5cb85c" stroke-width="4" stroke-linecap="round"/>
+  <rect x="611" y="306" width="22" height="16" rx="3" fill="#e07a5f"/>
+  <rect x="609" y="304" width="26" height="5" rx="2" fill="#ef8f73"/>
+
+  <!-- 窗帘杆与飘动的窗帘 -->
+  <line x1="440" y1="92" x2="760" y2="92" stroke="#b08968" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="438" cy="92" r="6" fill="#9c6f4e"/>
+  <circle cx="762" cy="92" r="6" fill="#9c6f4e"/>
+  <g transform="translate(445,95)">
+    <g>
+      <animateTransform attributeName="transform" type="skewX" values="0;4;0" dur="5s" repeatCount="indefinite"/>
+      <path d="M0,0 L60,0 C52,80 56,170 68,250 L0,250 Z" fill="#bfe8d6" opacity="0.95"/>
+      <path d="M18,2 C16,90 18,170 22,248 M38,2 C35,90 38,170 46,248" fill="none" stroke="#9ed3bd" stroke-width="2"/>
+    </g>
+  </g>
+  <g transform="translate(755,95)">
+    <g>
+      <animateTransform attributeName="transform" type="skewX" values="0;3;0" dur="5s" begin="0.6s" repeatCount="indefinite"/>
+      <path d="M0,0 L-60,0 C-52,80 -56,170 -68,250 L0,250 Z" fill="#bfe8d6" opacity="0.95"/>
+      <path d="M-18,2 C-16,90 -18,170 -22,248 M-38,2 C-35,90 -38,170 -46,248" fill="none" stroke="#9ed3bd" stroke-width="2"/>
+    </g>
+  </g>
+
+  <!-- 温度计：38° 降到 26° -->
+  <rect x="402" y="170" width="16" height="120" rx="8" fill="#ffffff" stroke="#b9cfdc" stroke-width="2"/>
+  <circle cx="410" cy="296" r="13" fill="#ffffff" stroke="#b9cfdc" stroke-width="2"/>
+  <rect x="404" y="280" width="12" height="8" fill="#ffffff"/>
+  <rect x="406" y="182" width="8" height="114" rx="4" fill="#ff5a4f">
+    <animate attributeName="y" values="182;250;250;182" keyTimes="0;0.5;0.85;1" dur="10s" repeatCount="indefinite"/>
+    <animate attributeName="height" values="114;46;46;114" keyTimes="0;0.5;0.85;1" dur="10s" repeatCount="indefinite"/>
+    <animate attributeName="fill" values="#ff5a4f;#3aa7ff;#3aa7ff;#ff5a4f" keyTimes="0;0.5;0.85;1" dur="10s" repeatCount="indefinite"/>
+  </rect>
+  <circle cx="410" cy="296" r="9" fill="#ff5a4f">
+    <animate attributeName="fill" values="#ff5a4f;#3aa7ff;#3aa7ff;#ff5a4f" keyTimes="0;0.5;0.85;1" dur="10s" repeatCount="indefinite"/>
+  </circle>
+  <g stroke="#9bb7c9" stroke-width="1.5">
+    <line x1="421" y1="182" x2="427" y2="182"/>
+    <line x1="421" y1="199" x2="425" y2="199"/>
+    <line x1="421" y1="216" x2="425" y2="216"/>
+    <line x1="421" y1="233" x2="425" y2="233"/>
+    <line x1="421" y1="250" x2="427" y2="250"/>
+    <line x1="421" y1="267" x2="425" y2="267"/>
+  </g>
+  <text x="429" y="185" font-size="7" fill="#e4572e">38</text>
+  <text x="429" y="253" font-size="7" fill="#1f9bd6">26</text>
+
+  <!-- 冷气光晕 -->
+  <ellipse cx="205" cy="240" rx="230" ry="150" fill="url(#coolGlow)">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite"/>
+  </ellipse>
+
+  <!-- 空调 -->
+  <rect x="50" y="40" width="310" height="95" rx="18" fill="url(#acBody)" stroke="#d3dde4" stroke-width="1.5" filter="url(#shadow)"/>
+  <line x1="66" y1="108" x2="344" y2="108" stroke="#dfe7ec" stroke-width="1.5"/>
+  <circle cx="78" cy="70" r="4" fill="#35e08a">
+    <animate attributeName="opacity" values="1;0.25;1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="92" y="75" font-size="13" font-weight="bold" fill="#9fb0bc" letter-spacing="2" font-family="Arial,sans-serif">BREEZE</text>
+  <rect x="250" y="56" width="88" height="36" rx="7" fill="#15232e"/>
+  <use href="#flake" x="265" y="74" stroke="#7ff3ff"/>
+  <text x="304" y="81" text-anchor="middle" font-family="Consolas,Menlo,monospace" font-size="19" font-weight="bold" fill="#7ff3ff">26°C</text>
+  <rect x="68" y="116" width="274" height="14" rx="6" fill="#9fb1bd"/>
+  <path fill="#f5f8fa" stroke="#d3dde4" d="M68,124 L342,124 L345,136 L65,136 Z">
+    <animate attributeName="d" values="M68,124 L342,124 L345,136 L65,136 Z;M68,124 L342,124 L349,150 L61,150 Z;M68,124 L342,124 L345,136 L65,136 Z" dur="5s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- 地板 -->
+  <rect x="0" y="470" width="800" height="130" fill="url(#floor)"/>
+  <g stroke="#a86b39" stroke-opacity="0.35" stroke-width="2">
+    <line x1="0" y1="500" x2="800" y2="500"/>
+    <line x1="0" y1="532" x2="800" y2="532"/>
+    <line x1="0" y1="566" x2="800" y2="566"/>
+    <line x1="130" y1="470" x2="130" y2="500"/>
+    <line x1="390" y1="470" x2="390" y2="500"/>
+    <line x1="650" y1="470" x2="650" y2="500"/>
+    <line x1="250" y1="500" x2="250" y2="532"/>
+    <line x1="520" y1="500" x2="520" y2="532"/>
+    <line x1="760" y1="500" x2="760" y2="532"/>
+    <line x1="80" y1="532" x2="80" y2="566"/>
+    <line x1="340" y1="532" x2="340" y2="566"/>
+    <line x1="610" y1="532" x2="610" y2="566"/>
+    <line x1="200" y1="566" x2="200" y2="600"/>
+    <line x1="460" y1="566" x2="460" y2="600"/>
+    <line x1="720" y1="566" x2="720" y2="600"/>
+  </g>
+  <rect x="0" y="462" width="800" height="10" fill="#f6fbfe"/>
+  <line x1="0" y1="472" x2="800" y2="472" stroke="#d5e3ec"/>
+
+  <!-- 沙发 -->
+  <ellipse cx="220" cy="470" rx="185" ry="7" fill="#000000" opacity="0.08"/>
+  <rect x="70" y="318" width="300" height="84" rx="24" fill="#4f9fcf"/>
+  <rect x="75" y="450" width="10" height="18" rx="2" fill="#7a5230"/>
+  <rect x="355" y="450" width="10" height="18" rx="2" fill="#7a5230"/>
+  <rect x="55" y="415" width="330" height="38" rx="12" fill="#3d86b3"/>
+  <rect x="88" y="383" width="134" height="40" rx="13" fill="#69b6e2" stroke="#5aa6d3"/>
+  <rect x="218" y="383" width="134" height="40" rx="13" fill="#69b6e2" stroke="#5aa6d3"/>
+  <rect x="42" y="358" width="52" height="95" rx="20" fill="#4b94c2"/>
+  <rect x="346" y="358" width="52" height="95" rx="20" fill="#4b94c2"/>
+  <rect x="104" y="345" width="56" height="50" rx="15" fill="#ffd166" transform="rotate(-12 132 370)"/>
+  <rect x="110" y="351" width="44" height="38" rx="11" fill="none" stroke="#ffffff" stroke-dasharray="3 3" opacity="0.8" transform="rotate(-12 132 370)"/>
+
+  <!-- 熟睡的猫 -->
+  <g transform="translate(290,401)">
+    <g>
+      <animateTransform attributeName="transform" type="scale" values="1 1;1.03 1.09;1 1" dur="3s" repeatCount="indefinite"/>
+      <g transform="translate(-290,-401)">
+        <ellipse cx="290" cy="380" rx="44" ry="21" fill="#f6a55a"/>
+        <path d="M276,361 q4,8 0,16 M291,359 q4,9 0,18 M306,361 q4,8 0,16" fill="none" stroke="#e07f35" stroke-width="3" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+  <path fill="none" stroke="#f6a55a" stroke-width="8" stroke-linecap="round" d="M326,390 C352,392 348,414 320,412 C298,410 284,406 272,402">
+    <animate attributeName="d" dur="3.2s" repeatCount="indefinite" values="M326,390 C352,392 348,414 320,412 C298,410 284,406 272,402;M326,390 C354,390 350,416 320,413 C300,412 288,412 276,409;M326,390 C352,392 348,414 320,412 C298,410 284,406 272,402"/>
+  </path>
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="0 0;0 -1.2;0 0" dur="3s" repeatCount="indefinite"/>
+    <path d="M235,376 L236,355 L247,367 Z" fill="#f6a55a"/>
+    <path d="M253,367 L264,355 L265,376 Z" fill="#f6a55a"/>
+    <path d="M238,372 L238,360 L245,368 Z" fill="#ffc1a6"/>
+    <path d="M255,368 L262,360 L262,372 Z" fill="#ffc1a6"/>
+    <circle cx="250" cy="383" r="17" fill="#f8ae66"/>
+    <path d="M239,383 q4,3.5 8,0 M253,383 q4,3.5 8,0" fill="none" stroke="#5a3a2a" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M248,388 L252,388 L250,390.5 Z" fill="#ff8fa3"/>
+    <path d="M250,390.5 q-2,2.5 -4,1 M250,390.5 q2,2.5 4,1" fill="none" stroke="#5a3a2a" stroke-width="1.2" stroke-linecap="round"/>
+    <g stroke="#c9844b" stroke-width="0.8" stroke-linecap="round">
+      <line x1="238" y1="389" x2="227" y2="387"/>
+      <line x1="238" y1="391" x2="228" y2="392"/>
+      <line x1="262" y1="389" x2="273" y2="387"/>
+      <line x1="262" y1="391" x2="272" y2="392"/>
+    </g>
+    <circle cx="240" cy="389" r="3" fill="#ff9fb0" opacity="0.5"/>
+    <circle cx="260" cy="389" r="3" fill="#ff9fb0" opacity="0.5"/>
+    <ellipse cx="242" cy="400" rx="7" ry="4" fill="#fbd1a8"/>
+    <ellipse cx="258" cy="401" rx="7" ry="4" fill="#fbd1a8"/>
+  </g>
+
+  <!-- Zzz -->
+  <g font-weight="bold" fill="#4f86b8" font-family="Arial,sans-serif">
+    <text x="232" y="355" font-size="12" opacity="0">z
+      <animate attributeName="opacity" values="0;1;0" dur="3s" begin="0s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0;-12 -32" dur="3s" begin="0s" repeatCount="indefinite"/>
+    </text>
+    <text x="232" y="355" font-size="15" opacity="0">z
+      <animate attributeName="opacity" values="0;1;0" dur="3s" begin="1s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0;-12 -32" dur="3s" begin="1s" repeatCount="indefinite"/>
+    </text>
+    <text x="232" y="355" font-size="18" opacity="0">Z
+      <animate attributeName="opacity" values="0;1;0" dur="3s" begin="2s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0;-12 -32" dur="3s" begin="2s" repeatCount="indefinite"/>
+    </text>
+  </g>
+
+  <!-- 冷风气流 -->
+  <g stroke-linecap="round" fill="none">
+    <animateTransform attributeName="transform" type="translate" values="-8 0;10 0;-8 0" dur="5s" repeatCount="indefinite"/>
+    <g stroke="url(#air)" stroke-width="12" opacity="0.3">
+      <path d="M95,150 C115,200 75,250 105,315"/>
+      <path d="M150,150 C175,210 130,265 165,335"/>
+      <path d="M205,150 C230,215 185,270 220,345"/>
+      <path d="M260,150 C285,210 240,265 275,335"/>
+      <path d="M315,150 C340,200 300,250 330,315"/>
+    </g>
+    <g stroke="url(#air)" stroke-width="3.5" stroke-dasharray="22 16">
+      <path d="M95,150 C115,200 75,250 105,315">
+        <animate attributeName="stroke-dashoffset" from="0" to="-76" dur="1.6s" repeatCount="indefinite"/>
+      </path>
+      <path d="M150,150 C175,210 130,265 165,335">
+        <animate attributeName="stroke-dashoffset" from="-20" to="-96" dur="1.5s" repeatCount="indefinite"/>
+      </path>
+      <path d="M205,150 C230,215 185,270 220,345">
+        <animate attributeName="stroke-dashoffset" from="-8" to="-84" dur="1.4s" repeatCount="indefinite"/>
+      </path>
+      <path d="M260,150 C285,210 240,265 275,335">
+        <animate attributeName="stroke-dashoffset" from="-28" to="-104" dur="1.55s" repeatCount="indefinite"/>
+      </path>
+      <path d="M315,150 C340,200 300,250 330,315">
+        <animate attributeName="stroke-dashoffset" from="-14" to="-90" dur="1.65s" repeatCount="indefinite"/>
+      </path>
+    </g>
+  </g>
+
+  <!-- 飘落的雪花 -->
+  <g stroke="#5ccbf2">
+    <use href="#flake" x="115" y="150" opacity="0">
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="-12 175" dur="4.2s" begin="0s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.7;1" dur="4.2s" begin="0s" repeatCount="indefinite"/>
+    </use>
+    <use href="#flake" x="175" y="152" opacity="0">
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="14 185" dur="4.2s" begin="0.7s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.7;1" dur="4.2s" begin="0.7s" repeatCount="indefinite"/>
+    </use>
+    <use href="#flake" x="232" y="150" opacity="0">
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="-6 190" dur="4.2s" begin="1.4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.7;1" dur="4.2s" begin="1.4s" repeatCount="indefinite"/>
+    </use>
+    <use href="#flake" x="290" y="152" opacity="0">
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="12 180" dur="4.2s" begin="2.1s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.7;1" dur="4.2s" begin="2.1s" repeatCount="indefinite"/>
+    </use>
+    <use href="#flake" x="145" y="150" opacity="0">
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="8 170" dur="4.2s" begin="2.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.7;1" dur="4.2s" begin="2.8s" repeatCount="indefinite"/>
+    </use>
+    <use href="#flake" x="262" y="150" opacity="0">
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="-14 185" dur="4.2s" begin="3.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.7;1" dur="4.2s" begin="3.5s" repeatCount="indefinite"/>
+    </use>
+  </g>
+
+  <!-- 地毯与茶几 -->
+  <ellipse cx="545" cy="535" rx="178" ry="30" fill="#a8ddd0"/>
+  <ellipse cx="545" cy="535" rx="152" ry="22" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="7 6" opacity="0.8"/>
+  <ellipse cx="545" cy="524" rx="100" ry="6" fill="#000000" opacity="0.1"/>
+  <rect x="458" y="448" width="9" height="74" rx="2" fill="#a86e3d"/>
+  <rect x="623" y="448" width="9" height="74" rx="2" fill="#a86e3d"/>
+  <rect x="440" y="438" width="210" height="12" rx="4" fill="#c0834c"/>
+  <rect x="440" y="430" width="210" height="12" rx="6" fill="#dba06a"/>
+
+  <!-- 西瓜 -->
+  <ellipse cx="495" cy="436" rx="42" ry="4" fill="#ffffff" stroke="#e1e6ea"/>
+  <use href="#melon" transform="translate(480,433) rotate(-12)"/>
+  <use href="#melon" transform="translate(511,434) rotate(10)"/>
+
+  <!-- 遥控器 -->
+  <rect x="622" y="429" width="24" height="8" rx="3" fill="#f2f5f7" stroke="#cfd8de"/>
+  <circle cx="640" cy="433" r="1.5" fill="#ff5a5f"/>
+
+  <!-- 冰饮 -->
+  <path d="M596,434 L608,368 L624,358" fill="none" stroke="#ff6f91" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <g clip-path="url(#glassClip)">
+    <rect x="560" y="394" width="60" height="50" fill="url(#juice)" opacity="0.9"/>
+    <ellipse cx="590" cy="394" rx="22" ry="2" fill="#ffe0a0"/>
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="0 0;0 -2.5;0 0" dur="3s" repeatCount="indefinite"/>
+      <rect x="575" y="389" width="13" height="13" rx="3" fill="#ffffff" opacity="0.7" transform="rotate(14 581.5 395.5)"/>
+    </g>
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="0 0;0 -2.5;0 0" dur="3s" begin="-1.5s" repeatCount="indefinite"/>
+      <rect x="590" y="391" width="12" height="12" rx="3" fill="#ffffff" opacity="0.7" transform="rotate(-10 596 397)"/>
+    </g>
+    <circle cx="582" cy="434" r="1.6" fill="#ffffff" opacity="0">
+      <animate attributeName="cy" from="434" to="397" dur="2.4s" begin="0s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.9;0" dur="2.4s" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="602" cy="434" r="1.4" fill="#ffffff" opacity="0">
+      <animate attributeName="cy" from="434" to="397" dur="2.4s" begin="0.4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.9;0" dur="2.4s" begin="0.4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="590" cy="434" r="1.8" fill="#ffffff" opacity="0">
+      <animate attributeName="cy" from="434" to="397" dur="2.4s" begin="0.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.9;0" dur="2.4s" begin="0.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="586" cy="434" r="1.2" fill="#ffffff" opacity="0">
+      <animate attributeName="cy" from="434" to="397" dur="2.4s" begin="1.2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.9;0" dur="2.4s" begin="1.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="598" cy="434" r="1.6" fill="#ffffff" opacity="0">
+      <animate attributeName="cy" from="434" to="397" dur="2.4s" begin="1.6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.9;0" dur="2.4s" begin="1.6s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <path d="M568,380 L612,380 L606,438 L574,438 Z" fill="#dff6ff" fill-opacity="0.25" stroke="#a9dcef" stroke-width="2" stroke-linejoin="round"/>
+  <line x1="573" y1="386" x2="577" y2="430" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <!-- 杯壁水珠 -->
+  <ellipse cx="578" cy="398" rx="1.3" ry="2" fill="#f0fcff" opacity="0">
+    <animate attributeName="cy" from="398" to="430" dur="4s" begin="0s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.9;0.9;0" dur="4s" begin="0s" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse cx="603" cy="398" rx="1.3" ry="2" fill="#f0fcff" opacity="0">
+    <animate attributeName="cy" from="398" to="430" dur="4s" begin="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.9;0.9;0" dur="4s" begin="2s" repeatCount="indefinite"/>
+  </ellipse>
+  <!-- 柠檬片 -->
+  <circle cx="571" cy="381" r="10" fill="#fff176" stroke="#f4c430" stroke-width="2"/>
+  <g stroke="#f4c430" stroke-width="1">
+    <line x1="571" y1="373" x2="571" y2="389"/>
+    <line x1="563" y1="381" x2="579" y2="381"/>
+    <line x1="565.5" y1="375.5" x2="576.5" y2="386.5"/>
+    <line x1="576.5" y1="375.5" x2="565.5" y2="386.5"/>
+  </g>
+
+  <!-- 摇曳的绿植 -->
+  <g>
+    <animateTransform attributeName="transform" type="rotate" values="-2 760 478;3 760 478;-2 760 478" dur="4s" repeatCount="indefinite"/>
+    <path d="M760,478 C745,460 725,455 705,445 C728,440 750,455 760,478 Z" fill="#4a9f5c"/>
+    <path d="M760,478 C740,450 725,430 722,405 C740,418 755,440 760,478 Z" fill="#57b36a"/>
+    <path d="M760,478 C750,440 752,405 760,378 C770,405 768,440 760,478 Z" fill="#4a9f5c"/>
+    <path d="M760,478 C765,440 770,410 785,392 C788,420 775,450 760,478 Z" fill="#57b36a"/>
+    <path d="M760,478 C772,462 785,452 798,440 C795,458 780,470 760,478 Z" fill="#4a9f5c"/>
+  </g>
+  <path d="M736,474 L784,474 L778,526 L742,526 Z" fill="#e07a5f"/>
+  <rect x="732" y="468" width="56" height="10" rx="3" fill="#ef8f73"/>
+</svg>

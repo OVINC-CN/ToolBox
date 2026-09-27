@@ -5,7 +5,7 @@ html{scrollbar-gutter:stable}
 body{min-height:100vh;min-height:100svh}
 [hidden]{display:none!important}
 .shell-header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex:0 0 auto;position:relative;z-index:10;padding:12px clamp(16px,3vw,40px);background:#fbfcf8;border-bottom:1px solid #dce4d6}
-.version-switcher{position:relative;min-width:0;width:min(100%,480px);font-size:.875rem;line-height:1.5}
+.version-switcher{position:relative;min-width:0;width:min(100%,640px);font-size:.875rem;line-height:1.5}
 .version-switcher summary{display:flex;align-items:center;gap:12px;min-height:44px;padding:10px 13px;border:1px solid #d8e1d1;border-radius:10px;cursor:pointer;list-style:none;background:#fff;color:#345541}
 .version-switcher summary::-webkit-details-marker{display:none}
 .version-switcher summary:hover,.version-switcher[open] summary{background:#f1f6ed;border-color:#a8bc9d}
@@ -14,6 +14,7 @@ body{min-height:100vh;min-height:100svh}
 .version-switcher summary .version-details{flex:1}
 .version-name{min-width:0;overflow-wrap:anywhere}
 .version-tag{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;padding:2px 7px;border:1px solid #d6e0d1;border-radius:999px;background:#f5f8f2;color:#587462;font-size:.6875rem;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.35;white-space:nowrap}
+.version-tag--content{border-color:#d3def3;background:#eaf1fc;color:#476488}
 .version-tag--format[data-format="3D"]{border-color:#e6d1b4;background:#fff4e6;color:#8d5a25}
 .version-tag--format[data-format="SVG"]{border-color:#cdded7;background:#edf7f2;color:#376a56}
 .version-tag--date{border-color:#dce3d7;background:#f8faf5;color:#637568}

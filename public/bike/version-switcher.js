@@ -5,13 +5,14 @@
   if (!switcher || !viewer) return;
   const summary = switcher.querySelector('summary');
   const currentLabel = document.getElementById('current-version');
+  const currentContent = document.getElementById('current-content');
   const currentFormat = document.getElementById('current-format');
   const currentDate = document.getElementById('current-date');
   const links = Array.from(switcher.querySelectorAll('a[data-version]'));
   // The catalogue comes from the root menu.
   const versions = new Map(links.map(link => [link.dataset.version, {
     id: link.dataset.version, label: link.dataset.label,
-    format: link.dataset.format, date: link.dataset.date,
+    content: link.dataset.content, format: link.dataset.format, date: link.dataset.date,
     path: link.getAttribute('href'), link
   }]));
   const defaultVersion = versions.get(document.body.dataset.defaultVersion);
@@ -26,7 +27,7 @@
   let stopFrameSizing = () => {};
 
   function versionTitle(version) {
-    return `${version.label} · ${version.format} · ${version.date}`;
+    return `${version.content} · ${version.label} · ${version.format} · ${version.date}`;
   }
 
   // Grow the same-origin artwork frame so the outer document owns scrolling.
@@ -87,6 +88,7 @@
     stopFrameSizing = () => {};
     clearTimeout(loadingTimer);
     currentLabel.textContent = version.label;
+    currentContent.textContent = version.content;
     currentFormat.textContent = version.format;
     currentFormat.dataset.format = version.format;
     currentDate.textContent = version.date;

@@ -1,9 +1,26 @@
 {
-  "defaultVersion": "9f6fb87e1241a1f61804c42c5138a8cc9856654b10dcf49b34caa80473fc3b29",
+  "defaultVersion": "61e3a4ee89a259d2fa9ee67315d7ff01faae21dcb5ef7094a3b654b4342c26be",
   "versions": [
+    {
+      "id": "61e3a4ee89a259d2fa9ee67315d7ff01faae21dcb5ef7094a3b654b4342c26be",
+      "label": "Claude Opus 5.5 XHigh",
+      "content": "夏日空调",
+      "format": "SVG",
+      "date": "20260927",
+      "createdOrder": 9
+    },
+    {
+      "id": "8b5dd94eebc95ca8ebe9a4073a30020a43208d257961cac920e0d88cd3bad107",
+      "label": "GPT 6 Astra Max",
+      "content": "夏日空调",
+      "format": "SVG",
+      "date": "20260927",
+      "createdOrder": 8
+    },
     {
       "id": "9f6fb87e1241a1f61804c42c5138a8cc9856654b10dcf49b34caa80473fc3b29",
       "label": "GPT 6 Sol Max",
+      "content": "鹈鹕骑车",
       "format": "3D",
       "date": "20260923",
       "createdOrder": 7
@@ -11,6 +28,7 @@
     {
       "id": "a02bcbf480022d1a287d166d9b04666598bf5414d88b2ba55a5553f1578e031f",
       "label": "Claude Opus 5.5",
+      "content": "鹈鹕骑车",
       "format": "SVG",
       "date": "20260923",
       "createdOrder": 6
@@ -18,6 +36,7 @@
     {
       "id": "933d6ad064006180bae450de6a14c892921414ae0266f7089303ae015ee722c3",
       "label": "GPT 6 Sol Max",
+      "content": "鹈鹕骑车",
       "format": "SVG",
       "date": "20260923",
       "createdOrder": 5
@@ -25,6 +44,7 @@
     {
       "id": "d0a3cbb0695d62c114e9afa80cd23575a88c41d72181d3d722fcf4155999c2f8",
       "label": "GPT 6 Astra High",
+      "content": "始皇骑熊",
       "format": "SVG",
       "date": "20260922",
       "createdOrder": 4
@@ -32,6 +52,7 @@
     {
       "id": "15ec4222a79f9b9d64cbcd9234295630985cf89455a012b5f9c16dc0ae1daa33",
       "label": "GPT 6 Astra Max",
+      "content": "提壶骑车",
       "format": "SVG",
       "date": "20260922",
       "createdOrder": 3
@@ -39,6 +60,7 @@
     {
       "id": "59afb67f990e03c95e1a22f81b2166758c7ac7a2dc14dcd4452969b58946cc89",
       "label": "GPT 5.6 Sol High",
+      "content": "鹈鹕骑车",
       "format": "SVG",
       "date": "20260922",
       "createdOrder": 2
@@ -46,6 +68,7 @@
     {
       "id": "dae619c51089c6f8c256b18a4d8b1885e09d9a379a7861ad0b2ac069f3e97fa4",
       "label": "GPT 6 Astra Xhigh",
+      "content": "鹈鹕骑车",
       "format": "SVG",
       "date": "20260916",
       "createdOrder": 1
