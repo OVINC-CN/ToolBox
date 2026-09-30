@@ -1,6 +1,14 @@
 {
-  "defaultVersion": "61e3a4ee89a259d2fa9ee67315d7ff01faae21dcb5ef7094a3b654b4342c26be",
+  "defaultVersion": "a13c55f3542c3516c90b67ecc3d06b8d7b10d67f42cb2963161b1a4e645704bb",
   "versions": [
+    {
+      "id": "a13c55f3542c3516c90b67ecc3d06b8d7b10d67f42cb2963161b1a4e645704bb",
+      "label": "GPT 6.1 Sol Max",
+      "content": "鹈鹕骑车",
+      "format": "SVG",
+      "date": "20260930",
+      "createdOrder": 10
+    },
     {
       "id": "61e3a4ee89a259d2fa9ee67315d7ff01faae21dcb5ef7094a3b654b4342c26be",
       "label": "Claude Opus 5.5 XHigh",
