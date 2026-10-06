@@ -930,3 +930,35 @@ footer a {
 }
 
 .json-graphic { display: grid; place-items: center; font: 700 86px var(--font-ui); color: var(--orange); }
+
+.ping-graphic {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.ping-graphic svg {
+  width: 260px;
+  height: 110px;
+  stroke: currentColor;
+  opacity: 0.75;
+}
+
+.ping-graphic svg .ping-graphic-route {
+  stroke: #e19a79;
+  stroke-width: 2;
+}
+
+.ping-graphic svg .ping-graphic-node {
+  fill: #e19a79;
+  stroke: none;
+}
+
+.ping-graphic > span {
+  position: absolute;
+  top: 13px;
+  color: #e19a79;
+  background: #232925;
+  padding: 4px 8px;
+  font-size: 11px;
+}

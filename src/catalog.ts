@@ -81,4 +81,13 @@ export const tools = [
     kind: 'fonts',
     tone: 'orange',
   },
+  {
+    id: 'ping',
+    index: '10',
+    title: '全球网络延迟',
+    description: '在世界地图上对比地区之间的预估网络延迟。',
+    url: '/ping/',
+    kind: 'ping',
+    tone: 'dark',
+  },
 ] as const;
