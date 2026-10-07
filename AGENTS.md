@@ -9,6 +9,7 @@
 - 鹈鹕页面的作品链接和专用资源使用 `/bike/` 下的绝对路径，直接访问 `dist/bike/` 中的单份文件，不在 `dist` 根目录复制版本 ID 目录或生成跳转规则；全站共享 favicon 和 Apple Touch Icon 直接引用根路径，不在 `/bike/` 下复制。
 - 构建时给没有文件名哈希的静态资源引用追加同一次构建的 `?v=` 时间戳；保留 Vite 已带哈希的资源 URL 和普通导航链接。
 - 项目自有 JS/TS 源码遵循 `eslint.config.mjs`：两空格缩进、零警告，TypeScript 使用类型感知严格规则。`public/bike/` 和 `src/tools/uuid/vendor/` 排除在 ESLint 自动修复之外。
-- 仓库不保留测试文件或测试命令。修改后运行 `npm run build`，由 ESLint、类型检查和 Vite 构建确认产物；不要为鹈鹕原作品添加单元、端到端或浏览器测试。
-- `dist/` 和依赖目录是生成内容，不手工修改。更新依赖时保持 `package.json` 与 `package-lock.json` 一致。
+- 包管理器统一使用 pnpm，通过 Corepack 读取 `package.json` 的 `packageManager` 固定版本；CI 和部署安装依赖使用 `pnpm install --frozen-lockfile`。
+- 仓库不保留测试文件或测试命令。修改后运行 `pnpm run build`，由 ESLint、类型检查和 Vite 构建确认产物；不要为鹈鹕原作品添加单元、端到端或浏览器测试。
+- `dist/` 和依赖目录是生成内容，不手工修改。更新依赖时保持 `package.json`、`pnpm-workspace.yaml` 与 `pnpm-lock.yaml` 一致；不保留 `package-lock.json`。
 - 不得将密钥或 Sites 凭据写入代码和文档。提交信息使用英文 Conventional Commits 格式，例如 `chore(repo): update dependencies`。

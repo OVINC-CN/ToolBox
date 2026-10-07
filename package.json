@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "build": "npm run lint && npm run typecheck && vite build && node scripts/publish-pages.mjs && node scripts/version-static-assets.mjs",
+    "build": "pnpm run lint && pnpm run typecheck && vite build && node scripts/publish-pages.mjs && node scripts/version-static-assets.mjs",
     "lint": "eslint . --max-warnings 0",
     "preview": "vite preview --host 127.0.0.1",
     "typecheck": "tsc --noEmit"
@@ -46,5 +46,6 @@
     "typescript": "5.9.3",
     "typescript-eslint": "^8.70.1",
     "vite": "8.3.0"
-  }
+  },
+  "packageManager": "pnpm@11.28.5+sha512.484563d30b4c2ad27cb48aa94ff2b302dbcebc8ff6bf28816c2589886e146ce7f76f354f3bc1a438e6f5e9768c302aa0a6f7add8232903cd4cf81426cbc14d9e"
 }

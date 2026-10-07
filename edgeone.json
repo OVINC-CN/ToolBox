@@ -1,6 +1,6 @@
 {
-  "buildCommand": "npm run build",
-  "installCommand": "npm ci",
+  "buildCommand": "pnpm run build",
+  "installCommand": "corepack enable pnpm && corepack install && pnpm install --frozen-lockfile",
   "outputDirectory": "./dist",
   "nodeVersion": "24.18.0"
 }
