@@ -275,7 +275,7 @@ export default function Home() {
                     )
                     : (
                       <p className="field-message" id="ip-help">
-                        无需提供掩码，我们会列出这个地址在每一种前缀长度下的所属网段。
+                        无需提供掩码，我们会列出这个地址在每一种前缀长度下的所属网段和子网掩码。
                       </p>
                     )}
                 </form>
@@ -378,11 +378,12 @@ export default function Home() {
                   </div>
 
                   <div className="desktop-table table-wrap">
-                    <table>
+                    <table className="cidr-table">
                       <thead>
                         <tr>
                           <th>前缀</th>
                           <th>所属 CIDR</th>
+                          <th>子网掩码</th>
                           <th>地址范围</th>
                           <th>
                             <span className="sr-only">操作</span>
@@ -399,6 +400,7 @@ export default function Home() {
                               </span>
                             </td>
                             <td className="mono strong-cell">{item.cidr}</td>
+                            <td className="mono strong-cell">{item.netmask}</td>
                             <td className="range-cell mono">
                               <span>{item.first}</span>
                               <i>→</i>
@@ -434,6 +436,10 @@ export default function Home() {
                           </button>
                         </div>
                         <strong className="mono">{item.cidr}</strong>
+                        <p>
+                          子网掩码：
+                          <span className="mono">{item.netmask}</span>
+                        </p>
                         <p className="mono">
                           {item.first}
                           <br />

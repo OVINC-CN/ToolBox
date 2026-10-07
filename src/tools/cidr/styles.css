@@ -622,6 +622,11 @@ tbody tr:hover td {
   font-weight: 620;
 }
 
+.cidr-table th:nth-child(3),
+.cidr-table td:nth-child(3) {
+  width: 22%;
+}
+
 .prefix-badge {
   display: inline-grid;
   min-width: 42px;

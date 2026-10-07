@@ -13,6 +13,7 @@ export interface ParsedIp {
 export interface ContainingCidr {
   prefix: number;
   cidr: string;
+  netmask: string;
   first: string;
   last: string;
 }
@@ -200,6 +201,7 @@ export function getContainingCidrs(ip: ParsedIp): ContainingCidr[] {
     rows.push({
       prefix,
       cidr: `${formatIp(network, ip.version)}/${prefix}`,
+      netmask: formatIp(mask, ip.version),
       first: formatIp(network, ip.version),
       last: formatIp(last, ip.version),
     });
