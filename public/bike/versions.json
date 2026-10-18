@@ -1,6 +1,14 @@
 {
-  "defaultVersion": "a13c55f3542c3516c90b67ecc3d06b8d7b10d67f42cb2963161b1a4e645704bb",
+  "defaultVersion": "6bbf98a6891f2000fec1004d7e9e27f14f57c871d46139e34c87621774af30e1",
   "versions": [
+    {
+      "id": "6bbf98a6891f2000fec1004d7e9e27f14f57c871d46139e34c87621774af30e1",
+      "label": "Gemini 4 Argon High",
+      "content": "鹈鹕骑车",
+      "format": "SVG",
+      "date": "20261014",
+      "createdOrder": 11
+    },
     {
       "id": "a13c55f3542c3516c90b67ecc3d06b8d7b10d67f42cb2963161b1a4e645704bb",
       "label": "GPT 6.1 Sol Max",
