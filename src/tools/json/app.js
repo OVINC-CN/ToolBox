@@ -1,4 +1,4 @@
-import { EditorState } from '@codemirror/state';
+import { Compartment, EditorState, Transaction } from '@codemirror/state';
 import {
   EditorView,
   keymap,
@@ -25,7 +25,7 @@ import {
 } from '@codemirror/language';
 import { setDiagnostics } from '@codemirror/lint';
 import { tags } from '@lezer/highlight';
-import { inspect, transform } from './json.js';
+import { inspect, transform, unescapeStrings } from './json.js';
 const $ = id => document.getElementById(id);
 const sample
   = '{"project":"JSON Studio","version":"1.0.0","description":"让每一份 JSON 清晰可读","settings":{"theme":"light","indent":2,"autoValidate":true},"features":["语法高亮","层级折叠","实时校验"],"team":[{"name":"Alex","role":"Developer","active":true},{"name":"Sam","role":"Designer","active":false}],"metadata":{"createdAt":"2026-09-22","license":"MIT","homepage":null}}';
@@ -39,16 +39,21 @@ const colors = HighlightStyle.define([
 let noticeTimer,
   activeSource = 'input',
   contentSource = 'input',
+  outputText = '',
   autoTimer,
   programmatic = 0;
+const outputEditing = new Compartment();
 const issues = {};
+function preserveEscapes() {
+  return $('preserve-escapes').checked;
+}
 function toast(message) {
   $('toast').textContent = message;
   $('toast').classList.add('show');
   clearTimeout(noticeTimer);
   noticeTimer = setTimeout(() => $('toast').classList.remove('show'), 2400);
 }
-function replace(view, text) {
+function replace(view, text, addToHistory = true) {
   if (view.state.doc.toString() === text) {
     return;
   }
@@ -58,25 +63,36 @@ function replace(view, text) {
     view.dispatch({
       changes: { from: 0, to: view.state.doc.length, insert: text },
       selection: { anchor: 0 },
+      annotations: Transaction.addToHistory.of(addToHistory),
     });
   }
   finally {
     programmatic--;
   }
 }
+function renderOutput(addToHistory = preserveEscapes()) {
+  const text = preserveEscapes() ? outputText : unescapeStrings(outputText);
+  replace(output, text, addToHistory);
+}
+function replaceOutput(text) {
+  outputText = text;
+  renderOutput();
+}
+function sourceText(source) {
+  return source === 'output' ? outputText : input.state.doc.toString();
+}
 function resultState(staleSide = null) {
   document.querySelector('#output-pane .badge').textContent
-    = staleSide === 'output' ? '上次有效结果' : '可编辑';
+    = staleSide === 'output' ? '上次有效结果' : preserveEscapes() ? '可编辑' : '阅读视图';
   document.querySelector('#input-pane .badge').textContent
     = staleSide === 'input' ? '上次有效数据' : '输入';
 }
 function syncEditors(formatOutput = false) {
   clearTimeout(autoTimer);
-  const view = contentSource === 'input' ? input : output,
-    text = view.state.doc.toString();
+  const text = sourceText(contentSource);
   if (!text.trim()) {
     replace(input, '');
-    replace(output, '');
+    replaceOutput('');
     resultState();
     return;
   }
@@ -86,8 +102,8 @@ function syncEditors(formatOutput = false) {
     }
     if (contentSource === 'input' || formatOutput) {
       const result = transform(text, 'format', $('indent').value);
-      if (output.state.doc.toString() !== result) {
-        replace(output, result);
+      if (outputText !== result) {
+        replaceOutput(result);
         $('fold').value = '';
       }
     }
@@ -102,6 +118,9 @@ function autoFormat() {
 }
 function onEdit(view, id, userEdit) {
   if (userEdit) {
+    if (id === 'output') {
+      outputText = view.state.doc.toString();
+    }
     contentSource = id;
     activeSource = id;
     clearTimeout(autoTimer);
@@ -126,14 +145,19 @@ function cursor(view, id) {
 }
 function validate(view, id) {
   const text = view.state.doc.toString(),
-    result = inspect(text),
-    first = result.errors[0];
+    preview = id === 'output' && !preserveEscapes(),
+    first = preview ? undefined : inspect(text).errors[0];
   issues[id] = first;
   const status = $(id + '-status');
   status.className = 'validation';
   if (!text.trim()) {
     status.classList.add('empty');
     status.textContent = '等待输入 JSON';
+    view.dispatch(setDiagnostics(view.state, []));
+  }
+  else if (preview) {
+    status.classList.add('preview');
+    status.textContent = '阅读视图 · 转义已展开，结果可能不是有效 JSON';
     view.dispatch(setDiagnostics(view.state, []));
   }
   else if (first) {
@@ -183,6 +207,7 @@ function makeEditor(id, doc) {
         lineNumbers(),
         foldGutter(),
         json(),
+        id === 'output' ? outputEditing.of([]) : [],
         history(),
         drawSelection(),
         highlightActiveLine(),
@@ -225,7 +250,7 @@ function makeEditor(id, doc) {
 function run(source, mode) {
   clearTimeout(autoTimer);
   const view = source === 'input' ? input : output;
-  const text = view.state.doc.toString();
+  const text = sourceText(source);
   if (!text.trim()) {
     toast('请先输入 JSON');
     view.focus();
@@ -233,7 +258,7 @@ function run(source, mode) {
   }
   try {
     const result = transform(text, mode, $('indent').value);
-    replace(output, result);
+    replaceOutput(result);
     if (source === 'output') {
       replace(input, transform(result, 'minify'));
     }
@@ -241,7 +266,7 @@ function run(source, mode) {
     activeSource = 'output';
     resultState();
     $('fold').value = '';
-    toast(mode === 'minify' ? '已压缩为单行' : '格式化完成');
+    toast(mode === 'minify' ? preserveEscapes() ? '已压缩为单行' : '已压缩并展开转义' : '格式化完成');
     return true;
   }
   catch {
@@ -253,9 +278,34 @@ function run(source, mode) {
 }
 const input = makeEditor('input', sample);
 const output = makeEditor('output', transform(sample));
+outputText = output.state.doc.toString();
 validate(input, 'input');
 validate(output, 'output');
 $('indent').onchange = autoFormat;
+$('preserve-escapes').onchange = () => {
+  if (!preserveEscapes() && outputText.trim() && inspect(outputText).errors.length) {
+    $('preserve-escapes').checked = true;
+    jump(output, 'output');
+    toast('请先修正结果中的语法错误');
+    return;
+  }
+  output.dispatch({
+    effects: outputEditing.reconfigure(preserveEscapes()
+      ? []
+      : [EditorState.readOnly.of(true), EditorView.editable.of(false)]),
+  });
+  unfoldAll(output);
+  $('fold').value = '';
+  $('fold').disabled = !preserveEscapes();
+  $('copy').textContent = preserveEscapes() ? '复制 JSON' : '复制结果';
+  $('editor-hint').textContent = preserveEscapes()
+    ? '点击行号旁的箭头折叠对象或数组；右侧修改会自动回写左侧。'
+    : '左侧编辑会自动更新右侧阅读视图；复制结果会保留实际换行。';
+  // 阅读视图不应作为编辑内容进入撤销历史。
+  renderOutput(false);
+  autoFormat();
+  validate(output, 'output');
+};
 $('format').onclick = () => run(contentSource, 'format');
 $('minify').onclick = () => run(activeSource, 'minify');
 $('format-output').onclick = () => run('output', 'format');
@@ -265,7 +315,7 @@ $('example').onclick = () => {
   activeSource = 'input';
   resultState();
   replace(input, sample);
-  replace(output, transform(sample, 'format', $('indent').value));
+  replaceOutput(transform(sample, 'format', $('indent').value));
   $('fold').value = '';
   toast('已载入示例');
 };
@@ -285,7 +335,7 @@ $('copy').onclick = async () => {
   }
   try {
     await navigator.clipboard.writeText(output.state.doc.toString());
-    toast('已复制 JSON');
+    toast(preserveEscapes() ? '已复制 JSON' : '已复制结果');
   }
   catch {
     toast('复制失败，请在结果中全选后复制');
@@ -347,7 +397,7 @@ if (context?.registerTool) {
       name: 'transform_json',
       title: '格式化或压缩 JSON',
       description:
-        '校验给定 JSON，并将原文与格式化或压缩结果显示在编辑器中。语法错误时保留现有内容。',
+        '校验给定 JSON，并将原文与格式化或压缩结果显示在编辑器中。关闭保留转义时，结果以阅读视图显示。语法错误时保留现有内容。',
       inputSchema: {
         type: 'object',
         properties: {
@@ -376,11 +426,12 @@ if (context?.registerTool) {
         $('indent').value = args.indent || '2';
         resultState();
         replace(input, args.text);
-        replace(output, value);
+        replaceOutput(value);
         validate(input, 'input');
         validate(output, 'output');
         $('fold').value = '';
-        return { text: value, valid: true };
+        const text = output.state.doc.toString();
+        return { text, valid: inspect(text).errors.length === 0 };
       },
     },
     {
@@ -397,6 +448,7 @@ if (context?.registerTool) {
         return {
           input: input.state.doc.toString(),
           output: output.state.doc.toString(),
+          preserveEscapes: preserveEscapes(),
           inputErrors: inspect(input.state.doc.toString()).errors,
           outputErrors: inspect(output.state.doc.toString()).errors,
         };

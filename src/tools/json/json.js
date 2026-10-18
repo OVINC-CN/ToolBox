@@ -38,6 +38,21 @@ export function inspect(text) {
     })),
   };
 }
+export function unescapeStrings(text) {
+  const scanner = createScanner(text, false);
+  const edits = [];
+  let token;
+  while ((token = scanner.scan()) !== SyntaxKind.EOF) {
+    if (token === SyntaxKind.StringLiteral) {
+      edits.push({
+        offset: scanner.getTokenOffset(),
+        length: scanner.getTokenLength(),
+        content: `"${scanner.getTokenValue()}"`,
+      });
+    }
+  }
+  return applyEdits(text, edits);
+}
 export function transform(text, mode = 'format', indent = '2') {
   const result = inspect(text);
   if (result.errors.length) {

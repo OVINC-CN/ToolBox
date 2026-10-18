@@ -32,7 +32,10 @@
         <option value="2">2 空格</option>
         <option value="4">4 空格</option>
         <option value="tab">Tab</option>
-      </select></div>
+      </select>
+        <label class="escape-toggle" for="preserve-escapes" title="关闭后将转义显示为实际字符，结果仅供阅读">
+          <input id="preserve-escapes" type="checkbox" checked>保留转义
+        </label></div>
       <button id="example" class="text-button">载入示例 <span>↗</span></button>
     </div>
     <div class="editors">
@@ -71,7 +74,7 @@
       </section>
     </div>
   </section>
-  <div class="below"><p><span class="hint-icon">i</span>点击行号旁的箭头折叠对象或数组；右侧修改会自动回写左侧。</p>
+  <div class="below"><p><span class="hint-icon">i</span><span id="editor-hint">点击行号旁的箭头折叠对象或数组；右侧修改会自动回写左侧。</span></p>
     <div class="legend"><span><i class="key"></i>键名</span><span><i class="string"></i>字符串</span><span><i
       class="number"></i>数字</span><span><i class="boolean"></i>布尔值 / null</span></div>
   </div>
