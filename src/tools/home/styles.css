@@ -334,40 +334,6 @@ footer {
   position: relative;
 }
 
-.fonts-graphic {
-  align-items: center;
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.fonts-glyph-latin {
-  color: var(--ink);
-  font-family: Georgia, serif;
-  font-size: 76px;
-  letter-spacing: -0.12em;
-  line-height: 1;
-}
-
-.fonts-glyph-han {
-  color: var(--orange);
-  font-family: var(--font-ui);
-  font-size: 65px;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.fonts-graphic-rule {
-  border-bottom: 1px solid var(--line);
-  border-top: 1px solid var(--line);
-  bottom: 1px;
-  height: 7px;
-  left: 12%;
-  position: absolute;
-  right: 12%;
-}
-
 .clock-graphic {
   align-self: center;
   aspect-ratio: 1;
@@ -376,80 +342,10 @@ footer {
   height: 120px;
 }
 
-.bike-graphic,
 .flow-graphic {
   margin-left: auto;
   margin-right: auto;
   width: min(100%, 220px);
-}
-
-.bike-ring {
-  border: 2px solid var(--ink);
-  border-radius: 50%;
-  bottom: 10px;
-  height: 68px;
-  position: absolute;
-  width: 68px;
-}
-
-.bike-ring::after {
-  border: 1px solid rgba(21, 21, 21, 0.25);
-  border-radius: 50%;
-  content: "";
-  inset: 8px;
-  position: absolute;
-}
-
-.bike-ring-left {
-  left: 12px;
-}
-
-.bike-ring-right {
-  right: 12px;
-}
-
-.bike-link {
-  background: var(--ink);
-  height: 2px;
-  left: 50%;
-  position: absolute;
-  top: 55%;
-  transform-origin: left center;
-  width: 60px;
-}
-
-.bike-link-left {
-  transform: rotate(151deg);
-}
-
-.bike-link-right {
-  transform: rotate(29deg);
-}
-
-.bike-link-top {
-  background: var(--orange);
-  top: 34%;
-  transform: translateX(-50%) rotate(-8deg);
-  width: 58px;
-}
-
-.bike-hub {
-  background: var(--paper);
-  border: 2px solid var(--ink);
-  border-radius: 50%;
-  bottom: 40px;
-  height: 9px;
-  position: absolute;
-  width: 9px;
-  z-index: 2;
-}
-
-.bike-hub-left {
-  left: 42px;
-}
-
-.bike-hub-right {
-  right: 42px;
 }
 
 .flow-line {
@@ -931,34 +827,20 @@ footer a {
 
 .json-graphic { display: grid; place-items: center; font: 700 86px var(--font-ui); color: var(--orange); }
 
-.ping-graphic {
-  position: relative;
-  display: grid;
-  place-items: center;
+.regex-graphic {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
 }
 
-.ping-graphic svg {
-  width: 260px;
-  height: 110px;
-  stroke: currentColor;
-  opacity: 0.75;
+.regex-graphic span {
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  padding: 5px 12px;
 }
 
-.ping-graphic svg .ping-graphic-route {
-  stroke: #e19a79;
-  stroke-width: 2;
-}
-
-.ping-graphic svg .ping-graphic-node {
-  fill: #e19a79;
-  stroke: none;
-}
-
-.ping-graphic > span {
-  position: absolute;
-  top: 13px;
-  color: #e19a79;
-  background: #232925;
-  padding: 4px 8px;
-  font-size: 11px;
+.regex-graphic i {
+  color: var(--orange);
+  font-style: normal;
 }

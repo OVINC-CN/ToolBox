@@ -1,7 +1,6 @@
 import {
   existsSync,
   mkdirSync,
-  readFileSync,
   renameSync,
   readdirSync,
   rmSync,
@@ -10,7 +9,6 @@ import { resolve } from 'node:path';
 
 const output = resolve('dist');
 const source = resolve(output, 'pages');
-const originals = resolve('public/bike');
 const routes = [
   '',
   ...readdirSync('pages', { withFileTypes: true })
@@ -36,20 +34,7 @@ if (
 }
 rmSync(source, { recursive: true, force: true });
 
-const { versions } = JSON.parse(
-  readFileSync(resolve(originals, 'versions.json'), 'utf8'),
-);
-for (const { id } of versions) {
-  if (!/^[a-f0-9]{64}$/.test(id)) {
-    throw new Error('Invalid original version ID');
-  }
-  if (!existsSync(resolve(originals, id, 'index.html'))) {
-    throw new Error(`Missing original Pelican page: ${id}`);
-  }
-}
 if (!existsSync(resolve(output, '404.html'))) {
   throw new Error('Missing static 404 page');
 }
-console.log(
-  `Published ${routes.length} pages and ${versions.length} original Pelican versions.`,
-);
+console.log(`Published ${routes.length} pages.`);

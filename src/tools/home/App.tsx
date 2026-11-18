@@ -3,28 +3,12 @@ import logoMark from '../../assets/logo-mark.svg';
 import { tools } from '../../catalog';
 
 function ToolGraphic({ kind }: { kind: string }) {
-  if (kind === 'ping') {
+  if (kind === 'regex') {
     return (
-      <div className="tool-graphic ping-graphic" aria-hidden="true">
-        <svg viewBox="0 0 260 110" fill="none">
-          <ellipse cx="130" cy="55" rx="76" ry="44" />
-          <ellipse cx="130" cy="55" rx="36" ry="44" />
-          <path d="M54 55h152M65 32h130M65 78h130" />
-          <path className="ping-graphic-route" d="M76 65Q130 -7 184 42" />
-          <circle className="ping-graphic-node" cx="76" cy="65" r="5" />
-          <circle className="ping-graphic-node" cx="184" cy="42" r="5" />
-        </svg>
-        <span>≈ 224 ms</span>
-      </div>
-    );
-  }
-
-  if (kind === 'fonts') {
-    return (
-      <div className="tool-graphic fonts-graphic" aria-hidden="true">
-        <span className="fonts-glyph-latin">Aa</span>
-        <span className="fonts-glyph-han">字</span>
-        <span className="fonts-graphic-rule" />
+      <div className="tool-graphic regex-graphic" aria-hidden="true">
+        <span>.*</span>
+        <i>→</i>
+        <span>[a-z]</span>
       </div>
     );
   }
@@ -45,20 +29,6 @@ function ToolGraphic({ kind }: { kind: string }) {
           <span className="uuid-symbol">#</span>
           <span className="uuid-label">UUID</span>
         </span>
-      </div>
-    );
-  }
-
-  if (kind === 'bike') {
-    return (
-      <div className="tool-graphic bike-graphic" aria-hidden="true">
-        <span className="bike-ring bike-ring-left" />
-        <span className="bike-ring bike-ring-right" />
-        <span className="bike-link bike-link-left" />
-        <span className="bike-link bike-link-right" />
-        <span className="bike-link bike-link-top" />
-        <span className="bike-hub bike-hub-left" />
-        <span className="bike-hub bike-hub-right" />
       </div>
     );
   }

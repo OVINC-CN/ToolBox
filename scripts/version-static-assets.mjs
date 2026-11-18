@@ -118,11 +118,10 @@ function versionHtml(content, file) {
   const updatedTags = content.replace(
     /<(a|link|script|img|image|use|iframe|source|video|audio|track|object|embed|meta)\b[^>]*>/gi,
     (tag, tagName) => tag.replace(
-      /(\s)(href|src|srcset|poster|data|data-default-src|content)\s*=\s*(['"])([\s\S]*?)\3/gi,
+      /(\s)(href|src|srcset|poster|data|content)\s*=\s*(['"])([\s\S]*?)\3/gi,
       (attribute, space, name, quote, url) => {
         const kind = name.toLowerCase();
-        const allowHtml = tagName.toLowerCase() === 'iframe'
-          || kind === 'data-default-src';
+        const allowHtml = tagName.toLowerCase() === 'iframe';
         const updated = kind === 'srcset'
           ? url.replace(/(^|,)(\s*)(\S+)([^,]*)/g,
             (candidate, separator, whitespace, source, descriptor) =>
