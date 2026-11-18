@@ -1,4 +1,4 @@
-'use client';
+import Icon from '../../components/Icon';
 
 import { SyntheticEvent, useMemo, useState } from 'react';
 import {
@@ -159,48 +159,6 @@ export default function Home() {
 
   return (
     <main>
-      <div className="page-grid" aria-hidden="true" />
-      <header className="site-header shell">
-        <a className="brand" href="#top" aria-label="网段转换器首页">
-          <span className="brand-mark">IP</span>
-          <span>
-            <strong>网段转换器</strong>
-            <small>IP · CIDR TOOLKIT</small>
-          </span>
-        </a>
-        <div className="privacy-pill">
-          <span className="privacy-dot" />
-          所有计算仅在本机完成
-        </div>
-      </header>
-
-      <section className="hero shell" id="top">
-        <div className="hero-copy">
-          <p className="eyebrow">IPv4 + IPv6 / 双向换算</p>
-          <h1>
-            把地址，
-            <span>放回它的网段里。</span>
-          </h1>
-          <p className="hero-description">
-            从一个 IP 找到它可能属于的全部
-            CIDR，或展开任意网段中的地址。无需上传，超大网段也能即时翻页。
-          </p>
-        </div>
-        <div className="hero-facts" aria-label="工具特点">
-          <div>
-            <strong>33 / 129</strong>
-            <span>完整前缀层级</span>
-          </div>
-          <div>
-            <strong>BigInt</strong>
-            <span>超大网段计算</span>
-          </div>
-          <div>
-            <strong>0 B</strong>
-            <span>输入数据上传</span>
-          </div>
-        </div>
-      </section>
 
       <section className="tool-shell shell" aria-label="IP 网段转换工具">
         <div className="mode-tabs" role="tablist" aria-label="转换模式">
@@ -243,7 +201,6 @@ export default function Home() {
               <div className="input-area">
                 <div className="section-heading">
                   <div>
-                    <p className="section-kicker">ADDRESS → NETWORKS</p>
                     <h2>输入一个 IP 地址</h2>
                   </div>
                   <span className="format-hint">IPv4 / IPv6</span>
@@ -310,10 +267,6 @@ export default function Home() {
                 <div className="result-area">
                   <div className="result-header">
                     <div>
-                      <p className="section-kicker">
-                        RESULT /
-                        {ipResult.version === 4 ? 'IPv4' : 'IPv6'}
-                      </p>
                       <h2>{ipResult.canonical}</h2>
                       <div className="result-tags">
                         <span className="tag primary">
@@ -412,7 +365,7 @@ export default function Home() {
                                 aria-label={`复制 ${item.cidr}`}
                                 onClick={() => { requestCopy(item.cidr, `已复制 ${item.cidr}`); }}
                               >
-                                复制
+                                <Icon name="copy" />
                               </button>
                             </td>
                           </tr>
@@ -463,7 +416,6 @@ export default function Home() {
               <div className="input-area">
                 <div className="section-heading">
                   <div>
-                    <p className="section-kicker">NETWORK → ADDRESSES</p>
                     <h2>输入一个 CIDR 网段</h2>
                   </div>
                   <span className="format-hint">按页即时计算</span>
@@ -534,10 +486,7 @@ export default function Home() {
                 <div className="result-area">
                   <div className="result-header cidr-title">
                     <div>
-                      <p className="section-kicker">
-                        NORMALIZED / IPv
-                        {cidrResult.version}
-                      </p>
+                      <p className="section-kicker">标准网络地址</p>
                       <h2>{cidrResult.normalized}</h2>
                       {cidrResult.hadHostBits && (
                         <p className="normalization-note">
@@ -674,7 +623,7 @@ export default function Home() {
                                 aria-label={`复制 ${row.address}`}
                                 onClick={() => { requestCopy(row.address, `已复制 ${row.address}`); }}
                               >
-                                复制
+                                <Icon name="copy" />
                               </button>
                             </td>
                           </tr>
@@ -777,35 +726,6 @@ export default function Home() {
           )}
       </section>
 
-      <section className="principles shell" aria-label="计算原则">
-        <article>
-          <span>01</span>
-          <div>
-            <h3>严格标准化</h3>
-            <p>识别主机位、压缩 IPv6，并拒绝有歧义的地址格式。</p>
-          </div>
-        </article>
-        <article>
-          <span>02</span>
-          <div>
-            <h3>大数安全</h3>
-            <p>使用 BigInt 处理最多 2¹²⁸ 个地址，不做精度妥协。</p>
-          </div>
-        </article>
-        <article>
-          <span>03</span>
-          <div>
-            <h3>本地优先</h3>
-            <p>输入与结果始终留在浏览器，不进行网络查询或保存。</p>
-          </div>
-        </article>
-      </section>
-
-      <footer className="site-footer shell">
-        <span>IP 网段转换器</span>
-        <p>专注地址与 CIDR 计算，不提供地理位置或运营商查询。</p>
-      </footer>
-
       <div
         className={`toast ${copied ? 'show' : ''}`}
         role="status"
@@ -816,3 +736,5 @@ export default function Home() {
     </main>
   );
 }
+
+export { default as styles } from './styles.css?inline';

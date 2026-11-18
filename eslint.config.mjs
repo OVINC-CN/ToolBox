@@ -16,6 +16,7 @@ export default defineConfig([
       'dist/**',
       'node_modules/**',
       '.wrangler/**',
+      '.codex/skills/**',
       'public/**',
       'src/tools/uuid/vendor/**',
     ],
@@ -55,7 +56,7 @@ export default defineConfig([
     languageOptions: { globals: globals.browser },
   },
   {
-    files: ['scripts/**/*.mjs', '*.config.{mjs,ts}'],
+    files: ['*.config.{mjs,ts}'],
     languageOptions: { globals: globals.node },
     rules: { 'no-console': 'off' },
   },
@@ -96,15 +97,5 @@ export default defineConfig([
       jsxA11y.flatConfigs.strict,
     ],
     settings: { react: { version: 'detect' } },
-  },
-  {
-    files: ['src/tools/flow/App.jsx'],
-    rules: {
-      // canvas 的图像角色与可访问名称符合 WAI 的用法。
-      'jsx-a11y/no-interactive-element-to-noninteractive-role': [
-        'error',
-        { canvas: ['img'] },
-      ],
-    },
   },
 ]);

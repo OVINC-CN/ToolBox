@@ -4,10 +4,24 @@
 
 <h1 align="center">Tool Box</h1>
 
-<p align="center">小而好用的工具，放在一起。</p>
+Tool Box 提供时间戳转换、UUID 生成、JSON 格式化、IP 网段转换、URL 编解码、VM 装箱模拟和正则可视化。每个工具有独立网址，数据处理在浏览器本地完成。
 
-Tool Box 是一组开箱即用的轻量浏览器工具，涵盖时间戳转换、UUID 生成、JSON 格式化、IP 网段转换、URL 编解码等常用操作，也收录了 VM 装箱模拟、色彩流动和正则可视化。
+## 开发与目录
 
-各工具拥有独立页面，无需注册，打开即可使用。常用数据处理在浏览器本地完成，让日常的小任务更方便。
+使用 Node.js 24 和项目固定的 pnpm 版本。运行 `corepack enable pnpm`、`pnpm install --frozen-lockfile`、`pnpm dev` 启动开发服务。运行 `pnpm run build` 校验并生成 `dist/`。
 
-本项目采用 [MIT 许可证](LICENSE)。随源码分发的第三方资源见[版权声明](public/third-party-notices.txt)。
+| 位置 | 职责 |
+| --- | --- |
+| `index.html` | 全站唯一的 HTML 入口 |
+| `src/app/` | 挂载 React 应用，维护路由、工具目录、公共顶栏和工具主题 |
+| `src/components/` | 共享 React 图标组件 |
+| `src/home/` | 首页搜索与工具卡片 |
+| `src/tools/<工具名>/` | 工具组件、样式与业务逻辑 |
+| `public/logo.svg` | 首页与工具导航共用的站点 Logo |
+| `public/extra-assets/` | 站点图标、图片、字体样式表和第三方声明，构建时发布到 `/extra-assets/` |
+
+新增工具时，在工具目录中提供默认导出的 React 组件，并将页面 CSS 以 `styles` 导出。在 `src/app/catalog.tsx` 登记工具标识、卡片信息和加载函数，首页链接和路由会自动生成。
+
+部署时发布 `dist/`。静态服务器优先返回已有资源，将页面请求回退到 `/index.html`，以便直接打开和刷新 `/json/` 等工具网址。
+
+本项目采用 [MIT 许可证](LICENSE)。随源码分发的第三方资源见[版权声明](public/extra-assets/third-party-notices.txt)。

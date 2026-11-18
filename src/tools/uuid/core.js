@@ -53,6 +53,7 @@ export function validateRequest(input) {
   return { version: input.version, count: input.count };
 }
 
+/** @returns {string[]} */
 export function generateUuids(input) {
   const { version, count } = validateRequest(input);
   if (!globalThis.crypto?.getRandomValues) {
@@ -61,6 +62,14 @@ export function generateUuids(input) {
   return Array.from({ length: count }, () => functions[version]());
 }
 
+/**
+ * @param {string} id
+ * @param {string} name
+ * @param {number} start
+ * @param {number} width
+ * @param {string} tone
+ * @param {string} description
+ */
 const field = (id, name, start, width, tone, description) => ({
   id,
   name,
@@ -210,6 +219,7 @@ export function inspectUuid(uuid) {
   if (![1, 4, 6, 7].includes(version)) {
     throw new Error('不支持的 UUID 版本。');
   }
+  /** @type {string} */
   const normalized = uuid.toLowerCase();
   const value = BigInt('0x' + normalized.replaceAll('-', ''));
   const fields = fieldLayout(version).map(f => ({
@@ -253,10 +263,10 @@ export function inspectUuid(uuid) {
     fields,
     groups,
     variant: readBits(value, 64, 2).toString(2),
-    timestamp: null,
+    timestamp: /** @type {{milliseconds: number, iso: string, ticks?: string} | null} */ (null),
     clockSequence: null,
-    sequence: null,
-    node: null,
+    sequence: /** @type {number | null} */ (null),
+    node: /** @type {string | null} */ (null),
   };
   if (version === 1 || version === 6) {
     const ticks

@@ -1,0 +1,12 @@
+.not-found {
+  display: grid;
+  min-height: 100dvh;
+  place-content: center;
+  justify-items: start;
+  gap: 16px;
+  padding: 32px;
+}
+
+.not-found h1 { margin: 0; font-size: var(--site-title-size); font-weight: 600; }
+.not-found p { margin: 0; color: var(--site-muted); }
+.not-found a { color: var(--site-accent); text-underline-offset: 4px; }

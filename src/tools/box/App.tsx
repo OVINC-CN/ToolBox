@@ -1,4 +1,4 @@
-'use client';
+import Icon from '../../components/Icon';
 
 import { SyntheticEvent, useEffect, useMemo, useState } from 'react';
 
@@ -968,55 +968,25 @@ export default function Home() {
 
   return (
     <main className="app-shell">
-      <header className="topbar">
-        <div className="brand-lockup">
-          <div className="brand-mark" aria-hidden="true">
-            <span />
-            <span />
-            <span />
-          </div>
-          <div>
-            <div className="brand-row">
-              <strong>CloudBin Lab</strong>
-              <span className="version-pill">教学模拟器</span>
-            </div>
-            <p>把每一次调度判断，变成看得见的资源决策。</p>
-          </div>
-        </div>
-        <div className="header-actions">
-          <span className="save-status">
-            <span className="save-dot" />
-            {' '}
-            本机自动保存
-          </span>
-          <button className="ghost-button" onClick={restoreExample}>
-            恢复示例
-          </button>
-          <button
-            className="primary-button header-run"
-            onClick={() => {
-              startSimulation(false);
-            }}
-          >
-            开始模拟
-            <span aria-hidden="true">→</span>
-          </button>
-        </div>
-      </header>
-
-      <section className="intro-strip">
-        <div>
-          <span className="section-kicker">VM BIN PACKING PLAYGROUND</span>
-          <h1>
-            云资源装箱，
-            <em>一步一步看懂。</em>
-          </h1>
-        </div>
-        <p>
-          构建物理机池，排列 VM
-          请求，然后观察策略如何过滤候选、计算评分并提交每一次分配。
-        </p>
-      </section>
+      <div className="header-actions">
+        <span className="save-status">
+          <span className="save-dot" />
+          {' '}
+          本机自动保存
+        </span>
+        <button className="ghost-button" onClick={restoreExample}>
+          恢复示例
+        </button>
+        <button
+          className="primary-button header-run"
+          onClick={() => {
+            startSimulation(false);
+          }}
+        >
+          开始模拟
+          <span aria-hidden="true">→</span>
+        </button>
+      </div>
 
       {notice && (
         <div className="notice" role="status">
@@ -1037,7 +1007,6 @@ export default function Home() {
         <aside className="panel config-panel">
           <div className="panel-heading">
             <div>
-              <span className="panel-index">01</span>
               <h2>实验配置</h2>
             </div>
             <span className="count-badge">
@@ -1052,7 +1021,11 @@ export default function Home() {
 
           <div className="config-section">
             <div className="section-title-row">
-              <h3>物理机池</h3>
+              <h3>
+                <Icon name="window" />
+                {' '}
+                物理机池
+              </h3>
               <span>
                 {hosts.length}
                 {' '}
@@ -1355,7 +1328,6 @@ export default function Home() {
         <section className="panel stage-panel">
           <div className="panel-heading stage-heading">
             <div>
-              <span className="panel-index">02</span>
               <h2>装箱视图</h2>
             </div>
             <span
@@ -1629,7 +1601,6 @@ export default function Home() {
         <aside className="panel decision-panel">
           <div className="panel-heading">
             <div>
-              <span className="panel-index">03</span>
               <h2>决策详情</h2>
             </div>
             {currentStep && (
@@ -1647,7 +1618,7 @@ export default function Home() {
                   <i />
                   <b />
                 </div>
-                <h3>准备观察调度器</h3>
+                <h3>尚未开始模拟</h3>
                 <p>
                   点击“开始模拟”生成完整决策轨迹，再逐步查看每台 VM
                   如何找到目标主机。
@@ -1838,10 +1809,6 @@ export default function Home() {
         </aside>
       </section>
 
-      <footer className="footer">
-        <span>CloudBin Lab · 多维资源装箱实验</span>
-        <span>CPU / Memory / Local ephemeral disk</span>
-      </footer>
     </main>
   );
 }
@@ -1928,3 +1895,5 @@ function Constraint({
     </div>
   );
 }
+
+export { default as styles } from './styles.css?inline';

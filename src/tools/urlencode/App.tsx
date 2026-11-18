@@ -1,3 +1,4 @@
+import { Link } from 'react-router';
 import { useState } from 'react';
 
 type Mode = 'encode' | 'decode';
@@ -61,36 +62,6 @@ export default function App() {
 
   return (
     <main>
-      <header className="site-header shell">
-        <a className="brand" href="/" aria-label="返回 Tool Box 首页">
-          <span className="brand-mark" aria-hidden="true">%</span>
-          <span>
-            TOOL BOX
-            <span className="brand-divider">/</span>
-            URL CODEC
-          </span>
-        </a>
-        <span className="privacy-note">
-          <span aria-hidden="true" />
-          仅在浏览器本地转换
-        </span>
-      </header>
-
-      <section className="hero shell" aria-labelledby="page-title">
-        <p className="eyebrow">
-          ENCODE ↔ DECODE
-          <span>·</span>
-          UTF-8
-        </p>
-        <h1 id="page-title">
-          URL 编解码，
-          <span>一眼看清。</span>
-        </h1>
-        <p className="hero-description">
-          在文本与百分号编码之间即时转换。空格、中文和特殊字符都按 URI
-          组件规则处理，输入内容只留在当前页面。
-        </p>
-      </section>
 
       <section className="workspace shell" aria-label="URL 编解码工具">
         <div className="workspace-header">
@@ -101,8 +72,7 @@ export default function App() {
               aria-pressed={mode === 'encode'}
               onClick={() => { chooseMode('encode'); }}
             >
-              <span>01</span>
-              URL Encode
+              编码
             </button>
             <button
               type="button"
@@ -110,18 +80,15 @@ export default function App() {
               aria-pressed={mode === 'decode'}
               onClick={() => { chooseMode('decode'); }}
             >
-              <span>02</span>
-              URL Decode
+              解码
             </button>
           </div>
-          <span className="workspace-caption">输入即转换</span>
         </div>
 
         <div className="editors">
           <div className="editor-panel">
             <div className="panel-heading">
               <div>
-                <span className="panel-index">INPUT / 01</span>
                 <label htmlFor="source-text">
                   {mode === 'encode' ? '原始文本' : '已编码文本'}
                 </label>
@@ -162,7 +129,6 @@ export default function App() {
           <div className="editor-panel output-panel">
             <div className="panel-heading">
               <div>
-                <span className="panel-index">OUTPUT / 02</span>
                 <label htmlFor="result-text">
                   {mode === 'encode' ? '编码结果' : '解码结果'}
                 </label>
@@ -206,13 +172,10 @@ export default function App() {
       </section>
 
       <footer className="site-footer shell">
-        <span>
-          URL CODEC
-          <span aria-hidden="true">·</span>
-          URI COMPONENT
-        </span>
-        <a href="/">返回 Tool Box 首页 ↑</a>
+        <Link to="/">返回 Tool Box 首页 ↑</Link>
       </footer>
     </main>
   );
 }
+
+export { default as styles } from './styles.css?inline';

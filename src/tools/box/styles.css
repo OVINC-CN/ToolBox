@@ -1,43 +1,12 @@
 @import "tailwindcss";
 
-:root {
-  --ink: #14213d;
-  --muted: #64748b;
-  --line: #dbe3ef;
-  --line-strong: #c4cfdf;
-  --paper: #ffffff;
-  --canvas: #f4f7fb;
-  --blue: #235be7;
-  --blue-dark: #1746bd;
-  --blue-soft: #edf3ff;
+.tool-content {
   --green: #18a779;
   --green-soft: #eafaf4;
   --amber: #e49b18;
   --amber-soft: #fff7e5;
   --red: #d94a5b;
   --red-soft: #fff0f1;
-  --shadow: 0 12px 36px rgba(31, 48, 82, 0.08);
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  min-width: 320px;
-  background: var(--canvas);
-}
-
-body {
-  margin: 0;
-  background:
-    linear-gradient(rgba(35, 91, 231, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(35, 91, 231, 0.025) 1px, transparent 1px),
-    var(--canvas);
-  background-size: 28px 28px;
-  color: var(--ink);
-  font-family: var(--font-ui);
-  -webkit-font-smoothing: antialiased;
 }
 
 button,
@@ -65,22 +34,8 @@ select:focus-visible {
 
 .app-shell {
   min-height: 100vh;
-  padding: 0 24px;
 }
 
-.topbar {
-  min-height: 74px;
-  max-width: 1600px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  border-bottom: 1px solid var(--line);
-}
-
-.brand-lockup,
-.brand-row,
 .header-actions,
 .panel-heading > div,
 .section-title-row,
@@ -93,52 +48,6 @@ select:focus-visible {
   align-items: center;
 }
 
-.brand-lockup {
-  gap: 12px;
-}
-
-.brand-mark {
-  width: 38px;
-  height: 38px;
-  border-radius: 11px;
-  display: grid;
-  align-content: center;
-  gap: 4px;
-  padding: 8px;
-  background: var(--blue);
-  box-shadow: 0 7px 16px rgba(35, 91, 231, 0.28);
-}
-
-.brand-mark span {
-  height: 4px;
-  background: white;
-  border-radius: 3px;
-}
-
-.brand-mark span:nth-child(2) {
-  width: 72%;
-}
-
-.brand-mark span:nth-child(3) {
-  width: 45%;
-}
-
-.brand-row {
-  gap: 9px;
-}
-
-.brand-row strong {
-  font-size: 16px;
-  letter-spacing: -0.02em;
-}
-
-.brand-lockup p {
-  margin: 3px 0 0;
-  color: var(--muted);
-  font-size: 12px;
-}
-
-.version-pill,
 .count-badge,
 .phase-badge,
 .run-state,
@@ -150,13 +59,10 @@ select:focus-visible {
   letter-spacing: 0.04em;
 }
 
-.version-pill {
-  padding: 3px 7px;
-  background: var(--blue-soft);
-  color: var(--blue);
-}
-
 .header-actions {
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
   gap: 10px;
 }
 
@@ -165,7 +71,7 @@ select:focus-visible {
   align-items: center;
   gap: 7px;
   padding-right: 8px;
-  color: var(--muted);
+  color: var(--site-muted);
   font-size: 12px;
 }
 
@@ -198,20 +104,20 @@ select:focus-visible {
 
 .primary-button {
   padding: 10px 16px;
-  background: var(--blue);
+  background: var(--site-accent);
   color: white;
   box-shadow: 0 7px 14px rgba(35, 91, 231, 0.2);
 }
 
 .primary-button:hover {
-  background: var(--blue-dark);
+  background: var(--site-accent-dark);
 }
 
 .ghost-button {
   padding: 9px 13px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--site-line);
   background: rgba(255, 255, 255, 0.72);
-  color: var(--ink);
+  color: var(--site-ink);
 }
 
 .header-run {
@@ -222,45 +128,14 @@ select:focus-visible {
   gap: 14px;
 }
 
-.intro-strip {
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: 40px 2px 35px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 40px;
-}
-
 .section-kicker {
   display: block;
   margin-bottom: 5px;
-  color: var(--blue);
+  color: var(--site-accent);
   font-family: var(--font-ui);
   font-size: 11px;
   font-weight: 760;
   letter-spacing: 0.16em;
-}
-
-.intro-strip h1 {
-  margin: 0;
-  font-size: 24px;
-  line-height: 1.4;
-  letter-spacing: -0.04em;
-}
-
-.intro-strip h1 em {
-  color: var(--blue);
-  font-style: normal;
-}
-
-.intro-strip > p {
-  max-width: 560px;
-  margin: 0 0 3px;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.65;
-  text-align: right;
 }
 
 .notice {
@@ -270,15 +145,15 @@ select:focus-visible {
   display: flex;
   align-items: center;
   gap: 9px;
-  border: 1px solid #cfdcff;
+  border: 1px solid var(--site-line);
   border-radius: 10px;
-  background: #f4f7ff;
-  color: #264b9d;
+  background: var(--site-soft);
+  color: var(--site-accent);
   font-size: 12px;
 }
 
 .notice > span {
-  color: var(--blue);
+  color: var(--site-accent);
   font-size: 8px;
 }
 
@@ -295,16 +170,16 @@ select:focus-visible {
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(310px, 0.85fr) minmax(500px, 1.55fr) minmax(330px, 1fr);
-  gap: 14px;
+  gap: 16px;
   align-items: start;
 }
 
 .panel {
   min-width: 0;
-  border: 1px solid var(--line);
+  border: 1px solid var(--site-line);
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.95);
-  box-shadow: var(--shadow);
+  box-shadow: none;
   overflow: hidden;
 }
 
@@ -322,8 +197,8 @@ select:focus-visible {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  border-bottom: 1px solid var(--line);
-  background: linear-gradient(180deg, #ffffff, #fbfcfe);
+  border-bottom: 1px solid var(--site-line);
+  background: var(--site-surface);
   position: sticky;
   top: 0;
   z-index: 5;
@@ -345,22 +220,22 @@ select:focus-visible {
   width: 25px;
   height: 25px;
   border-radius: 7px;
-  background: var(--blue-soft);
-  color: var(--blue);
+  background: var(--site-soft);
+  color: var(--site-accent);
   font-family: var(--font-ui);
   font-size: 9px;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .count-badge {
   padding: 5px 8px;
-  background: #f1f4f8;
-  color: var(--muted);
+  background: var(--site-bg);
+  color: var(--site-muted);
 }
 
 .config-section {
   padding: 16px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--site-line);
 }
 
 .config-section:last-child {
@@ -378,7 +253,7 @@ select:focus-visible {
 }
 
 .section-title-row > span {
-  color: var(--muted);
+  color: var(--site-muted);
   font-size: 10px;
 }
 
@@ -395,7 +270,7 @@ select:focus-visible {
   align-items: center;
   gap: 8px;
   padding: 8px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--site-line);
   border-radius: 10px;
   background: white;
 }
@@ -408,8 +283,8 @@ select:focus-visible {
   width: 25px;
   height: 25px;
   border-radius: 7px;
-  background: #f1f4f8;
-  color: #748298;
+  background: var(--site-bg);
+  color: var(--site-muted);
   font-family: var(--font-ui);
   font-size: 9px;
   font-weight: 700;
@@ -426,7 +301,7 @@ select:focus-visible {
 .mini-host-main strong,
 .queue-main strong {
   overflow: hidden;
-  color: #26334d;
+  color: var(--site-ink);
   font-size: 11px;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -435,7 +310,7 @@ select:focus-visible {
 .mini-host-main span,
 .queue-main span {
   overflow: hidden;
-  color: var(--muted);
+  color: var(--site-muted);
   font-family: var(--font-ui);
   font-size: 8.5px;
   text-overflow: ellipsis;
@@ -457,15 +332,15 @@ select:focus-visible {
   padding: 0 6px;
   border: 0;
   border-radius: 6px;
-  background: #f3f5f8;
+  background: var(--site-bg);
   color: #64748b;
   font-size: 9px;
 }
 
 .row-actions button:hover,
 .queue-actions button:hover {
-  background: var(--blue-soft);
-  color: var(--blue);
+  background: var(--site-soft);
+  color: var(--site-accent);
 }
 
 .row-actions .danger-action:hover,
@@ -476,9 +351,9 @@ select:focus-visible {
 
 .empty-small {
   padding: 12px;
-  border: 1px dashed var(--line-strong);
+  border: 1px dashed var(--site-line-strong);
   border-radius: 10px;
-  color: var(--muted);
+  color: var(--site-muted);
   font-size: 10px;
   text-align: center;
 }
@@ -488,13 +363,13 @@ select:focus-visible {
   padding: 11px;
   display: grid;
   gap: 9px;
-  border: 1px dashed #b9c8df;
+  border: 1px dashed var(--site-line-strong);
   border-radius: 11px;
-  background: #f8faff;
+  background: var(--site-bg);
 }
 
 .form-caption {
-  color: #39517a;
+  color: var(--site-accent);
   font-size: 10px;
   font-weight: 750;
   text-transform: uppercase;
@@ -507,7 +382,7 @@ select:focus-visible {
 }
 
 .inline-form label > span {
-  color: var(--muted);
+  color: var(--site-muted);
   font-size: 9px;
   font-weight: 650;
 }
@@ -519,10 +394,10 @@ select:focus-visible {
   min-width: 0;
   height: 34px;
   padding: 0 9px;
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--site-line-strong);
   border-radius: 8px;
   background: white;
-  color: var(--ink);
+  color: var(--site-ink);
   font-size: 10px;
 }
 
@@ -542,7 +417,7 @@ select:focus-visible {
 
 .secondary-button {
   padding: 8px 11px;
-  background: var(--ink);
+  background: var(--site-ink);
   color: white;
   font-size: 10px;
 }
@@ -550,7 +425,7 @@ select:focus-visible {
 .text-button {
   padding: 8px 9px;
   background: transparent;
-  color: var(--muted);
+  color: var(--site-muted);
   font-size: 10px;
 }
 
@@ -560,13 +435,13 @@ select:focus-visible {
 
 .form-note {
   margin: -2px 0 0;
-  color: var(--muted);
+  color: var(--site-muted);
   font-size: 8.5px;
   line-height: 1.5;
 }
 
 .vm-section {
-  background: #fcfdff;
+  background: var(--site-surface);
 }
 
 .queue-list {
@@ -579,9 +454,9 @@ select:focus-visible {
 }
 
 .queue-item.is-current {
-  border-color: #8cabfb;
-  background: var(--blue-soft);
-  box-shadow: inset 3px 0 var(--blue);
+  border-color: var(--site-accent);
+  background: var(--site-soft);
+  box-shadow: inset 3px 0 var(--site-accent);
 }
 
 .provider-chip {
@@ -592,17 +467,17 @@ select:focus-visible {
   display: grid;
   place-items: center;
   border-radius: 6px;
-  background: #eef2f7;
-  color: #68768b;
+  background: var(--site-bg);
+  color: var(--site-muted);
   font-family: var(--font-ui);
   font-size: 8px;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .provider-chip.azure,
 .vm-token.azure span {
-  background: #eaf2ff;
-  color: #1769d3;
+  background: var(--site-soft);
+  color: var(--site-accent);
 }
 
 .provider-chip.google,
@@ -630,8 +505,8 @@ select:focus-visible {
   display: flex;
   align-items: center;
   gap: 6px;
-  background: #f1f4f8;
-  color: var(--muted);
+  background: var(--site-bg);
+  color: var(--site-muted);
 }
 
 .run-state span {
@@ -670,7 +545,7 @@ select:focus-visible {
   display: grid;
   grid-template-columns: minmax(190px, 0.8fr) minmax(260px, 1.2fr);
   gap: 10px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--site-line);
   background: #fbfcff;
 }
 
@@ -680,7 +555,7 @@ select:focus-visible {
 }
 
 .strategy-bar label > span {
-  color: var(--muted);
+  color: var(--site-muted);
   font-size: 9px;
   font-weight: 700;
 }
@@ -692,7 +567,7 @@ select:focus-visible {
   gap: 9px;
   border: 1px solid #dce5f9;
   border-radius: 9px;
-  background: var(--blue-soft);
+  background: var(--site-soft);
 }
 
 .strategy-formula > span {
@@ -702,11 +577,11 @@ select:focus-visible {
   width: 24px;
   height: 24px;
   border-radius: 7px;
-  background: var(--blue);
+  background: var(--site-accent);
   color: white;
   font-family: var(--font-ui);
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .strategy-formula p {
@@ -725,7 +600,7 @@ select:focus-visible {
 .metric-strip {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--site-line);
 }
 
 .metric {
@@ -733,7 +608,7 @@ select:focus-visible {
   padding: 10px 13px;
   display: grid;
   gap: 3px;
-  border-right: 1px solid var(--line);
+  border-right: 1px solid var(--site-line);
 }
 
 .metric:last-child {
@@ -741,7 +616,7 @@ select:focus-visible {
 }
 
 .metric span {
-  color: var(--muted);
+  color: var(--site-muted);
   font-size: 8px;
   font-weight: 650;
   text-transform: uppercase;
@@ -761,15 +636,13 @@ select:focus-visible {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 11px;
   align-content: start;
-  background:
-    radial-gradient(circle at 20% 0%, rgba(35, 91, 231, 0.05), transparent 36%),
-    #f8fafd;
+  background: var(--site-bg);
 }
 
 .rack-card {
   min-width: 0;
   padding: 12px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--site-line);
   border-radius: 12px;
   background: white;
   box-shadow: 0 5px 15px rgba(40, 56, 87, 0.05);
@@ -809,8 +682,8 @@ select:focus-visible {
 }
 
 .selected-label {
-  background: var(--blue-soft);
-  color: var(--blue);
+  background: var(--site-soft);
+  color: var(--site-accent);
 }
 
 .rejected-label {
@@ -859,7 +732,7 @@ select:focus-visible {
 
 .rack-title p {
   margin: 2px 0 0;
-  color: var(--muted);
+  color: var(--site-muted);
   font-size: 8.5px;
 }
 
@@ -876,7 +749,7 @@ select:focus-visible {
 }
 
 .resource-label > span {
-  color: var(--muted);
+  color: var(--site-muted);
   font-size: 8.5px;
 }
 
@@ -894,7 +767,7 @@ select:focus-visible {
 .bar-track {
   height: 5px;
   border-radius: 99px;
-  background: #e9edf3;
+  background: var(--site-line);
   overflow: hidden;
 }
 
@@ -905,7 +778,7 @@ select:focus-visible {
   transition: width 350ms ease;
 }
 
-.bar-track.blue span { background: var(--blue); }
+.bar-track.blue span { background: var(--site-accent); }
 .bar-track.green span { background: var(--green); }
 .bar-track.amber span { background: var(--amber); }
 
@@ -916,7 +789,7 @@ select:focus-visible {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 5px;
-  border-top: 1px dashed var(--line);
+  border-top: 1px dashed var(--site-line);
 }
 
 .vm-token {
@@ -927,12 +800,12 @@ select:focus-visible {
   gap: 2px 5px;
   border: 1px solid #dce3ed;
   border-radius: 7px;
-  background: #fafbfd;
+  background: var(--site-surface);
 }
 
 .vm-token.current-token {
   border-color: #7c9efa;
-  box-shadow: inset 2px 0 var(--blue);
+  box-shadow: inset 2px 0 var(--site-accent);
 }
 
 .vm-token > span {
@@ -942,7 +815,7 @@ select:focus-visible {
   align-self: center;
   font-family: var(--font-ui);
   font-size: 6.5px;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .vm-token strong,
@@ -957,7 +830,7 @@ select:focus-visible {
 }
 
 .vm-token small {
-  color: var(--muted);
+  color: var(--site-muted);
   font-family: var(--font-ui);
   font-size: 6.5px;
 }
@@ -991,7 +864,7 @@ select:focus-visible {
   place-items: center;
   place-content: center;
   text-align: center;
-  color: var(--muted);
+  color: var(--site-muted);
 }
 
 .empty-stage > span {
@@ -1004,7 +877,7 @@ select:focus-visible {
   font-size: 23px;
 }
 
-.empty-stage h3 { margin: 12px 0 4px; color: var(--ink); font-size: 20px; }
+.empty-stage h3 { margin: 12px 0 4px; color: var(--site-ink); font-size: 20px; }
 .empty-stage p { margin: 0; font-size: 10px; }
 
 .result-summary {
@@ -1025,7 +898,7 @@ select:focus-visible {
 .result-heading > span {
   color: var(--green);
   font-size: 8px;
-  font-weight: 800;
+  font-weight: 600;
   text-transform: uppercase;
 }
 
@@ -1049,22 +922,22 @@ select:focus-visible {
   align-items: center;
   justify-content: center;
   gap: 7px;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--site-line);
   background: white;
 }
 
 .icon-button {
   width: 34px;
   height: 34px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--site-line);
   background: white;
-  color: var(--ink);
+  color: var(--site-ink);
 }
 
 .play-button {
   height: 34px;
   padding: 0 14px;
-  background: var(--blue);
+  background: var(--site-accent);
   color: white;
   font-size: 10px;
 }
@@ -1089,7 +962,7 @@ select:focus-visible {
   border: 0;
   border-radius: 6px;
   background: transparent;
-  color: var(--muted);
+  color: var(--site-muted);
   font-family: var(--font-ui);
   font-size: 8px;
   font-weight: 700;
@@ -1097,7 +970,7 @@ select:focus-visible {
 
 .speed-control button.active {
   background: white;
-  color: var(--blue);
+  color: var(--site-accent);
   box-shadow: 0 2px 6px rgba(40, 56, 87, 0.09);
 }
 
@@ -1105,7 +978,7 @@ select:focus-visible {
   margin-left: auto;
   padding: 8px 9px;
   background: transparent;
-  color: var(--muted);
+  color: var(--site-muted);
   font-size: 9px;
 }
 
@@ -1116,8 +989,8 @@ select:focus-visible {
 
 .phase-badge {
   padding: 5px 8px;
-  background: var(--blue-soft);
-  color: var(--blue);
+  background: var(--site-soft);
+  color: var(--site-accent);
 }
 
 .phase-badge.commit { background: var(--green-soft); color: #0b855e; }
@@ -1155,8 +1028,8 @@ select:focus-visible {
 .decision-orbit::after {
   inset: 37px;
   border: 0;
-  background: var(--blue);
-  box-shadow: 0 0 0 7px var(--blue-soft);
+  background: var(--site-accent);
+  box-shadow: 0 0 0 7px var(--site-soft);
 }
 
 .decision-orbit span,
@@ -1181,7 +1054,7 @@ select:focus-visible {
 .decision-empty p {
   max-width: 260px;
   margin: 0 0 18px;
-  color: var(--muted);
+  color: var(--site-muted);
   font-size: 10px;
   line-height: 1.65;
 }
@@ -1194,7 +1067,7 @@ select:focus-visible {
 .step-progress {
   height: 4px;
   border-radius: 99px;
-  background: #e9edf3;
+  background: var(--site-line);
   overflow: hidden;
 }
 
@@ -1202,7 +1075,7 @@ select:focus-visible {
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, var(--blue), #53a5ff);
+  background: var(--site-accent);
   transition: width 250ms ease;
 }
 
@@ -1228,7 +1101,7 @@ select:focus-visible {
 .decision-title small {
   display: block;
   margin-bottom: 2px;
-  color: var(--muted);
+  color: var(--site-muted);
   font-family: var(--font-ui);
   font-size: 8px;
 }
@@ -1249,7 +1122,7 @@ select:focus-visible {
 .request-vector {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border: 1px solid var(--line);
+  border: 1px solid var(--site-line);
   border-radius: 10px;
   overflow: hidden;
 }
@@ -1258,12 +1131,12 @@ select:focus-visible {
   padding: 8px;
   display: grid;
   gap: 2px;
-  border-right: 1px solid var(--line);
-  background: #fafbfd;
+  border-right: 1px solid var(--site-line);
+  background: var(--site-surface);
 }
 
 .request-vector > div:last-child { border-right: 0; }
-.request-vector span { color: var(--muted); font-size: 8px; }
+.request-vector span { color: var(--site-muted); font-size: 8px; }
 .request-vector strong { font-family: var(--font-ui); font-size: 12px; }
 
 .formula-box {
@@ -1279,7 +1152,7 @@ select:focus-visible {
   margin-bottom: 3px;
   color: #ad730c;
   font-size: 8px;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .formula-box code {
@@ -1305,20 +1178,20 @@ select:focus-visible {
 }
 
 .candidate-head > span {
-  color: var(--muted);
+  color: var(--site-muted);
   font-size: 8px;
 }
 
 .candidate-card {
   padding: 9px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--site-line);
   border-radius: 9px;
   background: white;
 }
 
 .candidate-card.winner {
   border-color: #84a5fa;
-  box-shadow: inset 3px 0 var(--blue);
+  box-shadow: inset 3px 0 var(--site-accent);
   background: #fafcff;
 }
 
@@ -1341,12 +1214,12 @@ select:focus-visible {
   border-radius: 5px;
   font-family: var(--font-ui);
   font-size: 7px;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .candidate-title .pass { background: var(--green-soft); color: #0e855f; }
 .candidate-title .fail { background: var(--red-soft); color: var(--red); }
-.candidate-title .rank { background: var(--blue-soft); color: var(--blue); }
+.candidate-title .rank { background: var(--site-soft); color: var(--site-accent); }
 
 .constraint-grid {
   display: grid;
@@ -1374,11 +1247,11 @@ select:focus-visible {
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  border-top: 1px dashed var(--line);
+  border-top: 1px dashed var(--site-line);
 }
 
-.score-line span { color: var(--muted); font-size: 7.5px; }
-.score-line code { color: var(--blue); font-family: var(--font-ui); font-size: 7.5px; font-weight: 700; }
+.score-line span { color: var(--site-muted); font-size: 7.5px; }
+.score-line code { color: var(--site-accent); font-family: var(--font-ui); font-size: 7.5px; font-weight: 700; }
 
 .deficit-line {
   margin-top: 6px;
@@ -1398,13 +1271,13 @@ select:focus-visible {
 .commit-callout { border: 1px solid #bfe7d9; background: var(--green-soft); }
 .reject-callout { border: 1px solid #efc7cc; background: var(--red-soft); }
 .commit-callout > span,
-.reject-callout > span { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 8px; color: white; font-weight: 800; }
+.reject-callout > span { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 8px; color: white; font-weight: 600; }
 .commit-callout > span { background: var(--green); }
 .reject-callout > span { background: var(--red); }
 .commit-callout strong,
 .reject-callout strong { font-size: 9px; }
 .commit-callout p,
-.reject-callout p { margin: 2px 0 0; color: var(--muted); font-size: 8px; }
+.reject-callout p { margin: 2px 0 0; color: var(--site-muted); font-size: 8px; }
 
 .disclaimer {
   margin-top: auto;
@@ -1412,8 +1285,8 @@ select:focus-visible {
   display: flex;
   align-items: flex-start;
   gap: 9px;
-  border-top: 1px solid var(--line);
-  background: #f8fafd;
+  border-top: 1px solid var(--site-line);
+  background: var(--site-bg);
 }
 
 .disclaimer > span {
@@ -1427,12 +1300,12 @@ select:focus-visible {
   color: #69778b;
   font-family: var(--font-ui);
   font-size: 10px;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .disclaimer p {
   margin: 0;
-  color: var(--muted);
+  color: var(--site-muted);
   font-size: 8.5px;
   line-height: 1.5;
 }
@@ -1488,11 +1361,7 @@ select:focus-visible {
 }
 
 @media (max-width: 900px) {
-  .app-shell { padding: 0 14px; }
-  .topbar { padding: 10px 0; }
-  .brand-lockup p, .save-status { display: none; }
-  .intro-strip { align-items: flex-start; flex-direction: column; gap: 10px; }
-  .intro-strip > p { max-width: 700px; text-align: left; }
+  .save-status { display: none; }
   .workbench { grid-template-columns: 1fr; }
   .config-panel, .decision-panel { max-height: none; min-height: 0; }
   .stage-panel { min-height: 0; }
@@ -1502,14 +1371,9 @@ select:focus-visible {
 }
 
 @media (max-width: 620px) {
-  .app-shell { padding: 0 9px; }
-  .topbar { min-height: 64px; }
-  .brand-mark { width: 34px; height: 34px; }
-  .version-pill, .ghost-button { display: none; }
+  .ghost-button { display: none; }
   .header-run { min-width: auto; padding: 9px 11px; }
   .header-run span { display: none; }
-  .intro-strip { padding: 30px 2px; }
-  .intro-strip h1 { font-size: 24px; }
   .panel { border-radius: 13px; }
   .resource-inputs, .four-fields { grid-template-columns: repeat(2, 1fr); }
   .strategy-bar { grid-template-columns: 1fr; }

@@ -1,4 +1,4 @@
-'use client';
+import Icon from '../../components/Icon';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 
@@ -246,26 +246,6 @@ export default function Home() {
 
   return (
     <main className="app-shell">
-      <header className="topbar">
-        <a className="brand" href="#top" aria-label="时间工具箱首页">
-          <span className="brand-mark">T:</span>
-          <span>时间工具箱</span>
-        </a>
-        <div className="system-status">
-          <span className="status-dot" />
-          浏览器本地时间
-        </div>
-      </header>
-
-      <section id="top" className="hero">
-        <div>
-          <p className="eyebrow">UNIX TIME CONVERTER</p>
-          <h1>Unix 时间戳转换</h1>
-          <p className="hero-copy">
-            在时间戳与日期时间之间快速转换，支持常用时区。所有计算均在浏览器本地完成。
-          </p>
-        </div>
-      </section>
 
       <section className="live-panel" aria-label="当前 Unix 时间戳">
         <div className="panel-label">
@@ -297,7 +277,6 @@ export default function Home() {
         <section className="converter-card primary-card">
           <div className="card-heading">
             <div>
-              <span className="section-index">01</span>
               <h2>时间戳 → 日期时间</h2>
             </div>
             <span className="mode-badge">自动识别位数</span>
@@ -321,7 +300,11 @@ export default function Home() {
             <span>{parsed ? parsed.unit : '格式错误'}</span>
           </div>
           <div className="timezone-row">
-            <label htmlFor="timezone">目标时区</label>
+            <label htmlFor="timezone">
+              <Icon name="globe" />
+              {' '}
+              目标时区
+            </label>
             <select
               id="timezone"
               value={timeZone}
@@ -370,7 +353,6 @@ export default function Home() {
         <section className="converter-card date-card">
           <div className="card-heading">
             <div>
-              <span className="section-index">02</span>
               <h2>日期时间 → 时间戳</h2>
             </div>
             <button className="text-action" onClick={useCurrentTime}>
@@ -483,7 +465,6 @@ export default function Home() {
         <aside className="reference-card">
           <div className="card-heading compact">
             <div>
-              <span className="section-index">参考</span>
               <h2>快速示例</h2>
             </div>
             <p>点击示例，写入时间戳转换器</p>
@@ -513,8 +494,7 @@ export default function Home() {
 
       <section className="world-strip" aria-label="全球时区速览">
         <div>
-          <span className="section-index">时区</span>
-          <h2>此刻，世界各地</h2>
+          <h2>各时区当前时间</h2>
         </div>
         <div className="world-clocks">
           {TIME_ZONES.slice(0, 4).map(zone => (
@@ -535,10 +515,8 @@ export default function Home() {
         </div>
       </section>
 
-      <footer>
-        <span>时间工具箱</span>
-        <p>所有转换在浏览器本地完成</p>
-      </footer>
     </main>
   );
 }
+
+export { default as styles } from './styles.css?inline';

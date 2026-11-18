@@ -88,17 +88,6 @@ export default function App() {
 
   return (
     <main>
-      <header>
-        <a href="/">
-          <img src="/logo.svg" alt="" width="32" height="32" />
-          Tool Box
-        </a>
-        <span>浏览器本地运行</span>
-      </header>
-      <div className="intro">
-        <h1>正则可视化</h1>
-        <p>从左向右阅读表达式结构，再用文本验证匹配与捕获组。</p>
-      </div>
       <section className="panel expression" aria-label="表达式编辑器">
         <div className="heading">
           <label htmlFor="pattern">正则表达式</label>
@@ -183,3 +172,5 @@ export default function App() {
     </main>
   );
 }
+
+export { default as styles } from './styles.css?inline';
