@@ -24,4 +24,14 @@ Tool Box 提供时间戳转换、UUID 生成、JSON 格式化、IP 网段转换�
 
 部署时发布 `dist/`。静态服务器优先返回已有资源，将页面请求回退到 `/index.html`，以便直接打开和刷新 `/json/` 等工具网址。
 
+## CDN 刷新
+
+构建完成后，在仓库根目录生成 CDN 刷新清单：
+
+```sh
+make cdn-urls CDN_ORIGIN=https://tools.example.com
+```
+
+`CDN_ORIGIN` 填部署站点的协议和域名。`CDN_WEB_DIST` 默认是 `dist`，可指定本次发布使用的其他产物目录。输出每行一个 URL，覆盖首页、带斜杠和不带斜杠的工具入口，以及产物目录中的静态文件（含根目录的 `/index.html`）。新增或调整工具路径时，同步更新 [CDN 清单脚本](scripts/cdn-urls.ts) 中的固定路径。
+
 本项目采用 [MIT 许可证](LICENSE)。随源码分发的第三方资源见[版权声明](public/extra-assets/third-party-notices.txt)。
