@@ -7,11 +7,11 @@ const atomLabels: Record<string, string> = {
   '\\b': '单词边界', '\\B': '非单词边界',
 };
 
-function Atom({ code, label }: { code: string; label: string }) {
+function Atom({ code, label, syntax = false }: { code: string; label?: string; syntax?: boolean }) {
   return (
-    <span className="atom">
+    <span className={syntax ? 'atom syntax' : 'atom'}>
       <code>{code}</code>
-      <small>{label}</small>
+      {label && <small>{label}</small>}
     </span>
   );
 }
@@ -45,12 +45,33 @@ export function Diagram({ pattern, captures }: { pattern: AST.Pattern; captures:
         </div>
       );
     }
-    const label = node.type === 'Character'
-      ? '字符'
-      : node.type === 'Backreference'
-        ? '反向引用'
-        : (atomLabels[node.raw] ?? '字符集');
-    return <Atom code={node.raw} label={label} />;
+    if (node.type === 'Character') {
+      return <Atom code={node.raw} />;
+    }
+    const label = node.type === 'Backreference' ? '反向引用' : (atomLabels[node.raw] ?? '字符集');
+    return <Atom code={node.raw} label={label} syntax />;
+  }
+
+  function steps(elements: AST.Element[]): ReactNode[] {
+    const items: ReactNode[] = [];
+    for (let index = 0; index < elements.length; index++) {
+      const node = elements[index];
+      let content: ReactNode;
+      if (node.type === 'Character') {
+        // Merge literal characters after the parser binds quantifiers.
+        let code = node.raw;
+        while (elements[index + 1]?.type === 'Character') {
+          index++;
+          code += elements[index].raw;
+        }
+        content = <Atom code={code} />;
+      }
+      else {
+        content = element(node);
+      }
+      items.push(<div className="step" key={node.start}>{content}</div>);
+    }
+    return items;
   }
 
   function branches(alternatives: AST.Alternative[]): ReactNode {
@@ -59,7 +80,7 @@ export function Diagram({ pattern, captures }: { pattern: AST.Pattern; captures:
         {alternatives.map(branch => (
           <div className="sequence" key={branch.start}>
             {branch.elements.length === 0 && <Atom code="ε" label="空分支" />}
-            {branch.elements.map(node => <div className="step" key={node.start}>{element(node)}</div>)}
+            {steps(branch.elements)}
           </div>
         ))}
       </div>
