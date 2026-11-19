@@ -22,11 +22,14 @@ select { background: var(--site-surface); border: 1px solid var(--site-line); bo
 .terminal { position: relative; background: var(--site-ink); color: white; font-size: 12px; border-radius: 20px; padding: 4px 10px; }
 .branches { display: grid; align-items: center; row-gap: 6px; }
 .choice { position: relative; padding-inline: 8px; border-inline: 2px solid #968d78; border-radius: 8px; }
-.sequence { position: relative; display: flex; align-items: center; gap: 12px; padding: 2px 12px; width: 100%; }
+.sequence { position: relative; display: flex; align-items: center; justify-content: center; gap: 12px; padding: 2px 12px; width: 100%; }
 .sequence::before { content: ''; position: absolute; inset: 50% 0 auto; border-top: 1px solid #91866f; }
 .step, .atom { position: relative; }
 .atom, .cluster { display: flex; align-items: center; flex-direction: column; border: 1px solid #b9baa8; border-radius: 6px; padding: 5px 10px; background: var(--site-surface); white-space: pre; }
 .atom code { color: #29362a; font-size: 16px; }
+/* Keep syntax tokens distinct from literal text. */
+.atom.syntax { background: #f9e1cb; border-color: #a66b45; }
+.atom.syntax code { color: #683d25; font-weight: 600; }
 .atom small { font-size: 12px; color: var(--site-muted); }
 .cluster { align-items: stretch; background: #ebf0e8; padding: 6px 8px; }
 .cluster strong { color: #425641; font-size: 11px; margin: 0 0 4px; }
