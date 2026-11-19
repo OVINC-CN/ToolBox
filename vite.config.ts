@@ -28,5 +28,7 @@ export default defineConfig({
       }
     },
   },
-  build: { license: true },
+  build: {
+    license: { fileName: 'extra-assets/license.md' },
+  },
 });
